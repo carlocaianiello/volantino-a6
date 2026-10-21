@@ -1888,38 +1888,6 @@
  {
   "cmd": "type.create",
   "params": {
-   "x": 1085,
-   "y": 1394,
-   "text": "nutrihangar.it",
-   "name": "Sito",
-   "font": "Montserrat",
-   "weight": 700,
-   "size": 9.5,
-   "tracking": 40,
-   "align": "center",
-   "color": "#ffffff"
-  }
- },
- {
-  "cmd": "layer.layerStyle.replace",
-  "params": {
-   "effects": [
-    {
-     "kind": "dropShadow",
-     "params": {
-      "color": "#000000",
-      "opacity": 80,
-      "angle": 120,
-      "distance": 4,
-      "size": 6
-     }
-    }
-   ]
-  }
- },
- {
-  "cmd": "type.create",
-  "params": {
    "x": 174,
    "y": 1449,
    "name": "Footer: LO SCONTO È:",
@@ -2305,6 +2273,103 @@
       "angle": 120,
       "distance": 4,
       "size": 6
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 1086,
+   "y": 1400,
+   "name": "Sito",
+   "text": "nutrihangar.it",
+   "font": "Anton",
+   "size": 12,
+   "tracking": 30,
+   "align": "center",
+   "color": "#ffffff"
+  }
+ },
+ {
+  "cmd": "type.convertToShape",
+  "params": {}
+ },
+ {
+  "cmd": "shape.edit",
+  "params": {
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#fff3c4"
+      ],
+      [
+       0.3,
+       "#e8c058"
+      ],
+      [
+       0.5,
+       "#fff8dc"
+      ],
+      [
+       0.7,
+       "#b8860b"
+      ],
+      [
+       1,
+       "#ffe9a8"
+      ]
+     ],
+     "angle": 90,
+     "style": "linear"
+    }
+   },
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 85,
+      "angle": 120,
+      "distance": 7,
+      "size": 8
+     }
+    },
+    {
+     "kind": "outerGlow",
+     "params": {
+      "color": "#ffcf5a",
+      "opacity": 40,
+      "size": 16
+     }
+    },
+    {
+     "kind": "bevelEmboss",
+     "params": {
+      "style": "inner",
+      "technique": "smooth",
+      "depth": 160,
+      "size": 3,
+      "soften": 1,
+      "angle": 120,
+      "altitude": 50
+     }
+    },
+    {
+     "kind": "stroke",
+     "params": {
+      "size": 3,
+      "position": "outside",
+      "color": "#3a2a00"
      }
     }
    ]

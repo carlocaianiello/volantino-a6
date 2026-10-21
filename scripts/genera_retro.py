@@ -158,12 +158,7 @@ steps += [
            center=[1276 - MARGINE - QR_LATO // 2, PIEDE_TOP + MARGINE + QR_LATO // 2]),
     cmd("layer.renameLayer", name="QR code"),
     cmd("layer.layerStyle.dropShadow", color="#000000", opacity=60, angle=120, distance=6, size=18),
-    # sito: sulla fascia scura del bancone, centrato sul QR, a metà tra il bordo d'acciaio e il QR
-    cmd("type.create", x=1276 - MARGINE - QR_LATO // 2, y=round((BORDO_TAVOLO + PIEDE_TOP + MARGINE) / 2) + 13,
-        text="nutrihangar.it", name="Sito", font="Montserrat", weight=700, size=9.5, tracking=40, align="center", color="#ffffff"),
-    cmd("layer.layerStyle.replace", effects=[{"kind": "dropShadow", "params": {"color": "#000000", "opacity": 80, "angle": 120, "distance": 4, "size": 6}}]),
 ]
-
 # --- footer: termini a sinistra del QR, blocco centrato nello spazio 95..895 e sull'altezza del QR
 import re, subprocess, sys, tempfile
 ORO_TESTO = "#e8c058"
@@ -189,18 +184,17 @@ def spec_riga(tipo, testo):
     if tipo == "testo": return dict(text=testo, align="left", **RIGA)
     return dict(text="•  " + testo, align="left", **RIGA)
 
-def misura_larghezze(specs):
-    """Crea ogni riga in un documento di prova e legge la larghezza reale dai bounds di type.create."""
+def misura_bounds(specs):
+    """Crea ogni riga in un documento di prova (x=0, base y=500) e legge i bounds reali da type.create."""
     passi = [method("doc.open", path="lavoro/base-a6.pcraft")]          # a 300 dpi, come il volantino
     passi += [cmd("type.create", x=0, y=500, **sp) for sp in specs]
     with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as f: json.dump(passi, f); tmp = f.name
     out = subprocess.run([sys.executable, "-I", os.path.join(os.path.dirname(os.path.abspath(__file__)), "pc.py"), tmp],
                          capture_output=True, text=True).stdout
-    larghezze = []
-    for m in re.finditer(r"^\[\d+\] type.create: (\{.*\})$", out, re.M):
-        b = json.loads(m.group(1))["result"]["bounds"]; larghezze.append(b[2] - b[0])
-    os.unlink(tmp); assert len(larghezze) == len(specs), out[-800:]
-    return larghezze
+    bounds = [json.loads(m.group(1))["result"]["bounds"] for m in re.finditer(r"^\[\d+\] type.create: (\{.*\})$", out, re.M)]
+    os.unlink(tmp); assert len(bounds) == len(specs), out[-800:]
+    return bounds
+def misura_larghezze(specs): return [b[2] - b[0] for b in misura_bounds(specs)]
 
 specs = [spec_riga(t, x) for t, x, _, _ in RIGHE]
 larghezze = misura_larghezze(specs)
@@ -216,6 +210,22 @@ for (tipo, testo, dist, oro), sp in zip(RIGHE, specs):
     runs += [{"start": a, "end": b, "color": ORO_TESTO, "weight": 800} for a, b in oro]
     if runs: steps += [cmd("type.edit", runs=runs)]
     steps += [cmd("layer.layerStyle.replace", effects=FX_TESTO)]
+
+# sito: sulla fascia scura del bancone, centrato sul QR e a metà tra il bordo d'acciaio e il QR, in oro metallico
+SITO = dict(text="nutrihangar.it", font="Anton", size=12, tracking=30, align="center", color="#ffffff")
+bs = misura_bounds([SITO])[0]
+cx_sito, cy_sito = 1276 - MARGINE - QR_LATO / 2, (BORDO_TAVOLO + PIEDE_TOP + MARGINE) / 2
+print(f"sito: {bs[2] - bs[0]} x {bs[3] - bs[1]} px")
+steps += [
+    cmd("type.create", x=round(cx_sito - (bs[0] + bs[2]) / 2), y=round(cy_sito - (bs[1] + bs[3]) / 2 + 500), name="Sito", **SITO),
+    cmd("type.convertToShape"),
+    cmd("shape.edit", fill={"gradient": {"stops": ORO, "angle": 90, "style": "linear"}}, stroke=None),
+    cmd("layer.layerStyle.replace", effects=[
+        {"kind": "dropShadow", "params": {"color": "#000000", "opacity": 85, "angle": 120, "distance": 7, "size": 8}},
+        {"kind": "outerGlow", "params": {"color": "#ffcf5a", "opacity": 40, "size": 16}},
+        {"kind": "bevelEmboss", "params": {"style": "inner", "technique": "smooth", "depth": 160, "size": 3, "soften": 1, "angle": 120, "altitude": 50}},
+        {"kind": "stroke", "params": {"size": 3, "position": "outside", "color": "#3a2a00"}}]),
+]
 
 steps += [
     {"cmd": "layer.list", "params": {}},
