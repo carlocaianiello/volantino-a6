@@ -41,6 +41,12 @@
   "params": {}
  },
  {
+  "cmd": "select.modify.contract",
+  "params": {
+   "radius": 1
+  }
+ },
+ {
   "cmd": "layer.layerMask.revealSelection",
   "params": {}
  },
@@ -49,13 +55,18 @@
   "params": {
    "blues": {
     "hue": 150,
-    "saturation": -35,
-    "lightness": -15
+    "saturation": -90,
+    "lightness": -30
    },
    "cyans": {
     "hue": 120,
-    "saturation": -40,
-    "lightness": -10
+    "saturation": -85,
+    "lightness": -25
+   },
+   "magentas": {
+    "hue": 90,
+    "saturation": -85,
+    "lightness": -30
    }
   }
  },
@@ -102,12 +113,38 @@
  {
   "cmd": "select.modify.expand",
   "params": {
-   "radius": 25
+   "radius": 30
   }
  },
  {
-  "cmd": "edit.deleteAndFillSelection",
-  "params": {}
+  "cmd": "select.modify.feather",
+  "params": {
+   "radius": 40
+  }
+ },
+ {
+  "cmd": "paint.gradient",
+  "params": {
+   "from": [
+    700,
+    150
+   ],
+   "to": [
+    700,
+    1130
+   ],
+   "style": "linear",
+   "colors": [
+    "#d8b57c",
+    "#f0d08f",
+    "#c6b05a"
+   ]
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
  },
  {
   "cmd": "filter.blur.gaussianBlur",
@@ -484,7 +521,7 @@
  {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.55,
+   "opacity": 0.4,
    "blend": "Multiply"
   }
  },
@@ -508,16 +545,6 @@
  {
   "cmd": "layer.createClippingMask",
   "params": {}
- },
- {
-  "cmd": "layer.layerStyle.dropShadow",
-  "params": {
-   "color": "#0b2a00",
-   "opacity": 45,
-   "angle": 120,
-   "distance": 14,
-   "size": 34
-  }
  },
  {
   "cmd": "shape.create",
@@ -740,16 +767,6 @@
  {
   "cmd": "layer.createClippingMask",
   "params": {}
- },
- {
-  "cmd": "layer.layerStyle.dropShadow",
-  "params": {
-   "color": "#000000",
-   "opacity": 45,
-   "angle": 120,
-   "distance": 14,
-   "size": 34
-  }
  },
  {
   "cmd": "shape.create",

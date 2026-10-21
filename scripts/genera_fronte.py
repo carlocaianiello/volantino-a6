@@ -48,6 +48,9 @@ NAT_CW = NAT_W - NAT_CROP_X
 DONNA, UOMO = "risorse/ai/donna-blu.webp", "risorse/ai/uomo-verde.webp"   # atleti su fondo piatto
 DON_W, DON_H = Image.open(DONNA).size
 UOM_W, UOM_H = Image.open(UOMO).size
+def colore_medio(path, box):
+    im = Image.open(path).convert("RGB").crop(box); px = list(im.getdata()); n = len(px)
+    return "#%02x%02x%02x" % tuple(sum(c[i] for c in px) // n for i in range(3))
 def colore_fondo(path):
     r, g, b = Image.open(path).convert("RGB").getpixel((5, 5)); return "#%02x%02x%02x" % (r, g, b)
 def scontorna(path, nome, contrai, spill):
@@ -59,8 +62,9 @@ def scontorna(path, nome, contrai, spill):
             *([cmd("select.modify.contract", radius=contrai)] if contrai else []),
             cmd("layer.layerMask.revealSelection"),
             cmd("image.adjustments.hueSaturation", **spill)]
-SPILL_BLU = {"blues": {"hue": 150, "saturation": -35, "lightness": -15},     # blu dei capelli -> castano
-             "cyans": {"hue": 120, "saturation": -40, "lightness": -10}}
+SPILL_BLU = {"blues": {"hue": 150, "saturation": -90, "lightness": -30},     # blu dei capelli -> bruno scuro
+             "cyans": {"hue": 120, "saturation": -85, "lightness": -25},
+             "magentas": {"hue": 90, "saturation": -85, "lightness": -30}}   # viola dei fili -> bruno scuro
 SPILL_VERDE = {"greens": {"hue": -110, "saturation": -30, "lightness": -25}}  # verde dei contorni -> rosso scuro
 
 # Selezioni degli atleti (coordinate delle foto originali / del ritaglio)
@@ -76,15 +80,20 @@ steps = [
     cmd("image.crop", x=NAT_CROP_X, y=0, width=NAT_CW, height=NAT_H),
     method("doc.save", path="lavoro/foto/nature-ritaglio.png"),
     method("doc.close"),
-    *scontorna(DONNA, "Donna", 0, SPILL_BLU),
+    *scontorna(DONNA, "Donna", 1, SPILL_BLU),
     method("doc.save", path="lavoro/foto/nature-soggetto.png"),
     method("doc.close"),
     method("doc.open", path="risorse/ai/foto-nature.webp"),
     cmd("select.rect", x=30, y=110, width=410, height=190),                 # scritta "Find your balance"
     cmd("edit.deleteAndFillSelection"),
     cmd("select.object", rect=[NAT_CROP_X + 30, 140, 440, 960]),
-    cmd("select.modify.expand", radius=25),
-    cmd("edit.deleteAndFillSelection"),
+    cmd("select.modify.expand", radius=30),
+    cmd("select.modify.feather", radius=40),
+    cmd("paint.gradient", **{"from": [700, 150], "to": [700, 1130], "style": "linear",
+                            "colors": [colore_medio("risorse/ai/foto-nature.webp", (875, 150, 925, 320)),
+                                       colore_medio("risorse/ai/foto-nature.webp", (875, 600, 925, 760)),
+                                       colore_medio("risorse/ai/foto-nature.webp", (875, 980, 925, 1140))]}),
+    {"cmd": "select.deselect", "params": {}, "continue": True},            # altrimenti la sfocatura resta nella selezione
     cmd("filter.blur.gaussianBlur", radius=SFOCATURA),
     method("doc.save", path="lavoro/foto/nature-sfondo.png"),
     method("doc.close"),
@@ -128,7 +137,6 @@ def soggetto(path, scale, center, ombra, nome):
         method("doc.place", path=path, scale=scale, center=center),
         cmd("layer.renameLayer", name=nome),
         cmd("layer.createClippingMask"),
-        cmd("layer.layerStyle.dropShadow", color=ombra, opacity=45, angle=120, distance=14, size=34),
     ]
 
 ZONA_NATURE = [[0, 0], [1311, 0], [1311, 720], [0, 880]]
@@ -147,7 +155,7 @@ DON_S = 0.60                                                        # donna alta
 steps += [cmd("shape.create", kind="ellipse", name="Ombra piede donna", rect=[1020, 712, 170, 28], stroke=None,
               fill={"gradient": {"stops": [[0, "#000000"], [1, "#ffffff"]], "style": "radial", "angle": 0}}),
           cmd("layer.createClippingMask"),
-          cmd("layer.setProps", opacity=0.55, blend="Multiply")]
+          cmd("layer.setProps", opacity=0.4, blend="Multiply")]
 steps += soggetto("lavoro/foto/nature-soggetto.png", DON_S * 100, [1110, 402], "#0b2a00", "Donna WHY nature")
 
 # --- zona WHY sport (sotto) --------------------------------------------------
