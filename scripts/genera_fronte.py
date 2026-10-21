@@ -40,7 +40,32 @@ def scritta_corsiva(testo, x, y, size, align, shadow, glow, pivot, nome):
         cmd("edit.transform", matrix=rot_matrix(ROT, *pivot)),
     ]
 
-steps = [method("doc.open", path="lavoro/base-a6.pcraft")]
+from PIL import Image
+NAT_W, NAT_H = Image.open("risorse/ai/foto-nature.webp").size      # 928 x 1152
+SPO_W, SPO_H = Image.open("risorse/ai/foto-sport.webp").size
+NAT_CROP_X = int(NAT_W * 0.47)                                      # via la fascia con la scritta
+NAT_CW = NAT_W - NAT_CROP_X
+
+steps = [
+    # copia ritagliata della foto nature (la risorsa originale non si tocca)
+    method("doc.open", path="risorse/ai/foto-nature.webp"),
+    cmd("image.crop", x=NAT_CROP_X, y=0, width=NAT_CW, height=NAT_H),
+    method("doc.save", path="lavoro/foto/nature-ritaglio.png"),
+    method("doc.close"),
+    method("doc.open", path="lavoro/base-a6.pcraft"),
+]
+
+def foto(path, scale, center, mask_rect, feather, opacity, nome):
+    """Foto come oggetto avanzato, ritagliata sulla zona sottostante, con maschera sfumata e trasparenza."""
+    x, y, w, h = mask_rect
+    return [
+        method("doc.place", path=path, scale=scale, center=center),
+        cmd("layer.renameLayer", name=nome),
+        cmd("layer.createClippingMask"),
+        cmd("select.rect", x=x, y=y, width=w, height=h, feather=feather),
+        cmd("layer.layerMask.revealSelection"),
+        cmd("layer.setProps", opacity=opacity),
+    ]
 
 # --- zona WHY nature (sopra) -------------------------------------------------
 steps += [
@@ -48,26 +73,20 @@ steps += [
         path={"subpaths": [{"closed": True, "knots": [[0, 0], [1311, 0], [1311, 720], [0, 880]]}]},
         fill={"gradient": {"stops": [[0, "#e4f5b0"], [0.5, "#8fc63f"], [1, "#2c6410"]], "angle": -35, "style": "linear"}}, stroke=None),
 ]
-for nome, rect, op in [("[provv] luce nature 1", [860, 90, 400, 400], 0.55), ("[provv] luce nature 2", [1030, 430, 230, 230], 0.55), ("[provv] luce nature 3", [700, 520, 150, 150], 0.55)]:
-    steps += [cmd("shape.create", kind="ellipse", name=nome, rect=rect, stroke=None,
-                  fill={"gradient": {"stops": [[0, "#ffffff"], [0.7, "#9fb070"], [1, "#000000"]], "style": "radial", "angle": 0}}),
-              cmd("layer.setProps", opacity=op, blend="Screen")]
+NAT_S = 0.76                                                        # donna alta ~640 px
+steps += foto("lavoro/foto/nature-ritaglio.png", NAT_S * 100, [1110, round(-78 + NAT_H * NAT_S / 2)],
+              [1045, -200, 600, 1100], 40, 0.92, "Foto WHY nature")
 
 # --- zona WHY sport (sotto) --------------------------------------------------
 steps += [
     cmd("shape.create", kind="path", name="Zona sport",
         path={"subpaths": [{"closed": True, "knots": [[0, 902], [1311, 742], [1311, 1530], [0, 1530]]}]},
         fill={"gradient": {"stops": [[0, "#e20613"], [0.45, "#7d0008"], [1, "#140000"]], "angle": -150, "style": "linear"}}, stroke=None),
-    cmd("shape.create", kind="ellipse", name="[provv] bagliore sport", rect=[-80, 930, 760, 760], stroke=None,
-        fill={"gradient": {"stops": [[0, "#ff5a5a"], [0.55, "#8a0010"], [1, "#000000"]], "style": "radial", "angle": 0}}),
-    cmd("layer.setProps", opacity=0.75, blend="Screen"),
-    cmd("shape.create", kind="path", name="[provv] striscia sport 1", fill="#ffffff", stroke=None,
-        path={"subpaths": [{"closed": True, "knots": [[0, 1480], [640, 960], [700, 960], [60, 1480]]}]}),
-    cmd("layer.setProps", opacity=0.10, blend="Screen"),
-    cmd("shape.create", kind="path", name="[provv] striscia sport 2", fill="#ffffff", stroke=None,
-        path={"subpaths": [{"closed": True, "knots": [[120, 1530], [760, 1010], [785, 1010], [145, 1530]]}]}),
-    cmd("layer.setProps", opacity=0.07, blend="Screen"),
 ]
+SPO_S = 0.85                                                        # uomo alto ~715 px, piedi sotto il footer
+steps += foto("risorse/ai/foto-sport.webp", SPO_S * 100, [400, round(760 + SPO_H * SPO_S / 2)],
+              [-200, 600, 860, 1100], 60, 0.95, "Foto WHY sport")
+
 
 # --- separatore e footer -----------------------------------------------------
 steps += [

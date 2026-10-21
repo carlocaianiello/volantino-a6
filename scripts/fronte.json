@@ -2,6 +2,31 @@
  {
   "method": "doc.open",
   "params": {
+   "path": "risorse/ai/foto-nature.webp"
+  }
+ },
+ {
+  "cmd": "image.crop",
+  "params": {
+   "x": 436,
+   "y": 0,
+   "width": 492,
+   "height": 1152
+  }
+ },
+ {
+  "method": "doc.save",
+  "params": {
+   "path": "lavoro/foto/nature-ritaglio.png"
+  }
+ },
+ {
+  "method": "doc.close",
+  "params": {}
+ },
+ {
+  "method": "doc.open",
+  "params": {
    "path": "lavoro/base-a6.pcraft"
   }
  },
@@ -59,126 +84,44 @@
   }
  },
  {
-  "cmd": "shape.create",
+  "method": "doc.place",
   "params": {
-   "kind": "ellipse",
-   "name": "[provv] luce nature 1",
-   "rect": [
-    860,
-    90,
-    400,
-    400
-   ],
-   "stroke": null,
-   "fill": {
-    "gradient": {
-     "stops": [
-      [
-       0,
-       "#ffffff"
-      ],
-      [
-       0.7,
-       "#9fb070"
-      ],
-      [
-       1,
-       "#000000"
-      ]
-     ],
-     "style": "radial",
-     "angle": 0
-    }
-   }
+   "path": "lavoro/foto/nature-ritaglio.png",
+   "scale": 76.0,
+   "center": [
+    1110,
+    360
+   ]
   }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Foto WHY nature"
+  }
+ },
+ {
+  "cmd": "layer.createClippingMask",
+  "params": {}
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": 1045,
+   "y": -200,
+   "width": 600,
+   "height": 1100,
+   "feather": 40
+  }
+ },
+ {
+  "cmd": "layer.layerMask.revealSelection",
+  "params": {}
  },
  {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.55,
-   "blend": "Screen"
-  }
- },
- {
-  "cmd": "shape.create",
-  "params": {
-   "kind": "ellipse",
-   "name": "[provv] luce nature 2",
-   "rect": [
-    1030,
-    430,
-    230,
-    230
-   ],
-   "stroke": null,
-   "fill": {
-    "gradient": {
-     "stops": [
-      [
-       0,
-       "#ffffff"
-      ],
-      [
-       0.7,
-       "#9fb070"
-      ],
-      [
-       1,
-       "#000000"
-      ]
-     ],
-     "style": "radial",
-     "angle": 0
-    }
-   }
-  }
- },
- {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.55,
-   "blend": "Screen"
-  }
- },
- {
-  "cmd": "shape.create",
-  "params": {
-   "kind": "ellipse",
-   "name": "[provv] luce nature 3",
-   "rect": [
-    700,
-    520,
-    150,
-    150
-   ],
-   "stroke": null,
-   "fill": {
-    "gradient": {
-     "stops": [
-      [
-       0,
-       "#ffffff"
-      ],
-      [
-       0.7,
-       "#9fb070"
-      ],
-      [
-       1,
-       "#000000"
-      ]
-     ],
-     "style": "radial",
-     "angle": 0
-    }
-   }
-  }
- },
- {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.55,
-   "blend": "Screen"
+   "opacity": 0.92
   }
  },
  {
@@ -235,126 +178,44 @@
   }
  },
  {
-  "cmd": "shape.create",
+  "method": "doc.place",
   "params": {
-   "kind": "ellipse",
-   "name": "[provv] bagliore sport",
-   "rect": [
-    -80,
-    930,
-    760,
-    760
-   ],
-   "stroke": null,
-   "fill": {
-    "gradient": {
-     "stops": [
-      [
-       0,
-       "#ff5a5a"
-      ],
-      [
-       0.55,
-       "#8a0010"
-      ],
-      [
-       1,
-       "#000000"
-      ]
-     ],
-     "style": "radial",
-     "angle": 0
-    }
-   }
+   "path": "risorse/ai/foto-sport.webp",
+   "scale": 85.0,
+   "center": [
+    400,
+    1250
+   ]
   }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Foto WHY sport"
+  }
+ },
+ {
+  "cmd": "layer.createClippingMask",
+  "params": {}
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": -200,
+   "y": 600,
+   "width": 860,
+   "height": 1100,
+   "feather": 60
+  }
+ },
+ {
+  "cmd": "layer.layerMask.revealSelection",
+  "params": {}
  },
  {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.75,
-   "blend": "Screen"
-  }
- },
- {
-  "cmd": "shape.create",
-  "params": {
-   "kind": "path",
-   "name": "[provv] striscia sport 1",
-   "fill": "#ffffff",
-   "stroke": null,
-   "path": {
-    "subpaths": [
-     {
-      "closed": true,
-      "knots": [
-       [
-        0,
-        1480
-       ],
-       [
-        640,
-        960
-       ],
-       [
-        700,
-        960
-       ],
-       [
-        60,
-        1480
-       ]
-      ]
-     }
-    ]
-   }
-  }
- },
- {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.1,
-   "blend": "Screen"
-  }
- },
- {
-  "cmd": "shape.create",
-  "params": {
-   "kind": "path",
-   "name": "[provv] striscia sport 2",
-   "fill": "#ffffff",
-   "stroke": null,
-   "path": {
-    "subpaths": [
-     {
-      "closed": true,
-      "knots": [
-       [
-        120,
-        1530
-       ],
-       [
-        760,
-        1010
-       ],
-       [
-        785,
-        1010
-       ],
-       [
-        145,
-        1530
-       ]
-      ]
-     }
-    ]
-   }
-  }
- },
- {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.07,
-   "blend": "Screen"
+   "opacity": 0.95
   }
  },
  {
