@@ -2,32 +2,16 @@
  {
   "method": "doc.open",
   "params": {
-   "path": "risorse/ai/foto-nature.webp"
+   "path": "risorse/ai/composizione-ai.webp"
   }
  },
  {
   "cmd": "image.crop",
   "params": {
-   "x": 436,
-   "y": 0,
-   "width": 492,
-   "height": 1152
-  }
- },
- {
-  "method": "doc.save",
-  "params": {
-   "path": "lavoro/foto/nature-ritaglio.png"
-  }
- },
- {
-  "method": "doc.close",
-  "params": {}
- },
- {
-  "method": "doc.open",
-  "params": {
-   "path": "risorse/ai/donna-blu.webp"
+   "x": 940,
+   "y": 40,
+   "width": 671,
+   "height": 840
   }
  },
  {
@@ -41,9 +25,84 @@
   "params": {}
  },
  {
-  "cmd": "select.modify.contract",
+  "cmd": "layer.layerMask.revealSelection",
+  "params": {}
+ },
+ {
+  "cmd": "select.lasso",
   "params": {
-   "radius": 1
+   "points": [
+    [
+     0,
+     824
+    ],
+    [
+     671,
+     750
+    ],
+    [
+     671,
+     840
+    ],
+    [
+     0,
+     840
+    ]
+   ]
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "method": "doc.save",
+  "params": {
+   "path": "lavoro/foto/nature-soggetto.png"
+  }
+ },
+ {
+  "method": "doc.close",
+  "params": {}
+ },
+ {
+  "method": "doc.open",
+  "params": {
+   "path": "risorse/ai/composizione-ai.webp"
+  }
+ },
+ {
+  "cmd": "image.crop",
+  "params": {
+   "x": 0,
+   "y": 840,
+   "width": 860,
+   "height": 866
+  }
+ },
+ {
+  "cmd": "layer.new.layerFromBackground",
+  "params": {
+   "name": "Uomo"
+  }
+ },
+ {
+  "cmd": "select.subject",
+  "params": {}
+ },
+ {
+  "cmd": "select.object",
+  "params": {
+   "rect": [
+    0,
+    480,
+    250,
+    380
+   ],
+   "mode": "add"
   }
  },
  {
@@ -51,29 +110,129 @@
   "params": {}
  },
  {
-  "cmd": "image.adjustments.hueSaturation",
+  "cmd": "select.lasso",
   "params": {
-   "blues": {
-    "hue": 150,
-    "saturation": -90,
-    "lightness": -30
-   },
-   "cyans": {
-    "hue": 120,
-    "saturation": -85,
-    "lightness": -25
-   },
-   "magentas": {
-    "hue": 90,
-    "saturation": -85,
-    "lightness": -30
-   }
+   "points": [
+    [
+     0,
+     121
+    ],
+    [
+     503,
+     66
+    ],
+    [
+     503,
+     104
+    ],
+    [
+     0,
+     159
+    ]
+   ]
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.lasso",
+  "params": {
+   "points": [
+    [
+     612,
+     51
+    ],
+    [
+     860,
+     27
+    ],
+    [
+     860,
+     65
+    ],
+    [
+     612,
+     89
+    ]
+   ]
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.lasso",
+  "params": {
+   "points": [
+    [
+     628,
+     440
+    ],
+    [
+     860,
+     380
+    ],
+    [
+     860,
+     566
+    ],
+    [
+     628,
+     566
+    ]
+   ]
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.lasso",
+  "params": {
+   "points": [
+    [
+     768,
+     540
+    ],
+    [
+     860,
+     540
+    ],
+    [
+     860,
+     866
+    ],
+    [
+     768,
+     866
+    ]
+   ]
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
   }
  },
  {
   "method": "doc.save",
   "params": {
-   "path": "lavoro/foto/nature-soggetto.png"
+   "path": "lavoro/foto/sport-soggetto.png"
   }
  },
  {
@@ -165,52 +324,6 @@
  {
   "method": "doc.open",
   "params": {
-   "path": "risorse/ai/uomo-verde.webp"
-  }
- },
- {
-  "cmd": "layer.new.layerFromBackground",
-  "params": {
-   "name": "Uomo"
-  }
- },
- {
-  "cmd": "select.subject",
-  "params": {}
- },
- {
-  "cmd": "select.modify.contract",
-  "params": {
-   "radius": 1
-  }
- },
- {
-  "cmd": "layer.layerMask.revealSelection",
-  "params": {}
- },
- {
-  "cmd": "image.adjustments.hueSaturation",
-  "params": {
-   "greens": {
-    "hue": -110,
-    "saturation": -30,
-    "lightness": -25
-   }
-  }
- },
- {
-  "method": "doc.save",
-  "params": {
-   "path": "lavoro/foto/sport-soggetto.png"
-  }
- },
- {
-  "method": "doc.close",
-  "params": {}
- },
- {
-  "method": "doc.open",
-  "params": {
    "path": "risorse/ai/foto-sport.webp"
   }
  },
@@ -260,6 +373,11 @@
    "contents": "color",
    "color": "#3a0608"
   }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
  },
  {
   "cmd": "filter.blur.gaussianBlur",
@@ -490,8 +608,8 @@
    "kind": "ellipse",
    "name": "Ombra piede donna",
    "rect": [
-    1020,
-    712,
+    955,
+    722,
     170,
     28
    ],
@@ -524,27 +642,6 @@
    "opacity": 0.4,
    "blend": "Multiply"
   }
- },
- {
-  "method": "doc.place",
-  "params": {
-   "path": "lavoro/foto/nature-soggetto.png",
-   "scale": 60.0,
-   "center": [
-    1110,
-    402
-   ]
-  }
- },
- {
-  "cmd": "layer.renameLayer",
-  "params": {
-   "name": "Donna WHY nature"
-  }
- },
- {
-  "cmd": "layer.createClippingMask",
-  "params": {}
  },
  {
   "cmd": "shape.create",
@@ -748,27 +845,6 @@
   }
  },
  {
-  "method": "doc.place",
-  "params": {
-   "path": "lavoro/foto/sport-soggetto.png",
-   "scale": 85.0,
-   "center": [
-    360,
-    1290
-   ]
-  }
- },
- {
-  "cmd": "layer.renameLayer",
-  "params": {
-   "name": "Uomo WHY sport"
-  }
- },
- {
-  "cmd": "layer.createClippingMask",
-  "params": {}
- },
- {
   "cmd": "shape.create",
   "params": {
    "kind": "path",
@@ -810,51 +886,6 @@
    "angle": 120,
    "distance": 12,
    "size": 28
-  }
- },
- {
-  "cmd": "shape.create",
-  "params": {
-   "kind": "rect",
-   "name": "Footer",
-   "rect": [
-    0,
-    1530,
-    1311,
-    289
-   ],
-   "fill": "#ffffff",
-   "stroke": null
-  }
- },
- {
-  "cmd": "shape.create",
-  "params": {
-   "kind": "rect",
-   "name": "Linea footer",
-   "rect": [
-    0,
-    1530,
-    1311,
-    10
-   ],
-   "stroke": null,
-   "fill": {
-    "gradient": {
-     "stops": [
-      [
-       0,
-       "#a6c839"
-      ],
-      [
-       1,
-       "#e20613"
-      ]
-     ],
-     "angle": 0,
-     "style": "linear"
-    }
-   }
   }
  },
  {
@@ -1261,6 +1292,85 @@
     -164.1843880884825,
     155.60898332144848
    ]
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "lavoro/foto/nature-soggetto.png",
+   "scale": 80.0,
+   "center": [
+    1043,
+    449
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Donna WHY nature"
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "lavoro/foto/sport-soggetto.png",
+   "scale": 87.0,
+   "center": [
+    366,
+    1162
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Uomo WHY sport"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "rect",
+   "name": "Footer",
+   "rect": [
+    0,
+    1530,
+    1311,
+    289
+   ],
+   "fill": "#ffffff",
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "rect",
+   "name": "Linea footer",
+   "rect": [
+    0,
+    1530,
+    1311,
+    10
+   ],
+   "stroke": null,
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#a6c839"
+      ],
+      [
+       1,
+       "#e20613"
+      ]
+     ],
+     "angle": 0,
+     "style": "linear"
+    }
+   }
   }
  },
  {
