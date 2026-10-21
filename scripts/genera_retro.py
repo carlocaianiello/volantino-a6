@@ -128,24 +128,53 @@ steps += [
     cmd("layer.layerStyle.dropShadow", color="#000000", opacity=60, angle=120, distance=6, size=18),
 ]
 
-# --- footer: termini a sinistra del QR, due blocchi (codice sconto / programma fedeltà)
+# --- footer: termini a sinistra del QR, blocco centrato nello spazio 95..895 e sull'altezza del QR
+import re, subprocess, sys, tempfile
 ORO_TESTO = "#e8c058"
 FX_TESTO = [{"kind": "dropShadow", "params": {"color": "#000000", "opacity": 70, "angle": 120, "distance": 4, "size": 6}}]
-def titoletto(testo, y):
-    return [cmd("type.create", x=95, y=y, text=testo, name=f"Footer: {testo}", font="Montserrat", weight=800, size=8.5,
-                tracking=160, color=ORO_TESTO, align="left"),
-            cmd("layer.layerStyle.replace", effects=FX_TESTO)]
-def elenco(righe, y, nome):
-    testo = "\n".join("•  " + r for r in righe)
-    inizi = [sum(len(r) + 3 + 1 for r in righe[:i]) for i in range(len(righe))]   # indice del "•" di ogni riga
-    return [cmd("type.create", x=95, y=y, text=testo, name=nome, font="Montserrat", weight=500,
-                size=8, leading=9.1, color="#ffffff", align="left"),
-            cmd("type.edit", runs=[{"start": i, "end": i + 1, "color": ORO_TESTO, "size": 11, "weight": 800} for i in inizi]),
-            cmd("layer.layerStyle.replace", effects=FX_TESTO)]
-steps += titoletto("IL CODICE SCONTO", 1436)
-steps += elenco(["Valido sul primo ordine", "Spesa minima 50 €", "Non cumulabile con altre offerte"], 1474, "Footer: condizioni")
-steps += titoletto("DOPO IL PRIMO ORDINE", 1602)
-steps += elenco(["Entri nel Programma Fedeltà", "Sconti a vita fino al 20%", "Un omaggio in ogni pacco"], 1640, "Footer: fedeltà")
+TITOLO = dict(font="Cinzel", weight=700, size=8.5, tracking=90, color=ORO_TESTO)
+RIGA = dict(font="Raleway", weight=500, size=8, color="#ffffff")
+RIGHE = [  # (tipo, testo, distanza dalla riga precedente in px)
+    ("titolo", "IL CODICE SCONTO", 0),
+    ("punto", "Applicato automaticamente al check-out", 38),
+    ("punto", "Valido sul primo ordine", 34),
+    ("punto", "Spesa minima 50 €", 34),
+    ("punto", "Non cumulabile con altre offerte", 34),
+    ("titolo", "UN OMAGGIO IN OGNI PACCO", 46),
+    ("titolo", "PROGRAMMA FEDELTÀ", 44),
+    ("punto", "Dal 2° ordine, sconti a vita fino al 20%", 38),
+]
+def spec_riga(tipo, testo):
+    if tipo == "titolo": return dict(text=testo, align="left", **TITOLO)
+    return dict(text="•  " + testo, align="left", **RIGA)
+
+def misura_larghezze(specs):
+    """Crea ogni riga in un documento di prova e legge la larghezza reale dai bounds di type.create."""
+    passi = [method("doc.open", path="lavoro/base-a6.pcraft")]          # a 300 dpi, come il volantino
+    passi += [cmd("type.create", x=0, y=500, **sp) for sp in specs]
+    with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as f: json.dump(passi, f); tmp = f.name
+    out = subprocess.run([sys.executable, "-I", os.path.join(os.path.dirname(os.path.abspath(__file__)), "pc.py"), tmp],
+                         capture_output=True, text=True).stdout
+    larghezze = []
+    for m in re.finditer(r"^\[\d+\] type.create: (\{.*\})$", out, re.M):
+        b = json.loads(m.group(1))["result"]["bounds"]; larghezze.append(b[2] - b[0])
+    os.unlink(tmp); assert len(larghezze) == len(specs), out[-800:]
+    return larghezze
+
+specs = [spec_riga(t, x) for t, x, _ in RIGHE]
+larghezze = misura_larghezze(specs)
+blocco_w = max(larghezze)
+sinistra = max(95, round(495 - blocco_w / 2))                 # centro dello spazio 95..895
+altezza = sum(d for _, _, d in RIGHE) + 25 + 8               # dalla cima del primo titolo al piede dell'ultima riga
+y = round(1593 - altezza / 2) + 25                           # prima linea di base, blocco centrato sul QR (centro 1593)
+print(f"footer: blocco {blocco_w} px largo, {altezza} px alto, sinistra {sinistra}, prima base {y}")
+for (tipo, testo, dist), sp in zip(RIGHE, specs):
+    y += dist
+    steps += [cmd("type.create", x=sinistra, y=y, name=f"Footer: {testo}", **sp)]
+    if tipo == "punto":
+        steps += [cmd("type.edit", runs=[{"start": 0, "end": 1, "color": ORO_TESTO, "size": 11, "weight": 800}])]
+    steps += [cmd("layer.layerStyle.replace", effects=FX_TESTO)]
+
 steps += [
     {"cmd": "layer.list", "params": {}},
     method("doc.save", path="lavoro/retro.pcraft"),
