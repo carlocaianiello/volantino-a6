@@ -133,23 +133,25 @@ import re, subprocess, sys, tempfile
 ORO_TESTO = "#e8c058"
 FX_TESTO = [{"kind": "dropShadow", "params": {"color": "#000000", "opacity": 70, "angle": 120, "distance": 4, "size": 6}}]
 TITOLO = dict(font="Cinzel", weight=700, size=8, tracking=90, color=ORO_TESTO)
-RIGA = dict(font="Raleway", weight=500, size=7.5, color="#ffffff")
-NOTA = dict(font="Raleway", weight=400, size=5.5, italic=True, color="#c8c8c8")
-RIGHE = [  # (tipo, testo, distanza dalla riga precedente in px)
-    ("titolo", "IL CODICE SCONTO", 0),
-    ("punto", "Applicato automaticamente al check-out", 35),
-    ("punto", "Valido sul primo ordine", 31),
-    ("punto", "Spesa minima 50 €", 31),
-    ("punto", "Non cumulabile con altre offerte", 31),
-    ("titolo", "UN OMAGGIO IN OGNI PACCO", 42),
-    ("titolo", "PROGRAMMA FEDELTÀ", 40),
-    ("punto", "Dal 2° ordine, sconti a vita fino al 20%", 35),
-    ("nota", "Ci riserviamo di annullare lo sconto e bloccare il cliente", 32),
-    ("nota", "in caso di qualsiasi tentativo di utilizzo multiplo o di abuso.", 24),
+RIGA = dict(font="Inter", weight=600, size=7.5, color="#ffffff")
+NOTA = dict(font="Inter", weight=400, size=5.5, color="#c8c8c8")
+RIGHE = [  # (tipo, testo, distanza dalla riga precedente in px, evidenziazioni in oro [(inizio, fine), ...])
+    ("titolo", "LO SCONTO È:", 0, []),
+    ("punto", "Applicato automaticamente al check-out", 35, []),
+    ("punto", "Valido sul primo ordine", 30, []),
+    ("punto", "Spesa minima 50 €", 30, []),
+    ("punto", "Non cumulabile con altre offerte", 30, []),
+    ("titolo", "UN OMAGGIO IN OGNI PACCO", 40, []),
+    ("testo", "Dopo il primo ordine entri a far parte", 36, []),
+    ("testo", "del programma fedeltà con sconti a vita", 29, [(4, 21)]),
+    ("testo", "fino al 20% di sconto", 29, [(8, 11)]),
+    ("nota", "Ci riserviamo di annullare lo sconto e bloccare il cliente", 30, []),
+    ("nota", "in caso di qualsiasi tentativo di utilizzo multiplo o di abuso.", 22, []),
 ]
 def spec_riga(tipo, testo):
     if tipo == "titolo": return dict(text=testo, align="left", **TITOLO)
     if tipo == "nota": return dict(text=testo, align="left", **NOTA)
+    if tipo == "testo": return dict(text=testo, align="left", **RIGA)
     return dict(text="•  " + testo, align="left", **RIGA)
 
 def misura_larghezze(specs):
@@ -165,18 +167,19 @@ def misura_larghezze(specs):
     os.unlink(tmp); assert len(larghezze) == len(specs), out[-800:]
     return larghezze
 
-specs = [spec_riga(t, x) for t, x, _ in RIGHE]
+specs = [spec_riga(t, x) for t, x, _, _ in RIGHE]
 larghezze = misura_larghezze(specs)
 blocco_w = max(larghezze)
 sinistra = max(95, round(495 - blocco_w / 2))                 # centro dello spazio 95..895
-altezza = sum(d for _, _, d in RIGHE) + 23 + 5               # dalla cima del primo titolo al piede dell'ultima riga
+altezza = sum(d for _, _, d, _ in RIGHE) + 23 + 5               # dalla cima del primo titolo al piede dell'ultima riga
 y = round(1580 - altezza / 2) + 23                           # prima linea di base, blocco centrato sul QR
 print(f"footer: blocco {blocco_w} px largo, {altezza} px alto, sinistra {sinistra}, prima base {y}")
-for (tipo, testo, dist), sp in zip(RIGHE, specs):
+for (tipo, testo, dist, oro), sp in zip(RIGHE, specs):
     y += dist
     steps += [cmd("type.create", x=sinistra, y=y, name=f"Footer: {testo}", **sp)]
-    if tipo == "punto":
-        steps += [cmd("type.edit", runs=[{"start": 0, "end": 1, "color": ORO_TESTO, "size": 10, "weight": 800}])]
+    runs = ([{"start": 0, "end": 1, "color": ORO_TESTO, "size": 10, "weight": 800}] if tipo == "punto" else [])
+    runs += [{"start": a, "end": b, "color": ORO_TESTO, "weight": 800} for a, b in oro]
+    if runs: steps += [cmd("type.edit", runs=runs)]
     steps += [cmd("layer.layerStyle.replace", effects=FX_TESTO)]
 
 steps += [
