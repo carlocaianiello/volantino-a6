@@ -27,7 +27,7 @@
  {
   "method": "doc.open",
   "params": {
-   "path": "lavoro/foto/nature-ritaglio.png"
+   "path": "risorse/ai/donna-blu.webp"
   }
  },
  {
@@ -37,109 +37,26 @@
   }
  },
  {
-  "cmd": "select.object",
-  "params": {
-   "rect": [
-    30,
-    140,
-    440,
-    960
-   ]
-  }
+  "cmd": "select.subject",
+  "params": {}
  },
  {
   "cmd": "layer.layerMask.revealSelection",
   "params": {}
  },
  {
-  "cmd": "select.lasso",
+  "cmd": "image.adjustments.hueSaturation",
   "params": {
-   "points": [
-    [
-     0,
-     345
-    ],
-    [
-     100,
-     345
-    ],
-    [
-     150,
-     380
-    ],
-    [
-     165,
-     430
-    ],
-    [
-     150,
-     480
-    ],
-    [
-     155,
-     530
-    ],
-    [
-     170,
-     560
-    ],
-    [
-     195,
-     580
-    ],
-    [
-     195,
-     640
-    ],
-    [
-     160,
-     680
-    ],
-    [
-     110,
-     725
-    ],
-    [
-     80,
-     760
-    ],
-    [
-     62,
-     785
-    ],
-    [
-     70,
-     805
-    ],
-    [
-     0,
-     830
-    ]
-   ]
-  }
- },
- {
-  "cmd": "edit.fill",
-  "params": {
-   "contents": "black",
-   "target": "mask"
-  }
- },
- {
-  "cmd": "select.rect",
-  "params": {
-   "x": 0,
-   "y": 995,
-   "width": 492,
-   "height": 300,
-   "feather": 22
-  }
- },
- {
-  "cmd": "edit.fill",
-  "params": {
-   "contents": "black",
-   "target": "mask"
+   "blues": {
+    "hue": 150,
+    "saturation": -35,
+    "lightness": -15
+   },
+   "cyans": {
+    "hue": 120,
+    "saturation": -40,
+    "lightness": -10
+   }
   }
  },
  {
@@ -211,7 +128,7 @@
  {
   "method": "doc.open",
   "params": {
-   "path": "risorse/ai/foto-sport.webp"
+   "path": "risorse/ai/uomo-verde.webp"
   }
  },
  {
@@ -225,32 +142,24 @@
   "params": {}
  },
  {
-  "cmd": "select.object",
+  "cmd": "select.modify.contract",
   "params": {
-   "rect": [
-    15,
-    580,
-    240,
-    270
-   ],
-   "mode": "add"
-  }
- },
- {
-  "cmd": "select.object",
-  "params": {
-   "rect": [
-    325,
-    590,
-    170,
-    200
-   ],
-   "mode": "add"
+   "radius": 1
   }
  },
  {
   "cmd": "layer.layerMask.revealSelection",
   "params": {}
+ },
+ {
+  "cmd": "image.adjustments.hueSaturation",
+  "params": {
+   "greens": {
+    "hue": -110,
+    "saturation": -30,
+    "lightness": -25
+   }
+  }
  },
  {
   "method": "doc.save",
@@ -539,13 +448,54 @@
   }
  },
  {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra piede donna",
+   "rect": [
+    1020,
+    712,
+    170,
+    28
+   ],
+   "stroke": null,
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.createClippingMask",
+  "params": {}
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.55,
+   "blend": "Multiply"
+  }
+ },
+ {
   "method": "doc.place",
   "params": {
    "path": "lavoro/foto/nature-soggetto.png",
-   "scale": 76.0,
+   "scale": 60.0,
    "center": [
     1110,
-    360
+    402
    ]
   }
  },
@@ -776,8 +726,8 @@
    "path": "lavoro/foto/sport-soggetto.png",
    "scale": 85.0,
    "center": [
-    400,
-    1250
+    360,
+    1290
    ]
   }
  },

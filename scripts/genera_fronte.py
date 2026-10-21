@@ -45,6 +45,23 @@ NAT_W, NAT_H = Image.open("risorse/ai/foto-nature.webp").size      # 928 x 1152
 SPO_W, SPO_H = Image.open("risorse/ai/foto-sport.webp").size
 NAT_CROP_X = int(NAT_W * 0.47)                                      # via la fascia con la scritta
 NAT_CW = NAT_W - NAT_CROP_X
+DONNA, UOMO = "risorse/ai/donna-blu.webp", "risorse/ai/uomo-verde.webp"   # atleti su fondo piatto
+DON_W, DON_H = Image.open(DONNA).size
+UOM_W, UOM_H = Image.open(UOMO).size
+def colore_fondo(path):
+    r, g, b = Image.open(path).convert("RGB").getpixel((5, 5)); return "#%02x%02x%02x" % (r, g, b)
+def scontorna(path, nome, contrai, spill):
+    """Toglie il fondo piatto con la selezione automatica del soggetto (precisa su fondo uniforme),
+    poi sposta il colore residuo del fondo sui bordi (capelli, contorni) verso i toni del soggetto."""
+    return [method("doc.open", path=path),
+            cmd("layer.new.layerFromBackground", name=nome),
+            cmd("select.subject"),
+            *([cmd("select.modify.contract", radius=contrai)] if contrai else []),
+            cmd("layer.layerMask.revealSelection"),
+            cmd("image.adjustments.hueSaturation", **spill)]
+SPILL_BLU = {"blues": {"hue": 150, "saturation": -35, "lightness": -15},     # blu dei capelli -> castano
+             "cyans": {"hue": 120, "saturation": -40, "lightness": -10}}
+SPILL_VERDE = {"greens": {"hue": -110, "saturation": -30, "lightness": -25}}  # verde dei contorni -> rosso scuro
 
 # Selezioni degli atleti (coordinate delle foto originali / del ritaglio)
 SEL_DONNA = [cmd("select.object", rect=[30, 140, 440, 960])]         # Object Finder sulla donna
@@ -59,16 +76,7 @@ steps = [
     cmd("image.crop", x=NAT_CROP_X, y=0, width=NAT_CW, height=NAT_H),
     method("doc.save", path="lavoro/foto/nature-ritaglio.png"),
     method("doc.close"),
-    method("doc.open", path="lavoro/foto/nature-ritaglio.png"),
-    cmd("layer.new.layerFromBackground", name="Donna"),
-    *SEL_DONNA,
-    cmd("layer.layerMask.revealSelection"),
-    # via il pezzo di prato a sinistra del corpo: nero dipinto nella maschera dentro un poligono
-    cmd("select.lasso", points=[[0, 345], [100, 345], [150, 380], [165, 430], [150, 480], [155, 530], [170, 560],
-                                [195, 580], [195, 640], [160, 680], [110, 725], [80, 760], [62, 785], [70, 805], [0, 830]]),
-    cmd("edit.fill", contents="black", target="mask"),
-    cmd("select.rect", x=0, y=995, width=NAT_CW, height=300, feather=22),   # il piede si perde nell'erba
-    cmd("edit.fill", contents="black", target="mask"),
+    *scontorna(DONNA, "Donna", 0, SPILL_BLU),
     method("doc.save", path="lavoro/foto/nature-soggetto.png"),
     method("doc.close"),
     method("doc.open", path="risorse/ai/foto-nature.webp"),
@@ -81,10 +89,7 @@ steps = [
     method("doc.save", path="lavoro/foto/nature-sfondo.png"),
     method("doc.close"),
     # --- foto sport: soggetto nitido, sfondo sfocato senza uomo
-    method("doc.open", path="risorse/ai/foto-sport.webp"),
-    cmd("layer.new.layerFromBackground", name="Uomo"),
-    *SEL_UOMO,
-    cmd("layer.layerMask.revealSelection"),
+    *scontorna(UOMO, "Uomo", 1, SPILL_VERDE),
     method("doc.save", path="lavoro/foto/sport-soggetto.png"),
     method("doc.close"),
     method("doc.open", path="risorse/ai/foto-sport.webp"),
@@ -138,8 +143,12 @@ steps += [cmd("shape.create", kind="path", name="Zona nature", stroke=None,
 BG_S = 1.45                                                         # lo sfondo copre tutta la larghezza
 steps += sfondo_sfocato("lavoro/foto/nature-sfondo.png", BG_S * 100, [655, round(-330 + NAT_H * BG_S / 2)],
                         ZONA_NATURE, GRAD_NATURE, -35, "Sfondo WHY nature")
-NAT_S = 0.76                                                        # donna alta ~640 px
-steps += soggetto("lavoro/foto/nature-soggetto.png", NAT_S * 100, [1110, round(-78 + NAT_H * NAT_S / 2)], "#0b2a00", "Donna WHY nature")
+DON_S = 0.60                                                        # donna alta ~615 px, piedi sopra la diagonale
+steps += [cmd("shape.create", kind="ellipse", name="Ombra piede donna", rect=[1020, 712, 170, 28], stroke=None,
+              fill={"gradient": {"stops": [[0, "#000000"], [1, "#ffffff"]], "style": "radial", "angle": 0}}),
+          cmd("layer.createClippingMask"),
+          cmd("layer.setProps", opacity=0.55, blend="Multiply")]
+steps += soggetto("lavoro/foto/nature-soggetto.png", DON_S * 100, [1110, 402], "#0b2a00", "Donna WHY nature")
 
 # --- zona WHY sport (sotto) --------------------------------------------------
 steps += [cmd("shape.create", kind="path", name="Zona sport", stroke=None,
@@ -147,9 +156,8 @@ steps += [cmd("shape.create", kind="path", name="Zona sport", stroke=None,
               fill={"gradient": {"stops": GRAD_SPORT, "angle": -150, "style": "linear"}})]
 steps += sfondo_sfocato("lavoro/foto/sport-sfondo.png", BG_S * 100, [655, round(640 + SPO_H * BG_S / 2)],
                         ZONA_SPORT, GRAD_SPORT, -150, "Sfondo WHY sport")
-SPO_S = 0.85                                                        # uomo alto ~715 px, piedi sotto il footer
-steps += soggetto("risorse/ai/foto-sport.webp".replace("risorse/ai/foto-sport.webp", "lavoro/foto/sport-soggetto.png"),
-                  SPO_S * 100, [400, round(760 + SPO_H * SPO_S / 2)], "#000000", "Uomo WHY sport")
+UOM_S = 0.85                                                        # uomo: gambe sotto il footer, disco sinistro fuori pagina
+steps += soggetto("lavoro/foto/sport-soggetto.png", UOM_S * 100, [360, round(800 + UOM_H * UOM_S / 2)], "#000000", "Uomo WHY sport")
 
 
 # --- separatore e footer -----------------------------------------------------
