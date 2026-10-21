@@ -46,46 +46,110 @@ SPO_W, SPO_H = Image.open("risorse/ai/foto-sport.webp").size
 NAT_CROP_X = int(NAT_W * 0.47)                                      # via la fascia con la scritta
 NAT_CW = NAT_W - NAT_CROP_X
 
+# Selezioni degli atleti (coordinate delle foto originali / del ritaglio)
+SEL_DONNA = [cmd("select.object", rect=[30, 140, 440, 960])]         # Object Finder sulla donna
+SEL_UOMO = [cmd("select.subject"),                                   # uomo + i due dischi del bilanciere
+            cmd("select.object", rect=[15, 580, 240, 270], mode="add"),
+            cmd("select.object", rect=[325, 590, 170, 200], mode="add")]
+SFOCATURA = 30
+
 steps = [
-    # copia ritagliata della foto nature (la risorsa originale non si tocca)
+    # --- foto nature: ritaglio senza scritta, soggetto nitido, sfondo sfocato senza donna né scritta
     method("doc.open", path="risorse/ai/foto-nature.webp"),
     cmd("image.crop", x=NAT_CROP_X, y=0, width=NAT_CW, height=NAT_H),
     method("doc.save", path="lavoro/foto/nature-ritaglio.png"),
     method("doc.close"),
+    method("doc.open", path="lavoro/foto/nature-ritaglio.png"),
+    cmd("layer.new.layerFromBackground", name="Donna"),
+    *SEL_DONNA,
+    cmd("layer.layerMask.revealSelection"),
+    # via il pezzo di prato a sinistra del corpo: nero dipinto nella maschera dentro un poligono
+    cmd("select.lasso", points=[[0, 345], [100, 345], [150, 380], [165, 430], [150, 480], [155, 530], [170, 560],
+                                [195, 580], [195, 640], [160, 680], [110, 725], [80, 760], [62, 785], [70, 805], [0, 830]]),
+    cmd("edit.fill", contents="black", target="mask"),
+    cmd("select.rect", x=0, y=995, width=NAT_CW, height=300, feather=22),   # il piede si perde nell'erba
+    cmd("edit.fill", contents="black", target="mask"),
+    method("doc.save", path="lavoro/foto/nature-soggetto.png"),
+    method("doc.close"),
+    method("doc.open", path="risorse/ai/foto-nature.webp"),
+    cmd("select.rect", x=30, y=110, width=410, height=190),                 # scritta "Find your balance"
+    cmd("edit.deleteAndFillSelection"),
+    cmd("select.object", rect=[NAT_CROP_X + 30, 140, 440, 960]),
+    cmd("select.modify.expand", radius=25),
+    cmd("edit.deleteAndFillSelection"),
+    cmd("filter.blur.gaussianBlur", radius=SFOCATURA),
+    method("doc.save", path="lavoro/foto/nature-sfondo.png"),
+    method("doc.close"),
+    # --- foto sport: soggetto nitido, sfondo sfocato senza uomo
+    method("doc.open", path="risorse/ai/foto-sport.webp"),
+    cmd("layer.new.layerFromBackground", name="Uomo"),
+    *SEL_UOMO,
+    cmd("layer.layerMask.revealSelection"),
+    method("doc.save", path="lavoro/foto/sport-soggetto.png"),
+    method("doc.close"),
+    method("doc.open", path="risorse/ai/foto-sport.webp"),
+    *SEL_UOMO,
+    cmd("select.modify.expand", radius=50),
+    cmd("select.modify.feather", radius=60),
+    cmd("edit.fill", contents="color", color="#3a0608"),                    # al posto dell'uomo: rosso scuro sfumato
+    cmd("filter.blur.gaussianBlur", radius=SFOCATURA * 2),
+    method("doc.save", path="lavoro/foto/sport-sfondo.png"),
+    method("doc.close"),
+    # --- il volantino
     method("doc.open", path="lavoro/base-a6.pcraft"),
 ]
 
-def foto(path, scale, center, mask_rect, feather, opacity, nome):
-    """Foto come oggetto avanzato, ritagliata sulla zona sottostante, con maschera sfumata e trasparenza."""
-    x, y, w, h = mask_rect
+def sfondo_sfocato(path, scale, center, zona_knots, tinta_stops, tinta_angle, nome):
+    """Sfondo della foto (già sfocato) esteso sulla zona e velato con i colori del marchio."""
     return [
         method("doc.place", path=path, scale=scale, center=center),
         cmd("layer.renameLayer", name=nome),
         cmd("layer.createClippingMask"),
-        cmd("select.rect", x=x, y=y, width=w, height=h, feather=feather),
-        cmd("layer.layerMask.revealSelection"),
-        cmd("layer.setProps", opacity=opacity),
+        cmd("shape.create", kind="path", name=nome + " (velatura)", stroke=None,
+            path={"subpaths": [{"closed": True, "knots": zona_knots}]},
+            fill={"gradient": {"stops": tinta_stops, "angle": tinta_angle, "style": "linear"}}),
+        cmd("layer.createClippingMask"),
+        cmd("layer.setProps", opacity=0.75, blend="Color"),
+        cmd("shape.create", kind="path", name=nome + " (luce)", stroke=None,
+            path={"subpaths": [{"closed": True, "knots": zona_knots}]},
+            fill={"gradient": {"stops": tinta_stops, "angle": tinta_angle, "style": "linear"}}),
+        cmd("layer.createClippingMask"),
+        cmd("layer.setProps", opacity=0.25),
     ]
 
+def soggetto(path, scale, center, ombra, nome):
+    """Atleta nitido sopra lo sfondo, ritagliato sulla zona, con ombra morbida."""
+    return [
+        method("doc.place", path=path, scale=scale, center=center),
+        cmd("layer.renameLayer", name=nome),
+        cmd("layer.createClippingMask"),
+        cmd("layer.layerStyle.dropShadow", color=ombra, opacity=45, angle=120, distance=14, size=34),
+    ]
+
+ZONA_NATURE = [[0, 0], [1311, 0], [1311, 720], [0, 880]]
+ZONA_SPORT = [[0, 902], [1311, 742], [1311, 1530], [0, 1530]]
+GRAD_NATURE = [[0, "#e4f5b0"], [0.5, "#8fc63f"], [1, "#2c6410"]]
+GRAD_SPORT = [[0, "#e20613"], [0.45, "#7d0008"], [1, "#140000"]]
+
 # --- zona WHY nature (sopra) -------------------------------------------------
-steps += [
-    cmd("shape.create", kind="path", name="Zona nature",
-        path={"subpaths": [{"closed": True, "knots": [[0, 0], [1311, 0], [1311, 720], [0, 880]]}]},
-        fill={"gradient": {"stops": [[0, "#e4f5b0"], [0.5, "#8fc63f"], [1, "#2c6410"]], "angle": -35, "style": "linear"}}, stroke=None),
-]
+steps += [cmd("shape.create", kind="path", name="Zona nature", stroke=None,
+              path={"subpaths": [{"closed": True, "knots": ZONA_NATURE}]},
+              fill={"gradient": {"stops": GRAD_NATURE, "angle": -35, "style": "linear"}})]
+BG_S = 1.45                                                         # lo sfondo copre tutta la larghezza
+steps += sfondo_sfocato("lavoro/foto/nature-sfondo.png", BG_S * 100, [655, round(-330 + NAT_H * BG_S / 2)],
+                        ZONA_NATURE, GRAD_NATURE, -35, "Sfondo WHY nature")
 NAT_S = 0.76                                                        # donna alta ~640 px
-steps += foto("lavoro/foto/nature-ritaglio.png", NAT_S * 100, [1110, round(-78 + NAT_H * NAT_S / 2)],
-              [1045, -200, 600, 1100], 40, 0.92, "Foto WHY nature")
+steps += soggetto("lavoro/foto/nature-soggetto.png", NAT_S * 100, [1110, round(-78 + NAT_H * NAT_S / 2)], "#0b2a00", "Donna WHY nature")
 
 # --- zona WHY sport (sotto) --------------------------------------------------
-steps += [
-    cmd("shape.create", kind="path", name="Zona sport",
-        path={"subpaths": [{"closed": True, "knots": [[0, 902], [1311, 742], [1311, 1530], [0, 1530]]}]},
-        fill={"gradient": {"stops": [[0, "#e20613"], [0.45, "#7d0008"], [1, "#140000"]], "angle": -150, "style": "linear"}}, stroke=None),
-]
+steps += [cmd("shape.create", kind="path", name="Zona sport", stroke=None,
+              path={"subpaths": [{"closed": True, "knots": ZONA_SPORT}]},
+              fill={"gradient": {"stops": GRAD_SPORT, "angle": -150, "style": "linear"}})]
+steps += sfondo_sfocato("lavoro/foto/sport-sfondo.png", BG_S * 100, [655, round(640 + SPO_H * BG_S / 2)],
+                        ZONA_SPORT, GRAD_SPORT, -150, "Sfondo WHY sport")
 SPO_S = 0.85                                                        # uomo alto ~715 px, piedi sotto il footer
-steps += foto("risorse/ai/foto-sport.webp", SPO_S * 100, [400, round(760 + SPO_H * SPO_S / 2)],
-              [-200, 600, 860, 1100], 60, 0.95, "Foto WHY sport")
+steps += soggetto("risorse/ai/foto-sport.webp".replace("risorse/ai/foto-sport.webp", "lavoro/foto/sport-soggetto.png"),
+                  SPO_S * 100, [400, round(760 + SPO_H * SPO_S / 2)], "#000000", "Uomo WHY sport")
 
 
 # --- separatore e footer -----------------------------------------------------

@@ -27,6 +27,313 @@
  {
   "method": "doc.open",
   "params": {
+   "path": "lavoro/foto/nature-ritaglio.png"
+  }
+ },
+ {
+  "cmd": "layer.new.layerFromBackground",
+  "params": {
+   "name": "Donna"
+  }
+ },
+ {
+  "cmd": "select.object",
+  "params": {
+   "rect": [
+    30,
+    140,
+    440,
+    960
+   ]
+  }
+ },
+ {
+  "cmd": "layer.layerMask.revealSelection",
+  "params": {}
+ },
+ {
+  "cmd": "select.lasso",
+  "params": {
+   "points": [
+    [
+     0,
+     345
+    ],
+    [
+     100,
+     345
+    ],
+    [
+     150,
+     380
+    ],
+    [
+     165,
+     430
+    ],
+    [
+     150,
+     480
+    ],
+    [
+     155,
+     530
+    ],
+    [
+     170,
+     560
+    ],
+    [
+     195,
+     580
+    ],
+    [
+     195,
+     640
+    ],
+    [
+     160,
+     680
+    ],
+    [
+     110,
+     725
+    ],
+    [
+     80,
+     760
+    ],
+    [
+     62,
+     785
+    ],
+    [
+     70,
+     805
+    ],
+    [
+     0,
+     830
+    ]
+   ]
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 995,
+   "width": 492,
+   "height": 300,
+   "feather": 22
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "method": "doc.save",
+  "params": {
+   "path": "lavoro/foto/nature-soggetto.png"
+  }
+ },
+ {
+  "method": "doc.close",
+  "params": {}
+ },
+ {
+  "method": "doc.open",
+  "params": {
+   "path": "risorse/ai/foto-nature.webp"
+  }
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": 30,
+   "y": 110,
+   "width": 410,
+   "height": 190
+  }
+ },
+ {
+  "cmd": "edit.deleteAndFillSelection",
+  "params": {}
+ },
+ {
+  "cmd": "select.object",
+  "params": {
+   "rect": [
+    466,
+    140,
+    440,
+    960
+   ]
+  }
+ },
+ {
+  "cmd": "select.modify.expand",
+  "params": {
+   "radius": 25
+  }
+ },
+ {
+  "cmd": "edit.deleteAndFillSelection",
+  "params": {}
+ },
+ {
+  "cmd": "filter.blur.gaussianBlur",
+  "params": {
+   "radius": 30
+  }
+ },
+ {
+  "method": "doc.save",
+  "params": {
+   "path": "lavoro/foto/nature-sfondo.png"
+  }
+ },
+ {
+  "method": "doc.close",
+  "params": {}
+ },
+ {
+  "method": "doc.open",
+  "params": {
+   "path": "risorse/ai/foto-sport.webp"
+  }
+ },
+ {
+  "cmd": "layer.new.layerFromBackground",
+  "params": {
+   "name": "Uomo"
+  }
+ },
+ {
+  "cmd": "select.subject",
+  "params": {}
+ },
+ {
+  "cmd": "select.object",
+  "params": {
+   "rect": [
+    15,
+    580,
+    240,
+    270
+   ],
+   "mode": "add"
+  }
+ },
+ {
+  "cmd": "select.object",
+  "params": {
+   "rect": [
+    325,
+    590,
+    170,
+    200
+   ],
+   "mode": "add"
+  }
+ },
+ {
+  "cmd": "layer.layerMask.revealSelection",
+  "params": {}
+ },
+ {
+  "method": "doc.save",
+  "params": {
+   "path": "lavoro/foto/sport-soggetto.png"
+  }
+ },
+ {
+  "method": "doc.close",
+  "params": {}
+ },
+ {
+  "method": "doc.open",
+  "params": {
+   "path": "risorse/ai/foto-sport.webp"
+  }
+ },
+ {
+  "cmd": "select.subject",
+  "params": {}
+ },
+ {
+  "cmd": "select.object",
+  "params": {
+   "rect": [
+    15,
+    580,
+    240,
+    270
+   ],
+   "mode": "add"
+  }
+ },
+ {
+  "cmd": "select.object",
+  "params": {
+   "rect": [
+    325,
+    590,
+    170,
+    200
+   ],
+   "mode": "add"
+  }
+ },
+ {
+  "cmd": "select.modify.expand",
+  "params": {
+   "radius": 50
+  }
+ },
+ {
+  "cmd": "select.modify.feather",
+  "params": {
+   "radius": 60
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "color",
+   "color": "#3a0608"
+  }
+ },
+ {
+  "cmd": "filter.blur.gaussianBlur",
+  "params": {
+   "radius": 60
+  }
+ },
+ {
+  "method": "doc.save",
+  "params": {
+   "path": "lavoro/foto/sport-sfondo.png"
+  }
+ },
+ {
+  "method": "doc.close",
+  "params": {}
+ },
+ {
+  "method": "doc.open",
+  "params": {
    "path": "lavoro/base-a6.pcraft"
   }
  },
@@ -35,6 +342,7 @@
   "params": {
    "kind": "path",
    "name": "Zona nature",
+   "stroke": null,
    "path": {
     "subpaths": [
      {
@@ -79,14 +387,161 @@
      "angle": -35,
      "style": "linear"
     }
-   },
-   "stroke": null
+   }
   }
  },
  {
   "method": "doc.place",
   "params": {
-   "path": "lavoro/foto/nature-ritaglio.png",
+   "path": "lavoro/foto/nature-sfondo.png",
+   "scale": 145.0,
+   "center": [
+    655,
+    505
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Sfondo WHY nature"
+  }
+ },
+ {
+  "cmd": "layer.createClippingMask",
+  "params": {}
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "path",
+   "name": "Sfondo WHY nature (velatura)",
+   "stroke": null,
+   "path": {
+    "subpaths": [
+     {
+      "closed": true,
+      "knots": [
+       [
+        0,
+        0
+       ],
+       [
+        1311,
+        0
+       ],
+       [
+        1311,
+        720
+       ],
+       [
+        0,
+        880
+       ]
+      ]
+     }
+    ]
+   },
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#e4f5b0"
+      ],
+      [
+       0.5,
+       "#8fc63f"
+      ],
+      [
+       1,
+       "#2c6410"
+      ]
+     ],
+     "angle": -35,
+     "style": "linear"
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.createClippingMask",
+  "params": {}
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.75,
+   "blend": "Color"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "path",
+   "name": "Sfondo WHY nature (luce)",
+   "stroke": null,
+   "path": {
+    "subpaths": [
+     {
+      "closed": true,
+      "knots": [
+       [
+        0,
+        0
+       ],
+       [
+        1311,
+        0
+       ],
+       [
+        1311,
+        720
+       ],
+       [
+        0,
+        880
+       ]
+      ]
+     }
+    ]
+   },
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#e4f5b0"
+      ],
+      [
+       0.5,
+       "#8fc63f"
+      ],
+      [
+       1,
+       "#2c6410"
+      ]
+     ],
+     "angle": -35,
+     "style": "linear"
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.createClippingMask",
+  "params": {}
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.25
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "lavoro/foto/nature-soggetto.png",
    "scale": 76.0,
    "center": [
     1110,
@@ -97,7 +552,7 @@
  {
   "cmd": "layer.renameLayer",
   "params": {
-   "name": "Foto WHY nature"
+   "name": "Donna WHY nature"
   }
  },
  {
@@ -105,23 +560,13 @@
   "params": {}
  },
  {
-  "cmd": "select.rect",
+  "cmd": "layer.layerStyle.dropShadow",
   "params": {
-   "x": 1045,
-   "y": -200,
-   "width": 600,
-   "height": 1100,
-   "feather": 40
-  }
- },
- {
-  "cmd": "layer.layerMask.revealSelection",
-  "params": {}
- },
- {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.92
+   "color": "#0b2a00",
+   "opacity": 45,
+   "angle": 120,
+   "distance": 14,
+   "size": 34
   }
  },
  {
@@ -129,6 +574,7 @@
   "params": {
    "kind": "path",
    "name": "Zona sport",
+   "stroke": null,
    "path": {
     "subpaths": [
      {
@@ -173,14 +619,161 @@
      "angle": -150,
      "style": "linear"
     }
-   },
-   "stroke": null
+   }
   }
  },
  {
   "method": "doc.place",
   "params": {
-   "path": "risorse/ai/foto-sport.webp",
+   "path": "lavoro/foto/sport-sfondo.png",
+   "scale": 145.0,
+   "center": [
+    655,
+    1475
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Sfondo WHY sport"
+  }
+ },
+ {
+  "cmd": "layer.createClippingMask",
+  "params": {}
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "path",
+   "name": "Sfondo WHY sport (velatura)",
+   "stroke": null,
+   "path": {
+    "subpaths": [
+     {
+      "closed": true,
+      "knots": [
+       [
+        0,
+        902
+       ],
+       [
+        1311,
+        742
+       ],
+       [
+        1311,
+        1530
+       ],
+       [
+        0,
+        1530
+       ]
+      ]
+     }
+    ]
+   },
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#e20613"
+      ],
+      [
+       0.45,
+       "#7d0008"
+      ],
+      [
+       1,
+       "#140000"
+      ]
+     ],
+     "angle": -150,
+     "style": "linear"
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.createClippingMask",
+  "params": {}
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.75,
+   "blend": "Color"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "path",
+   "name": "Sfondo WHY sport (luce)",
+   "stroke": null,
+   "path": {
+    "subpaths": [
+     {
+      "closed": true,
+      "knots": [
+       [
+        0,
+        902
+       ],
+       [
+        1311,
+        742
+       ],
+       [
+        1311,
+        1530
+       ],
+       [
+        0,
+        1530
+       ]
+      ]
+     }
+    ]
+   },
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#e20613"
+      ],
+      [
+       0.45,
+       "#7d0008"
+      ],
+      [
+       1,
+       "#140000"
+      ]
+     ],
+     "angle": -150,
+     "style": "linear"
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.createClippingMask",
+  "params": {}
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.25
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "lavoro/foto/sport-soggetto.png",
    "scale": 85.0,
    "center": [
     400,
@@ -191,7 +784,7 @@
  {
   "cmd": "layer.renameLayer",
   "params": {
-   "name": "Foto WHY sport"
+   "name": "Uomo WHY sport"
   }
  },
  {
@@ -199,23 +792,13 @@
   "params": {}
  },
  {
-  "cmd": "select.rect",
+  "cmd": "layer.layerStyle.dropShadow",
   "params": {
-   "x": -200,
-   "y": 600,
-   "width": 860,
-   "height": 1100,
-   "feather": 60
-  }
- },
- {
-  "cmd": "layer.layerMask.revealSelection",
-  "params": {}
- },
- {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.95
+   "color": "#000000",
+   "opacity": 45,
+   "angle": 120,
+   "distance": 14,
+   "size": 34
   }
  },
  {
