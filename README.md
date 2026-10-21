@@ -32,14 +32,10 @@ scripts/   installa-artcraft.sh: compila e installa le CLI ArtCraft
 ### Sessione cloud di Claude Code
 
 Nelle impostazioni dell'ambiente cloud (menu dell'ambiente nella barra del
-titolo → Edit → **Setup script**) inserire:
+titolo → Edit → **Setup script**) incollare il contenuto di
+`scripts/installa-artcraft.sh` (non dipende dal repo, quindi funziona anche se è privato).
 
-```bash
-git clone --depth 1 https://github.com/carlocaianiello/volantino-a6 /tmp/va6 2>/dev/null || true
-bash /tmp/va6/scripts/installa-artcraft.sh
-```
-
-oppure, se il repo è già nella sessione, eseguire una volta
+In alternativa, con il repo già nella sessione, eseguire una volta
 `bash scripts/installa-artcraft.sh` e poi aprire una **nuova sessione**: i server
 MCP vengono caricati solo all'avvio.
 
