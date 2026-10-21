@@ -30,8 +30,13 @@ usando le app ArtCraft tramite MCP. Le specifiche di stampa sono nel README.
 - Loghi ritagliati (con trasparenza) in `lavoro/loghi/`; prompt per le immagini AI in
   `risorse/ai/PROMPT-IMMAGINI.md`. Il connettore Higgsfield non genera immagini e il proxy
   blocca i link CloudFront: le immagini le genera l'utente e le allega in chat.
+- Il retro è `lavoro/retro.pcraft`, generato da `python3 scripts/genera_retro.py` e poi
+  `python3 scripts/pc.py scripts/retro.json` (scena Higgsfield + prodotti veri + testi).
 - File finali e anteprime in `export/`. Prima di dire che un file è pronto,
   genera un'anteprima (`doc_render_preview` o export PNG) e guardala.
+  I file per la tipografia si rigenerano con `bash scripts/esporta-stampa.sh` (PDF CMYK
+  FOGRA39 con abbondanza in `export/stampa/`); `image.mode.cmyk` con un profilo su file
+  funziona solo dalla CLI `photocraft-cli run`, non dal server headless.
 - Materiale fornito dall'utente in `risorse/`: non modificarlo, lavora su copie.
 - La modalità "bridged" (agganciarsi all'app aperta sul PC) non funziona nel cloud:
   si lavora solo sui file.

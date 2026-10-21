@@ -1,0 +1,10 @@
+Volantino A6 Nutrihangar - file per la stampa
+
+volantino-a6-fronte.pdf, volantino-a6-retro.pdf
+  PDF, 1 pagina ciascuno, 111 x 154 mm = A6 (105 x 148) + 3 mm di abbondanza per lato.
+  Rifilare a 105 x 148 mm. Nessun crocino di taglio. 300 dpi, immagine senza perdita.
+  Colore: CMYK, profilo Coated FOGRA39 (equivalente a ISO Coated v2) incorporato.
+volantino-a6-fronte-retro.pdf
+  Gli stessi due lati in un unico PDF a due pagine (pagina 1 fronte, pagina 2 retro).
+alternative/
+  TIFF CMYK 300 dpi con profilo incorporato e PDF in RGB (sRGB), se la tipografia li preferisce.

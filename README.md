@@ -14,7 +14,9 @@ Funziona sia in locale sia nelle sessioni cloud di Claude Code.
 | Margine di sicurezza (testi) | 5 mm dal rifilo, 8 mm dal bordo esterno | ~95 px dal bordo del file |
 
 - Risoluzione: 300 dpi
-- Lavorazione in RGB; conversione in CMYK da concordare con la tipografia
+- Lavorazione in RGB; i file di stampa sono convertiti in CMYK Coated FOGRA39 (ISO Coated v2)
+  con `scripts/esporta-stampa.sh`, che scrive in `export/stampa/` i PDF del fronte, del retro e
+  un PDF a due pagine, più TIFF CMYK e PDF RGB in `alternative/`
 - Fronte e retro: due file separati
 
 ## Struttura
@@ -26,7 +28,10 @@ export/    file finali per la stampa (PDF/TIFF/PNG) e anteprime
 scripts/   installa-artcraft.sh: compila e installa le CLI ArtCraft
            installa-font.sh: installa i font di risorse/font per PhotoCraft
            pc.py: esegue una lista di passi JSON su `photocraft-cli serve`
-           fronte.json: ricetta che ricostruisce lavoro/fronte.pcraft da lavoro/base-a6.pcraft
+           fronte-ai.json: ricetta del fronte (composizione Higgsfield adattata all'A6)
+           genera_fronte.py + fronte.json: versione a livelli del fronte (alternativa)
+           genera_retro.py + retro.json: ricetta del retro
+           esporta-stampa.sh: PDF CMYK per la tipografia in export/stampa/
 .mcp.json  registra il server MCP di PhotoCraft per Claude Code
 ```
 
@@ -62,4 +67,10 @@ photocraft-cli convert lavoro/fronte.pcraft export/fronte.png
 
 # ricostruire il fronte dalla ricetta (apre la base, crea livelli, salva sorgente e anteprima)
 python3 scripts/pc.py scripts/fronte.json
+
+# retro: la ricetta è generata da scripts/genera_retro.py
+python3 scripts/genera_retro.py && python3 scripts/pc.py scripts/retro.json
+
+# file per la tipografia (PDF CMYK con abbondanza) in export/stampa/
+bash scripts/esporta-stampa.sh
 ```
