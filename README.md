@@ -24,6 +24,9 @@ risorse/   immagini, loghi, font e testi forniti
 lavoro/    file sorgente modificabili (.pcraft / .psd)
 export/    file finali per la stampa (PDF/TIFF/PNG) e anteprime
 scripts/   installa-artcraft.sh: compila e installa le CLI ArtCraft
+           installa-font.sh: installa i font di risorse/font per PhotoCraft
+           pc.py: esegue una lista di passi JSON su `photocraft-cli serve`
+           fronte.json: ricetta che ricostruisce lavoro/fronte.pcraft da lavoro/base-a6.pcraft
 .mcp.json  registra il server MCP di PhotoCraft per Claude Code
 ```
 
@@ -56,4 +59,7 @@ photocraft-cli info lavoro/fronte.pcraft --compact
 
 # esportare
 photocraft-cli convert lavoro/fronte.pcraft export/fronte.png
+
+# ricostruire il fronte dalla ricetta (apre la base, crea livelli, salva sorgente e anteprima)
+python3 scripts/pc.py scripts/fronte.json
 ```

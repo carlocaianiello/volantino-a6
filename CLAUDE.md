@@ -9,13 +9,23 @@ usando le app ArtCraft tramite MCP. Le specifiche di stampa sono nel README.
    - Se manca: esegui `bash scripts/installa-artcraft.sh` (circa 7 minuti), poi
      di' all'utente di aprire una nuova sessione perché i tool MCP compaiono solo all'avvio.
      Nel frattempo puoi lavorare con la CLI (`photocraft-cli run/convert/info`).
-2. Se i tool MCP `photocraft` sono disponibili, usali al posto della CLI.
+2. Esegui `bash scripts/installa-font.sh` (installa i font di `risorse/font/` per PhotoCraft).
+3. Se i tool MCP `photocraft` sono disponibili, usali al posto della CLI.
+   Se `doc_save`/`doc_place` rispondono "write authority is absent", il server è partito
+   senza radici di lettura/scrittura: usa `python3 scripts/pc.py passi.json`, che parla
+   con `photocraft-cli serve` sulla cartella del progetto (stessi comandi engine).
 
 ## Regole di lavoro
 
 - Formato file: 1311 × 1819 px a 300 dpi (A6 + 3 mm di abbondanza).
   Testi e loghi a almeno 95 px dal bordo del file.
 - Sorgenti modificabili in `lavoro/` (`fronte.pcraft`, `retro.pcraft`), mai solo l'export.
+  `lavoro/base-a6.pcraft` è la base vuota con le guide (rifilo in rosso, area sicura in verde).
+  Il fronte si ricostruisce da zero con `python3 scripts/pc.py scripts/fronte.json`: modifica
+  la ricetta, non solo il file, così le modifiche restano riproducibili.
+- Loghi ritagliati (con trasparenza) in `lavoro/loghi/`; prompt per le immagini AI in
+  `risorse/ai/PROMPT-IMMAGINI.md`. Il connettore Higgsfield non genera immagini e il proxy
+  blocca i link CloudFront: le immagini le genera l'utente e le allega in chat.
 - File finali e anteprime in `export/`. Prima di dire che un file è pronto,
   genera un'anteprima (`doc_render_preview` o export PNG) e guardala.
 - Materiale fornito dall'utente in `risorse/`: non modificarlo, lavora su copie.

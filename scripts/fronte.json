@@ -1,0 +1,755 @@
+[
+ {
+  "method": "doc.open",
+  "params": {
+   "path": "lavoro/base-a6.pcraft"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "path",
+   "name": "Zona nature",
+   "path": {
+    "subpaths": [
+     {
+      "closed": true,
+      "knots": [
+       [
+        0,
+        0
+       ],
+       [
+        1311,
+        0
+       ],
+       [
+        1311,
+        720
+       ],
+       [
+        0,
+        880
+       ]
+      ]
+     }
+    ]
+   },
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#e4f5b0"
+      ],
+      [
+       0.5,
+       "#8fc63f"
+      ],
+      [
+       1,
+       "#2c6410"
+      ]
+     ],
+     "angle": -35,
+     "style": "linear"
+    }
+   },
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "[provv] luce nature 1",
+   "rect": [
+    860,
+    90,
+    400,
+    400
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#ffffff"
+      ],
+      [
+       0.7,
+       "#9fb070"
+      ],
+      [
+       1,
+       "#000000"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   },
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.55,
+   "blend": "Screen"
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.55
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "[provv] luce nature 2",
+   "rect": [
+    1030,
+    430,
+    230,
+    230
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#ffffff"
+      ],
+      [
+       0.7,
+       "#9fb070"
+      ],
+      [
+       1,
+       "#000000"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   },
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.55,
+   "blend": "Screen"
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.55
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "[provv] luce nature 3",
+   "rect": [
+    700,
+    520,
+    150,
+    150
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#ffffff"
+      ],
+      [
+       0.7,
+       "#9fb070"
+      ],
+      [
+       1,
+       "#000000"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   },
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.55,
+   "blend": "Screen"
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.55
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "path",
+   "name": "Zona sport",
+   "path": {
+    "subpaths": [
+     {
+      "closed": true,
+      "knots": [
+       [
+        0,
+        902
+       ],
+       [
+        1311,
+        742
+       ],
+       [
+        1311,
+        1530
+       ],
+       [
+        0,
+        1530
+       ]
+      ]
+     }
+    ]
+   },
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#e20613"
+      ],
+      [
+       0.45,
+       "#7d0008"
+      ],
+      [
+       1,
+       "#140000"
+      ]
+     ],
+     "angle": -150,
+     "style": "linear"
+    }
+   },
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "[provv] bagliore sport",
+   "rect": [
+    -80,
+    930,
+    760,
+    760
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#ff5a5a"
+      ],
+      [
+       0.55,
+       "#8a0010"
+      ],
+      [
+       1,
+       "#000000"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   },
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.75,
+   "blend": "Screen"
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.75
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "path",
+   "name": "[provv] striscia sport 1",
+   "path": {
+    "subpaths": [
+     {
+      "closed": true,
+      "knots": [
+       [
+        0,
+        1480
+       ],
+       [
+        640,
+        960
+       ],
+       [
+        700,
+        960
+       ],
+       [
+        60,
+        1480
+       ]
+      ]
+     }
+    ]
+   },
+   "fill": "#ffffff",
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.1,
+   "blend": "Screen"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "path",
+   "name": "[provv] striscia sport 2",
+   "path": {
+    "subpaths": [
+     {
+      "closed": true,
+      "knots": [
+       [
+        120,
+        1530
+       ],
+       [
+        760,
+        1010
+       ],
+       [
+        785,
+        1010
+       ],
+       [
+        145,
+        1530
+       ]
+      ]
+     }
+    ]
+   },
+   "fill": "#ffffff",
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.07,
+   "blend": "Screen"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "path",
+   "name": "Separatore",
+   "path": {
+    "subpaths": [
+     {
+      "closed": true,
+      "knots": [
+       [
+        0,
+        880
+       ],
+       [
+        1311,
+        720
+       ],
+       [
+        1311,
+        742
+       ],
+       [
+        0,
+        902
+       ]
+      ]
+     }
+    ]
+   },
+   "fill": "#ffffff",
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.dropShadow",
+  "params": {
+   "color": "#000000",
+   "opacity": 50,
+   "angle": 120,
+   "distance": 12,
+   "size": 28
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "rect",
+   "name": "Footer",
+   "rect": [
+    0,
+    1530,
+    1311,
+    289
+   ],
+   "fill": "#ffffff",
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "rect",
+   "name": "Linea footer",
+   "rect": [
+    0,
+    1530,
+    1311,
+    10
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#a6c839"
+      ],
+      [
+       1,
+       "#e20613"
+      ]
+     ],
+     "angle": 0,
+     "style": "linear"
+    }
+   },
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "roundedRect",
+   "name": "Targa WHY nature",
+   "rect": [
+    80,
+    78,
+    590,
+    224
+   ],
+   "radii": 30,
+   "fill": "#ffffff",
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.dropShadow",
+  "params": {
+   "color": "#0b2a00",
+   "opacity": 35,
+   "angle": 120,
+   "distance": 8,
+   "size": 26
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/logo-why-nature.png",
+   "scale": 188,
+   "center": [
+    375,
+    190
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Logo WHY nature"
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 110,
+   "y": 540,
+   "text": "NUTRI IL TUO\nBENESSERE",
+   "name": "Slogan nature",
+   "font": "Bebas Neue",
+   "size": 44,
+   "leading": 40,
+   "color": "#ffffff",
+   "align": "left"
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#0b2a00",
+      "opacity": 60,
+      "angle": 120,
+      "distance": 10,
+      "size": 22
+     }
+    },
+    {
+     "kind": "outerGlow",
+     "params": {
+      "color": "#ffffff",
+      "opacity": 30,
+      "size": 34
+     }
+    },
+    {
+     "kind": "bevelEmboss",
+     "params": {
+      "style": "inner",
+      "technique": "smooth",
+      "depth": 130,
+      "size": 5,
+      "soften": 2,
+      "angle": 120,
+      "altitude": 40
+     }
+    },
+    {
+     "kind": "stroke",
+     "params": {
+      "size": 5,
+      "position": "outside",
+      "color": "#1f4d08"
+     }
+    },
+    {
+     "kind": "gradientOverlay",
+     "params": {
+      "from": "#ffffff",
+      "to": "#e9ffbf",
+      "angle": 90,
+      "style": "linear"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "edit.transform",
+  "params": {
+   "rotate": -7
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/logo-why-sport.png",
+   "scale": 187.5,
+   "center": [
+    1006,
+    935
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Logo WHY sport"
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.dropShadow",
+  "params": {
+   "color": "#000000",
+   "opacity": 55,
+   "angle": 120,
+   "distance": 8,
+   "size": 20
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 1190,
+   "y": 1250,
+   "text": "SUPERA\nI TUOI LIMITI",
+   "name": "Slogan sport",
+   "font": "Bebas Neue",
+   "size": 44,
+   "leading": 40,
+   "color": "#ffffff",
+   "align": "right"
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 70,
+      "angle": 120,
+      "distance": 10,
+      "size": 22
+     }
+    },
+    {
+     "kind": "outerGlow",
+     "params": {
+      "color": "#ff3b3b",
+      "opacity": 45,
+      "size": 40
+     }
+    },
+    {
+     "kind": "bevelEmboss",
+     "params": {
+      "style": "inner",
+      "technique": "smooth",
+      "depth": 130,
+      "size": 5,
+      "soften": 2,
+      "angle": 120,
+      "altitude": 40
+     }
+    },
+    {
+     "kind": "stroke",
+     "params": {
+      "size": 5,
+      "position": "outside",
+      "color": "#4a0000"
+     }
+    },
+    {
+     "kind": "gradientOverlay",
+     "params": {
+      "from": "#ffffff",
+      "to": "#ffd9d9",
+      "angle": 90,
+      "style": "linear"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "edit.transform",
+  "params": {
+   "rotate": -7
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 655,
+   "y": 1585,
+   "text": "IN COLLABORAZIONE CON",
+   "name": "Testo footer",
+   "font": "Montserrat",
+   "weight": 600,
+   "size": 8.5,
+   "tracking": 240,
+   "color": "#4a4a4a",
+   "align": "center"
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/logo-nutrihangar.webp",
+   "scale": 26,
+   "center": [
+    355,
+    1660
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Logo Nutrihangar"
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "lavoro/loghi/radio-swm.png",
+   "scale": 18,
+   "center": [
+    1100,
+    1660
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Logo Radio SWM"
+  }
+ },
+ {
+  "cmd": "layer.list"
+ },
+ {
+  "method": "doc.save",
+  "params": {
+   "path": "lavoro/fronte.pcraft"
+  }
+ },
+ {
+  "method": "doc.save",
+  "params": {
+   "path": "export/anteprima-fronte.png"
+  }
+ }
+]
