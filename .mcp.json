@@ -2,7 +2,11 @@
   "mcpServers": {
     "photocraft": {
       "command": "photocraft-cli",
-      "args": ["mcp"]
+      "args": [
+        "mcp",
+        "--automation-read-root", ".",
+        "--automation-write-root", "."
+      ]
     }
   }
 }
