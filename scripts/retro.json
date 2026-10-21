@@ -1623,6 +1623,190 @@
   }
  },
  {
+  "cmd": "type.create",
+  "params": {
+   "x": 95,
+   "y": 1436,
+   "text": "IL CODICE SCONTO",
+   "name": "Footer: IL CODICE SCONTO",
+   "font": "Montserrat",
+   "weight": 800,
+   "size": 8.5,
+   "tracking": 160,
+   "color": "#e8c058",
+   "align": "left"
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 70,
+      "angle": 120,
+      "distance": 4,
+      "size": 6
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 95,
+   "y": 1474,
+   "text": "•  Valido sul primo ordine\n•  Spesa minima 50 €\n•  Non cumulabile con altre offerte",
+   "name": "Footer: condizioni",
+   "font": "Montserrat",
+   "weight": 500,
+   "size": 8,
+   "leading": 9.1,
+   "color": "#ffffff",
+   "align": "left"
+  }
+ },
+ {
+  "cmd": "type.edit",
+  "params": {
+   "runs": [
+    {
+     "start": 0,
+     "end": 1,
+     "color": "#e8c058",
+     "size": 11,
+     "weight": 800
+    },
+    {
+     "start": 27,
+     "end": 28,
+     "color": "#e8c058",
+     "size": 11,
+     "weight": 800
+    },
+    {
+     "start": 48,
+     "end": 49,
+     "color": "#e8c058",
+     "size": 11,
+     "weight": 800
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 70,
+      "angle": 120,
+      "distance": 4,
+      "size": 6
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 95,
+   "y": 1602,
+   "text": "DOPO IL PRIMO ORDINE",
+   "name": "Footer: DOPO IL PRIMO ORDINE",
+   "font": "Montserrat",
+   "weight": 800,
+   "size": 8.5,
+   "tracking": 160,
+   "color": "#e8c058",
+   "align": "left"
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 70,
+      "angle": 120,
+      "distance": 4,
+      "size": 6
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 95,
+   "y": 1640,
+   "text": "•  Entri nel Programma Fedeltà\n•  Sconti a vita fino al 20%\n•  Un omaggio in ogni pacco",
+   "name": "Footer: fedeltà",
+   "font": "Montserrat",
+   "weight": 500,
+   "size": 8,
+   "leading": 9.1,
+   "color": "#ffffff",
+   "align": "left"
+  }
+ },
+ {
+  "cmd": "type.edit",
+  "params": {
+   "runs": [
+    {
+     "start": 0,
+     "end": 1,
+     "color": "#e8c058",
+     "size": 11,
+     "weight": 800
+    },
+    {
+     "start": 31,
+     "end": 32,
+     "color": "#e8c058",
+     "size": 11,
+     "weight": 800
+    },
+    {
+     "start": 60,
+     "end": 61,
+     "color": "#e8c058",
+     "size": 11,
+     "weight": 800
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 70,
+      "angle": 120,
+      "distance": 4,
+      "size": 6
+     }
+    }
+   ]
+  }
+ },
+ {
   "cmd": "layer.list",
   "params": {}
  },

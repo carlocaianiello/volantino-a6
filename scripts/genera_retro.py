@@ -126,6 +126,27 @@ steps += [
            center=[1276 - MARGINE - QR_LATO // 2, PIEDE_TOP + MARGINE + QR_LATO // 2]),
     cmd("layer.renameLayer", name="QR code"),
     cmd("layer.layerStyle.dropShadow", color="#000000", opacity=60, angle=120, distance=6, size=18),
+]
+
+# --- footer: termini a sinistra del QR, due blocchi (codice sconto / programma fedeltà)
+ORO_TESTO = "#e8c058"
+FX_TESTO = [{"kind": "dropShadow", "params": {"color": "#000000", "opacity": 70, "angle": 120, "distance": 4, "size": 6}}]
+def titoletto(testo, y):
+    return [cmd("type.create", x=95, y=y, text=testo, name=f"Footer: {testo}", font="Montserrat", weight=800, size=8.5,
+                tracking=160, color=ORO_TESTO, align="left"),
+            cmd("layer.layerStyle.replace", effects=FX_TESTO)]
+def elenco(righe, y, nome):
+    testo = "\n".join("•  " + r for r in righe)
+    inizi = [sum(len(r) + 3 + 1 for r in righe[:i]) for i in range(len(righe))]   # indice del "•" di ogni riga
+    return [cmd("type.create", x=95, y=y, text=testo, name=nome, font="Montserrat", weight=500,
+                size=8, leading=9.1, color="#ffffff", align="left"),
+            cmd("type.edit", runs=[{"start": i, "end": i + 1, "color": ORO_TESTO, "size": 11, "weight": 800} for i in inizi]),
+            cmd("layer.layerStyle.replace", effects=FX_TESTO)]
+steps += titoletto("IL CODICE SCONTO", 1436)
+steps += elenco(["Valido sul primo ordine", "Spesa minima 50 €", "Non cumulabile con altre offerte"], 1474, "Footer: condizioni")
+steps += titoletto("DOPO IL PRIMO ORDINE", 1602)
+steps += elenco(["Entri nel Programma Fedeltà", "Sconti a vita fino al 20%", "Un omaggio in ogni pacco"], 1640, "Footer: fedeltà")
+steps += [
     {"cmd": "layer.list", "params": {}},
     method("doc.save", path="lavoro/retro.pcraft"),
     method("doc.save", path="export/anteprima-retro.png"),
