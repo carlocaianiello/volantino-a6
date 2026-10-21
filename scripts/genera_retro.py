@@ -132,20 +132,24 @@ steps += [
 import re, subprocess, sys, tempfile
 ORO_TESTO = "#e8c058"
 FX_TESTO = [{"kind": "dropShadow", "params": {"color": "#000000", "opacity": 70, "angle": 120, "distance": 4, "size": 6}}]
-TITOLO = dict(font="Cinzel", weight=700, size=8.5, tracking=90, color=ORO_TESTO)
-RIGA = dict(font="Raleway", weight=500, size=8, color="#ffffff")
+TITOLO = dict(font="Cinzel", weight=700, size=8, tracking=90, color=ORO_TESTO)
+RIGA = dict(font="Raleway", weight=500, size=7.5, color="#ffffff")
+NOTA = dict(font="Raleway", weight=400, size=5.5, italic=True, color="#c8c8c8")
 RIGHE = [  # (tipo, testo, distanza dalla riga precedente in px)
     ("titolo", "IL CODICE SCONTO", 0),
-    ("punto", "Applicato automaticamente al check-out", 38),
-    ("punto", "Valido sul primo ordine", 34),
-    ("punto", "Spesa minima 50 €", 34),
-    ("punto", "Non cumulabile con altre offerte", 34),
-    ("titolo", "UN OMAGGIO IN OGNI PACCO", 46),
-    ("titolo", "PROGRAMMA FEDELTÀ", 44),
-    ("punto", "Dal 2° ordine, sconti a vita fino al 20%", 38),
+    ("punto", "Applicato automaticamente al check-out", 35),
+    ("punto", "Valido sul primo ordine", 31),
+    ("punto", "Spesa minima 50 €", 31),
+    ("punto", "Non cumulabile con altre offerte", 31),
+    ("titolo", "UN OMAGGIO IN OGNI PACCO", 42),
+    ("titolo", "PROGRAMMA FEDELTÀ", 40),
+    ("punto", "Dal 2° ordine, sconti a vita fino al 20%", 35),
+    ("nota", "Ci riserviamo di annullare lo sconto e bloccare il cliente", 32),
+    ("nota", "in caso di qualsiasi tentativo di utilizzo multiplo o di abuso.", 24),
 ]
 def spec_riga(tipo, testo):
     if tipo == "titolo": return dict(text=testo, align="left", **TITOLO)
+    if tipo == "nota": return dict(text=testo, align="left", **NOTA)
     return dict(text="•  " + testo, align="left", **RIGA)
 
 def misura_larghezze(specs):
@@ -165,14 +169,14 @@ specs = [spec_riga(t, x) for t, x, _ in RIGHE]
 larghezze = misura_larghezze(specs)
 blocco_w = max(larghezze)
 sinistra = max(95, round(495 - blocco_w / 2))                 # centro dello spazio 95..895
-altezza = sum(d for _, _, d in RIGHE) + 25 + 8               # dalla cima del primo titolo al piede dell'ultima riga
-y = round(1593 - altezza / 2) + 25                           # prima linea di base, blocco centrato sul QR (centro 1593)
+altezza = sum(d for _, _, d in RIGHE) + 23 + 5               # dalla cima del primo titolo al piede dell'ultima riga
+y = round(1580 - altezza / 2) + 23                           # prima linea di base, blocco centrato sul QR
 print(f"footer: blocco {blocco_w} px largo, {altezza} px alto, sinistra {sinistra}, prima base {y}")
 for (tipo, testo, dist), sp in zip(RIGHE, specs):
     y += dist
     steps += [cmd("type.create", x=sinistra, y=y, name=f"Footer: {testo}", **sp)]
     if tipo == "punto":
-        steps += [cmd("type.edit", runs=[{"start": 0, "end": 1, "color": ORO_TESTO, "size": 11, "weight": 800}])]
+        steps += [cmd("type.edit", runs=[{"start": 0, "end": 1, "color": ORO_TESTO, "size": 10, "weight": 800}])]
     steps += [cmd("layer.layerStyle.replace", effects=FX_TESTO)]
 
 steps += [

@@ -1625,14 +1625,14 @@
  {
   "cmd": "type.create",
   "params": {
-   "x": 162,
-   "y": 1467,
+   "x": 184,
+   "y": 1439,
    "name": "Footer: IL CODICE SCONTO",
    "text": "IL CODICE SCONTO",
    "align": "left",
    "font": "Cinzel",
    "weight": 700,
-   "size": 8.5,
+   "size": 8,
    "tracking": 90,
    "color": "#e8c058"
   }
@@ -1657,14 +1657,14 @@
  {
   "cmd": "type.create",
   "params": {
-   "x": 162,
-   "y": 1505,
+   "x": 184,
+   "y": 1474,
    "name": "Footer: Applicato automaticamente al check-out",
    "text": "•  Applicato automaticamente al check-out",
    "align": "left",
    "font": "Raleway",
    "weight": 500,
-   "size": 8,
+   "size": 7.5,
    "color": "#ffffff"
   }
  },
@@ -1676,7 +1676,7 @@
      "start": 0,
      "end": 1,
      "color": "#e8c058",
-     "size": 11,
+     "size": 10,
      "weight": 800
     }
    ]
@@ -1702,14 +1702,14 @@
  {
   "cmd": "type.create",
   "params": {
-   "x": 162,
-   "y": 1539,
+   "x": 184,
+   "y": 1505,
    "name": "Footer: Valido sul primo ordine",
    "text": "•  Valido sul primo ordine",
    "align": "left",
    "font": "Raleway",
    "weight": 500,
-   "size": 8,
+   "size": 7.5,
    "color": "#ffffff"
   }
  },
@@ -1721,7 +1721,7 @@
      "start": 0,
      "end": 1,
      "color": "#e8c058",
-     "size": 11,
+     "size": 10,
      "weight": 800
     }
    ]
@@ -1747,14 +1747,14 @@
  {
   "cmd": "type.create",
   "params": {
-   "x": 162,
-   "y": 1573,
+   "x": 184,
+   "y": 1536,
    "name": "Footer: Spesa minima 50 €",
    "text": "•  Spesa minima 50 €",
    "align": "left",
    "font": "Raleway",
    "weight": 500,
-   "size": 8,
+   "size": 7.5,
    "color": "#ffffff"
   }
  },
@@ -1766,7 +1766,7 @@
      "start": 0,
      "end": 1,
      "color": "#e8c058",
-     "size": 11,
+     "size": 10,
      "weight": 800
     }
    ]
@@ -1792,14 +1792,14 @@
  {
   "cmd": "type.create",
   "params": {
-   "x": 162,
-   "y": 1607,
+   "x": 184,
+   "y": 1567,
    "name": "Footer: Non cumulabile con altre offerte",
    "text": "•  Non cumulabile con altre offerte",
    "align": "left",
    "font": "Raleway",
    "weight": 500,
-   "size": 8,
+   "size": 7.5,
    "color": "#ffffff"
   }
  },
@@ -1811,7 +1811,7 @@
      "start": 0,
      "end": 1,
      "color": "#e8c058",
-     "size": 11,
+     "size": 10,
      "weight": 800
     }
    ]
@@ -1837,14 +1837,14 @@
  {
   "cmd": "type.create",
   "params": {
-   "x": 162,
-   "y": 1653,
+   "x": 184,
+   "y": 1609,
    "name": "Footer: UN OMAGGIO IN OGNI PACCO",
    "text": "UN OMAGGIO IN OGNI PACCO",
    "align": "left",
    "font": "Cinzel",
    "weight": 700,
-   "size": 8.5,
+   "size": 8,
    "tracking": 90,
    "color": "#e8c058"
   }
@@ -1869,14 +1869,14 @@
  {
   "cmd": "type.create",
   "params": {
-   "x": 162,
-   "y": 1697,
+   "x": 184,
+   "y": 1649,
    "name": "Footer: PROGRAMMA FEDELTÀ",
    "text": "PROGRAMMA FEDELTÀ",
    "align": "left",
    "font": "Cinzel",
    "weight": 700,
-   "size": 8.5,
+   "size": 8,
    "tracking": 90,
    "color": "#e8c058"
   }
@@ -1901,14 +1901,14 @@
  {
   "cmd": "type.create",
   "params": {
-   "x": 162,
-   "y": 1735,
+   "x": 184,
+   "y": 1684,
    "name": "Footer: Dal 2° ordine, sconti a vita fino al 20%",
    "text": "•  Dal 2° ordine, sconti a vita fino al 20%",
    "align": "left",
    "font": "Raleway",
    "weight": 500,
-   "size": 8,
+   "size": 7.5,
    "color": "#ffffff"
   }
  },
@@ -1920,10 +1920,74 @@
      "start": 0,
      "end": 1,
      "color": "#e8c058",
-     "size": 11,
+     "size": 10,
      "weight": 800
     }
    ]
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 70,
+      "angle": 120,
+      "distance": 4,
+      "size": 6
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 184,
+   "y": 1716,
+   "name": "Footer: Ci riserviamo di annullare lo sconto e bloccare il cliente",
+   "text": "Ci riserviamo di annullare lo sconto e bloccare il cliente",
+   "align": "left",
+   "font": "Raleway",
+   "weight": 400,
+   "size": 5.5,
+   "italic": true,
+   "color": "#c8c8c8"
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 70,
+      "angle": 120,
+      "distance": 4,
+      "size": 6
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 184,
+   "y": 1740,
+   "name": "Footer: in caso di qualsiasi tentativo di utilizzo multiplo o di abuso.",
+   "text": "in caso di qualsiasi tentativo di utilizzo multiplo o di abuso.",
+   "align": "left",
+   "font": "Raleway",
+   "weight": 400,
+   "size": 5.5,
+   "italic": true,
+   "color": "#c8c8c8"
   }
  },
  {
