@@ -69,6 +69,7 @@
     400,
     400
    ],
+   "stroke": null,
    "fill": {
     "gradient": {
      "stops": [
@@ -88,8 +89,7 @@
      "style": "radial",
      "angle": 0
     }
-   },
-   "stroke": null
+   }
   }
  },
  {
@@ -97,12 +97,6 @@
   "params": {
    "opacity": 0.55,
    "blend": "Screen"
-  }
- },
- {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.55
   }
  },
  {
@@ -116,6 +110,7 @@
     230,
     230
    ],
+   "stroke": null,
    "fill": {
     "gradient": {
      "stops": [
@@ -135,8 +130,7 @@
      "style": "radial",
      "angle": 0
     }
-   },
-   "stroke": null
+   }
   }
  },
  {
@@ -144,12 +138,6 @@
   "params": {
    "opacity": 0.55,
    "blend": "Screen"
-  }
- },
- {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.55
   }
  },
  {
@@ -163,6 +151,7 @@
     150,
     150
    ],
+   "stroke": null,
    "fill": {
     "gradient": {
      "stops": [
@@ -182,8 +171,7 @@
      "style": "radial",
      "angle": 0
     }
-   },
-   "stroke": null
+   }
   }
  },
  {
@@ -191,12 +179,6 @@
   "params": {
    "opacity": 0.55,
    "blend": "Screen"
-  }
- },
- {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.55
   }
  },
  {
@@ -263,6 +245,7 @@
     760,
     760
    ],
+   "stroke": null,
    "fill": {
     "gradient": {
      "stops": [
@@ -282,8 +265,7 @@
      "style": "radial",
      "angle": 0
     }
-   },
-   "stroke": null
+   }
   }
  },
  {
@@ -294,16 +276,12 @@
   }
  },
  {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.75
-  }
- },
- {
   "cmd": "shape.create",
   "params": {
    "kind": "path",
    "name": "[provv] striscia sport 1",
+   "fill": "#ffffff",
+   "stroke": null,
    "path": {
     "subpaths": [
      {
@@ -328,9 +306,7 @@
       ]
      }
     ]
-   },
-   "fill": "#ffffff",
-   "stroke": null
+   }
   }
  },
  {
@@ -345,6 +321,8 @@
   "params": {
    "kind": "path",
    "name": "[provv] striscia sport 2",
+   "fill": "#ffffff",
+   "stroke": null,
    "path": {
     "subpaths": [
      {
@@ -369,9 +347,7 @@
       ]
      }
     ]
-   },
-   "fill": "#ffffff",
-   "stroke": null
+   }
   }
  },
  {
@@ -386,6 +362,8 @@
   "params": {
    "kind": "path",
    "name": "Separatore",
+   "fill": "#ffffff",
+   "stroke": null,
    "path": {
     "subpaths": [
      {
@@ -410,9 +388,7 @@
       ]
      }
     ]
-   },
-   "fill": "#ffffff",
-   "stroke": null
+   }
   }
  },
  {
@@ -451,6 +427,7 @@
     1311,
     10
    ],
+   "stroke": null,
    "fill": {
     "gradient": {
      "stops": [
@@ -466,8 +443,7 @@
      "angle": 0,
      "style": "linear"
     }
-   },
-   "stroke": null
+   }
   }
  },
  {
@@ -516,13 +492,12 @@
  {
   "cmd": "type.create",
   "params": {
-   "x": 110,
-   "y": 540,
-   "text": "NUTRI IL TUO\nBENESSERE",
-   "name": "Slogan nature",
-   "font": "Bebas Neue",
-   "size": 44,
-   "leading": 40,
+   "x": 118,
+   "y": 448,
+   "text": "Nutri il tuo",
+   "name": "Slogan nature 1",
+   "font": "Kaushan Script",
+   "size": 30,
    "color": "#ffffff",
    "align": "left"
   }
@@ -534,48 +509,27 @@
     {
      "kind": "dropShadow",
      "params": {
-      "color": "#0b2a00",
-      "opacity": 60,
+      "color": "#1b4a06",
+      "opacity": 70,
       "angle": 120,
-      "distance": 10,
-      "size": 22
+      "distance": 8,
+      "size": 12
      }
     },
     {
      "kind": "outerGlow",
      "params": {
-      "color": "#ffffff",
-      "opacity": 30,
-      "size": 34
-     }
-    },
-    {
-     "kind": "bevelEmboss",
-     "params": {
-      "style": "inner",
-      "technique": "smooth",
-      "depth": 130,
-      "size": 5,
-      "soften": 2,
-      "angle": 120,
-      "altitude": 40
+      "color": "#d9ff8a",
+      "opacity": 60,
+      "size": 26
      }
     },
     {
      "kind": "stroke",
      "params": {
-      "size": 5,
+      "size": 3,
       "position": "outside",
-      "color": "#1f4d08"
-     }
-    },
-    {
-     "kind": "gradientOverlay",
-     "params": {
-      "from": "#ffffff",
-      "to": "#e9ffbf",
-      "angle": 90,
-      "style": "linear"
+      "color": "#1b4a06"
      }
     }
    ]
@@ -584,7 +538,123 @@
  {
   "cmd": "edit.transform",
   "params": {
-   "rotate": -7
+   "matrix": [
+    0.992546151641322,
+    -0.12186934340514748,
+    0.12186934340514748,
+    0.992546151641322,
+    -78.39514989389127,
+    18.250629207706993
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 110,
+   "y": 650,
+   "text": "BENESSERE",
+   "name": "Slogan nature 2",
+   "font": "Anton",
+   "size": 46,
+   "color": "#ffffff",
+   "align": "left"
+  }
+ },
+ {
+  "cmd": "type.convertToShape",
+  "params": {}
+ },
+ {
+  "cmd": "shape.edit",
+  "params": {
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#ffffff"
+      ],
+      [
+       0.42,
+       "#f1ffd2"
+      ],
+      [
+       0.5,
+       "#a8dd4a"
+      ],
+      [
+       0.58,
+       "#f1ffd2"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "angle": 90,
+     "style": "linear"
+    }
+   },
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 70,
+      "angle": 120,
+      "distance": 16,
+      "size": 10
+     }
+    },
+    {
+     "kind": "outerGlow",
+     "params": {
+      "color": "#d9ff8a",
+      "opacity": 55,
+      "size": 34
+     }
+    },
+    {
+     "kind": "bevelEmboss",
+     "params": {
+      "style": "inner",
+      "technique": "chiselHard",
+      "depth": 220,
+      "size": 8,
+      "soften": 1,
+      "angle": 120,
+      "altitude": 45
+     }
+    },
+    {
+     "kind": "stroke",
+     "params": {
+      "size": 7,
+      "position": "outside",
+      "color": "#1b4a06"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "edit.transform",
+  "params": {
+   "matrix": [
+    0.992546151641322,
+    -0.12186934340514748,
+    0.12186934340514748,
+    0.992546151641322,
+    -78.39514989389127,
+    18.250629207706993
+   ]
   }
  },
  {
@@ -617,15 +687,111 @@
  {
   "cmd": "type.create",
   "params": {
-   "x": 1190,
-   "y": 1250,
-   "text": "SUPERA\nI TUOI LIMITI",
-   "name": "Slogan sport",
-   "font": "Bebas Neue",
-   "size": 44,
-   "leading": 40,
+   "x": 1182,
+   "y": 1183,
+   "text": "Supera i tuoi",
+   "name": "Slogan sport 1",
+   "font": "Kaushan Script",
+   "size": 30,
    "color": "#ffffff",
    "align": "right"
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#3a0000",
+      "opacity": 70,
+      "angle": 120,
+      "distance": 8,
+      "size": 12
+     }
+    },
+    {
+     "kind": "outerGlow",
+     "params": {
+      "color": "#ff6a6a",
+      "opacity": 60,
+      "size": 26
+     }
+    },
+    {
+     "kind": "stroke",
+     "params": {
+      "size": 3,
+      "position": "outside",
+      "color": "#3a0000"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "edit.transform",
+  "params": {
+   "matrix": [
+    0.992546151641322,
+    -0.12186934340514748,
+    0.12186934340514748,
+    0.992546151641322,
+    -164.1843880884825,
+    155.60898332144848
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 1190,
+   "y": 1420,
+   "text": "LIMITI",
+   "name": "Slogan sport 2",
+   "font": "Anton",
+   "size": 60,
+   "color": "#ffffff",
+   "align": "right"
+  }
+ },
+ {
+  "cmd": "type.convertToShape",
+  "params": {}
+ },
+ {
+  "cmd": "shape.edit",
+  "params": {
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#ffffff"
+      ],
+      [
+       0.42,
+       "#ffe6e6"
+      ],
+      [
+       0.5,
+       "#ff3a3a"
+      ],
+      [
+       0.58,
+       "#ffe6e6"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "angle": 90,
+     "style": "linear"
+    }
+   },
+   "stroke": null
   }
  },
  {
@@ -638,45 +804,36 @@
       "color": "#000000",
       "opacity": 70,
       "angle": 120,
-      "distance": 10,
-      "size": 22
+      "distance": 16,
+      "size": 10
      }
     },
     {
      "kind": "outerGlow",
      "params": {
       "color": "#ff3b3b",
-      "opacity": 45,
-      "size": 40
+      "opacity": 55,
+      "size": 34
      }
     },
     {
      "kind": "bevelEmboss",
      "params": {
       "style": "inner",
-      "technique": "smooth",
-      "depth": 130,
-      "size": 5,
-      "soften": 2,
+      "technique": "chiselHard",
+      "depth": 220,
+      "size": 8,
+      "soften": 1,
       "angle": 120,
-      "altitude": 40
+      "altitude": 45
      }
     },
     {
      "kind": "stroke",
      "params": {
-      "size": 5,
+      "size": 7,
       "position": "outside",
-      "color": "#4a0000"
-     }
-    },
-    {
-     "kind": "gradientOverlay",
-     "params": {
-      "from": "#ffffff",
-      "to": "#ffd9d9",
-      "angle": 90,
-      "style": "linear"
+      "color": "#3a0000"
      }
     }
    ]
@@ -685,7 +842,14 @@
  {
   "cmd": "edit.transform",
   "params": {
-   "rotate": -7
+   "matrix": [
+    0.992546151641322,
+    -0.12186934340514748,
+    0.12186934340514748,
+    0.992546151641322,
+    -164.1843880884825,
+    155.60898332144848
+   ]
   }
  },
  {
@@ -696,10 +860,10 @@
    "text": "IN COLLABORAZIONE CON",
    "name": "Testo footer",
    "font": "Montserrat",
-   "weight": 600,
-   "size": 8.5,
-   "tracking": 240,
-   "color": "#4a4a4a",
+   "weight": 700,
+   "size": 8,
+   "tracking": 260,
+   "color": "#333333",
    "align": "center"
   }
  },
@@ -738,7 +902,8 @@
   }
  },
  {
-  "cmd": "layer.list"
+  "cmd": "layer.list",
+  "params": {}
  },
  {
   "method": "doc.save",
