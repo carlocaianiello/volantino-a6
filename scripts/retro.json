@@ -1598,13 +1598,102 @@
  {
   "cmd": "shape.create",
   "params": {
-   "kind": "ellipse",
-   "name": "Badge omaggio",
+   "kind": "star",
+   "name": "Badge omaggio (sigillo)",
    "rect": [
-    995,
-    435,
-    220,
-    220
+    984,
+    407,
+    232,
+    232
+   ],
+   "sides": 30,
+   "starRatio": 0.9,
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#fff3c4"
+      ],
+      [
+       0.3,
+       "#e8c058"
+      ],
+      [
+       0.5,
+       "#fff8dc"
+      ],
+      [
+       0.7,
+       "#b8860b"
+      ],
+      [
+       1,
+       "#ffe9a8"
+      ]
+     ],
+     "angle": 60,
+     "style": "linear"
+    }
+   },
+   "stroke": {
+    "width": 2,
+    "color": "#3a2a00",
+    "align": "inside"
+   }
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 80,
+      "angle": 120,
+      "distance": 10,
+      "size": 20
+     }
+    },
+    {
+     "kind": "bevelEmboss",
+     "params": {
+      "style": "inner",
+      "technique": "smooth",
+      "depth": 160,
+      "size": 6,
+      "angle": 120,
+      "altitude": 45
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "edit.transform",
+  "params": {
+   "matrix": [
+    0.984807753012208,
+    -0.17364817766693033,
+    0.17364817766693033,
+    0.984807753012208,
+    -74.1065252332333,
+    198.95854060823854
+   ]
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Badge omaggio (centro)",
+   "rect": [
+    1006,
+    429,
+    188,
+    188
    ],
    "fill": {
     "gradient": {
@@ -1623,20 +1712,20 @@
     }
    },
    "stroke": {
-    "width": 7,
-    "color": "#e8c058",
+    "width": 3,
+    "color": "#fff3c4",
     "align": "inside"
    }
   }
  },
  {
-  "cmd": "layer.layerStyle.dropShadow",
+  "cmd": "layer.layerStyle.innerShadow",
   "params": {
    "color": "#000000",
-   "opacity": 75,
+   "opacity": 60,
    "angle": 120,
-   "distance": 10,
-   "size": 18
+   "distance": 4,
+   "size": 10
   }
  },
  {
@@ -1647,54 +1736,60 @@
     -0.17364817766693033,
     0.17364817766693033,
     0.984807753012208,
-    -77.85082390696691,
-    200.16101093030466
-   ]
-  }
- },
- {
-  "cmd": "shape.create",
-  "params": {
-   "kind": "ellipse",
-   "name": "Badge omaggio (anello)",
-   "rect": [
-    1008,
-    448,
-    194,
-    194
-   ],
-   "fill": null,
-   "stroke": {
-    "width": 2,
-    "color": "#e8c058",
-    "align": "center"
-   }
-  }
- },
- {
-  "cmd": "edit.transform",
-  "params": {
-   "matrix": [
-    0.984807753012208,
-    -0.17364817766693033,
-    0.17364817766693033,
-    0.984807753012208,
-    -77.85082390696691,
-    200.16101093030466
+    -74.1065252332333,
+    198.95854060823854
    ]
   }
  },
  {
   "cmd": "type.create",
   "params": {
-   "x": 1105,
-   "y": 541,
+   "x": 1100,
+   "y": 521,
    "text": "OMAGGIO",
    "name": "Badge: OMAGGIO",
    "font": "Anton",
-   "size": 13,
+   "size": 13.5,
    "align": "center",
-   "color": "#e8c058"
+   "color": "#ffffff"
+  }
+ },
+ {
+  "cmd": "type.convertToShape",
+  "params": {}
+ },
+ {
+  "cmd": "shape.edit",
+  "params": {
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#fff3c4"
+      ],
+      [
+       0.3,
+       "#e8c058"
+      ],
+      [
+       0.5,
+       "#fff8dc"
+      ],
+      [
+       0.7,
+       "#b8860b"
+      ],
+      [
+       1,
+       "#ffe9a8"
+      ]
+     ],
+     "angle": 90,
+     "style": "linear"
+    }
+   },
+   "stroke": null
   }
  },
  {
@@ -1705,10 +1800,18 @@
      "kind": "dropShadow",
      "params": {
       "color": "#000000",
-      "opacity": 70,
+      "opacity": 80,
       "angle": 120,
-      "distance": 3,
+      "distance": 4,
       "size": 4
+     }
+    },
+    {
+     "kind": "stroke",
+     "params": {
+      "size": 2,
+      "position": "outside",
+      "color": "#2a1d00"
      }
     }
    ]
@@ -1722,22 +1825,22 @@
     -0.17364817766693033,
     0.17364817766693033,
     0.984807753012208,
-    -77.85082390696691,
-    200.16101093030466
+    -74.1065252332333,
+    198.95854060823854
    ]
   }
  },
  {
   "cmd": "type.create",
   "params": {
-   "x": 1105,
-   "y": 575,
+   "x": 1100,
+   "y": 555,
    "text": "IN OGNI PACCO",
    "name": "Badge: in ogni pacco",
    "font": "Inter",
    "weight": 700,
    "size": 5.5,
-   "tracking": 60,
+   "tracking": 80,
    "align": "center",
    "color": "#ffffff"
   }
@@ -1750,8 +1853,8 @@
     -0.17364817766693033,
     0.17364817766693033,
     0.984807753012208,
-    -77.85082390696691,
-    200.16101093030466
+    -74.1065252332333,
+    198.95854060823854
    ]
   }
  },

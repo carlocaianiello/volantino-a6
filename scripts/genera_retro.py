@@ -119,24 +119,34 @@ steps += [cmd("type.edit", runs=[{"start": 3, "end": 13, "color": "#a6c839"}, {"
 
 # --- badge adesivo "OMAGGIO IN OGNI PACCO", in alto a destra accanto a "DI SCONTO"
 import math
-BADGE_C, BADGE_D, BADGE_ROT = (1105, 545), 220, -10
+BADGE_C, BADGE_D, BADGE_ROT = (1100, 523), 232, -10
 def ruota(deg, px, py):
     t = math.radians(deg); a, b = math.cos(t), math.sin(t); c, d = -b, a
     return [a, b, c, d, px - a*px - c*py, py - b*px - d*py]
 GIRA = cmd("edit.transform", matrix=ruota(BADGE_ROT, *BADGE_C))
-bx, by = BADGE_C[0] - BADGE_D // 2, BADGE_C[1] - BADGE_D // 2
+def quadrato(d): return [BADGE_C[0] - d // 2, BADGE_C[1] - d // 2, d, d]
 steps += [
-    cmd("shape.create", kind="ellipse", name="Badge omaggio", rect=[bx, by, BADGE_D, BADGE_D],
+    # sigillo smerlato in oro metallico
+    cmd("shape.create", kind="star", name="Badge omaggio (sigillo)", rect=quadrato(BADGE_D), sides=30, starRatio=0.9,
+        fill={"gradient": {"stops": ORO, "angle": 60, "style": "linear"}}, stroke={"width": 2, "color": "#3a2a00", "align": "inside"}),
+    cmd("layer.layerStyle.replace", effects=[
+        {"kind": "dropShadow", "params": {"color": "#000000", "opacity": 80, "angle": 120, "distance": 10, "size": 20}},
+        {"kind": "bevelEmboss", "params": {"style": "inner", "technique": "smooth", "depth": 160, "size": 6, "angle": 120, "altitude": 45}}]), GIRA,
+    # centro scuro con bordo oro
+    cmd("shape.create", kind="ellipse", name="Badge omaggio (centro)", rect=quadrato(BADGE_D - 44),
         fill={"gradient": {"stops": [[0, "#4a3612"], [1, "#0e0902"]], "style": "radial", "angle": 0}},
-        stroke={"width": 7, "color": "#e8c058", "align": "inside"}),
-    cmd("layer.layerStyle.dropShadow", color="#000000", opacity=75, angle=120, distance=10, size=18), GIRA,
-    cmd("shape.create", kind="ellipse", name="Badge omaggio (anello)", rect=[bx + 13, by + 13, BADGE_D - 26, BADGE_D - 26],
-        fill=None, stroke={"width": 2, "color": "#e8c058", "align": "center"}), GIRA,
-    cmd("type.create", x=BADGE_C[0], y=BADGE_C[1] - 4, text="OMAGGIO", name="Badge: OMAGGIO", font="Anton", size=13,
-        align="center", color="#e8c058"),
-    cmd("layer.layerStyle.replace", effects=[{"kind": "dropShadow", "params": {"color": "#000000", "opacity": 70, "angle": 120, "distance": 3, "size": 4}}]), GIRA,
-    cmd("type.create", x=BADGE_C[0], y=BADGE_C[1] + 30, text="IN OGNI PACCO", name="Badge: in ogni pacco", font="Inter", weight=700,
-        size=5.5, tracking=60, align="center", color="#ffffff"), GIRA,
+        stroke={"width": 3, "color": "#fff3c4", "align": "inside"}),
+    cmd("layer.layerStyle.innerShadow", color="#000000", opacity=60, angle=120, distance=4, size=10), GIRA,
+    # testi
+    cmd("type.create", x=BADGE_C[0], y=BADGE_C[1] - 2, text="OMAGGIO", name="Badge: OMAGGIO", font="Anton", size=13.5,
+        align="center", color="#ffffff"),
+    cmd("type.convertToShape"),
+    cmd("shape.edit", fill={"gradient": {"stops": ORO, "angle": 90, "style": "linear"}}, stroke=None),
+    cmd("layer.layerStyle.replace", effects=[
+        {"kind": "dropShadow", "params": {"color": "#000000", "opacity": 80, "angle": 120, "distance": 4, "size": 4}},
+        {"kind": "stroke", "params": {"size": 2, "position": "outside", "color": "#2a1d00"}}]), GIRA,
+    cmd("type.create", x=BADGE_C[0], y=BADGE_C[1] + 32, text="IN OGNI PACCO", name="Badge: in ogni pacco", font="Inter", weight=700,
+        size=5.5, tracking=80, align="center", color="#ffffff"), GIRA,
 ]
 
 # --- footer: QR a tutta altezza (pavimento sotto il bancone fino al rifilo), con pochi px di margine
