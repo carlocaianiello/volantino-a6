@@ -49,10 +49,14 @@ for m in misure:
     centro = [round(cx - m["dx"]), round(BASE_Y - m["dy"])]                      # centro del livello
     centro_rifl = [centro[0], round(2 * BASE_Y - centro[1])]                     # specchiato sulla linea d'appoggio
     steps += [
-        cmd("shape.create", kind="ellipse", name=f"Ombra {m['nome']}", stroke=None,
-            rect=[round(cx - m["bw"] / 2 - 14), BASE_Y - 10, round(m["bw"] + 28), 22],
+        cmd("shape.create", kind="ellipse", name=f"Ombra ampia {m['nome']}", stroke=None,
+            rect=[round(cx - m["bw"] / 2 - 26), BASE_Y - 16, round(m["bw"] + 52), 40],
+            fill={"gradient": {"stops": [[0, "#000000"], [0.6, "#777777"], [1, "#ffffff"]], "style": "radial", "angle": 0}}),
+        cmd("layer.setProps", opacity=0.7, blend="Multiply"),
+        cmd("shape.create", kind="ellipse", name=f"Ombra contatto {m['nome']}", stroke=None,
+            rect=[round(cx - m["bw"] / 2 - 4), BASE_Y - 7, round(m["bw"] + 8), 15],
             fill={"gradient": {"stops": [[0, "#000000"], [1, "#ffffff"]], "style": "radial", "angle": 0}}),
-        cmd("layer.setProps", opacity=0.6, blend="Multiply"),
+        cmd("layer.setProps", opacity=0.85, blend="Multiply"),
         method("doc.place", path=m["path"], scale=m["s"] * 100, center=centro_rifl),
         cmd("layer.renameLayer", name=f"Riflesso {m['nome']}"),
         cmd("edit.transform.flipVertical"),
@@ -64,15 +68,47 @@ for m in misure:
         cmd("layer.renameLayer", name=m["nome"]),
     ]
 
-# --- header: logo Nutrihangar; footer: QR code a destra (testo dei termini da definire)
-PIEDE_TOP = round(1542 * S)                              # inizio del pavimento sotto il bancone
-QR_LATO = 240
+# --- header: logo Nutrihangar
 steps += [
-    method("doc.place", path="risorse/logo-nutrihangar.webp", scale=45, center=[655, 235]),
+    method("doc.place", path="risorse/logo-nutrihangar.webp", scale=45, center=[655, 205]),
     cmd("layer.renameLayer", name="Logo Nutrihangar"),
-    cmd("layer.layerStyle.outerGlow", color="#d8b35a", opacity=35, size=40),
+]
+
+# --- scritta centrale: "Inquadra il QR Code e ottieni subito il 25% di sconto su Why Nature e Why Sport"
+ORO = [[0, "#fff3c4"], [0.3, "#e8c058"], [0.5, "#fff8dc"], [0.7, "#b8860b"], [1, "#ffe9a8"]]
+def testo_fx(testo, x, y, font, size, align, effetti, nome, **extra):
+    return [cmd("type.create", x=x, y=y, text=testo, name=nome, font=font, size=size, align=align, color="#ffffff", **extra),
+            cmd("layer.layerStyle.replace", effects=effetti)]
+FX_SCRIPT = [{"kind": "dropShadow", "params": {"color": "#000000", "opacity": 75, "angle": 120, "distance": 6, "size": 10}},
+             {"kind": "outerGlow", "params": {"color": "#ffd97a", "opacity": 45, "size": 22}}]
+FX_BIANCO = [{"kind": "dropShadow", "params": {"color": "#000000", "opacity": 80, "angle": 120, "distance": 8, "size": 8}},
+             {"kind": "stroke", "params": {"size": 4, "position": "outside", "color": "#2a1d00"}}]
+steps += testo_fx("Inquadra il QR Code", 655, 392, "Kaushan Script", 24, "center", FX_SCRIPT, "Titolo 1")
+steps += testo_fx("E OTTIENI SUBITO IL", 655, 470, "Montserrat", 12, "center", FX_SCRIPT, "Titolo 2", weight=700, tracking=220)
+steps += [   # 25% in oro metallico: testo convertito in forma per il gradiente a più tappe
+    cmd("type.create", x=440, y=755, text="25%", name="Titolo 25%", font="Anton", size=72, align="center", color="#ffffff"),
+    cmd("type.convertToShape"),
+    cmd("shape.edit", fill={"gradient": {"stops": ORO, "angle": 90, "style": "linear"}}, stroke=None),
+    cmd("layer.layerStyle.replace", effects=[
+        {"kind": "dropShadow", "params": {"color": "#000000", "opacity": 80, "angle": 120, "distance": 16, "size": 12}},
+        {"kind": "outerGlow", "params": {"color": "#ffcf5a", "opacity": 50, "size": 40}},
+        {"kind": "bevelEmboss", "params": {"style": "inner", "technique": "chiselHard", "depth": 260, "size": 10, "soften": 1, "angle": 120, "altitude": 45}},
+        {"kind": "stroke", "params": {"size": 6, "position": "outside", "color": "#3a2a00"}}]),
+    cmd("type.create", x=770, y=630, text="DI\nSCONTO", name="Titolo di sconto", font="Anton", size=30, leading=30, align="left", color="#ffffff"),
+    cmd("type.convertToShape"),
+    cmd("shape.edit", fill={"gradient": {"stops": [[0, "#ffffff"], [1, "#ffe9b0"]], "angle": 90, "style": "linear"}}, stroke=None),
+    cmd("layer.layerStyle.replace", effects=FX_BIANCO + [{"kind": "bevelEmboss", "params": {"style": "inner", "technique": "smooth", "depth": 150, "size": 5, "angle": 120, "altitude": 45}}]),
+]
+steps += testo_fx("su WHY NATURE e WHY SPORT", 655, 835, "Montserrat", 13, "center", FX_BIANCO, "Titolo marchi", weight=800)
+steps += [cmd("type.edit", runs=[{"start": 3, "end": 13, "color": "#a6c839"}, {"start": 16, "end": 25, "color": "#e20613"}])]
+
+# --- footer: QR a tutta altezza (pavimento sotto il bancone fino al rifilo), con pochi px di margine
+PIEDE_TOP = round(1542 * S)                              # inizio del pavimento sotto il bancone
+MARGINE = 16
+QR_LATO = 1784 - PIEDE_TOP - 2 * MARGINE
+steps += [
     method("doc.place", path="risorse/qr-nutrihangar.png", scale=QR_LATO / 2000 * 100,
-           center=[1216 - QR_LATO // 2, round((PIEDE_TOP + 1724) / 2)]),
+           center=[1276 - MARGINE - QR_LATO // 2, PIEDE_TOP + MARGINE + QR_LATO // 2]),
     cmd("layer.renameLayer", name="QR code"),
     cmd("layer.layerStyle.dropShadow", color="#000000", opacity=60, angle=120, distance=6, size=18),
     {"cmd": "layer.list", "params": {}},

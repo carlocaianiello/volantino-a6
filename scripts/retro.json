@@ -91,13 +91,54 @@
   "cmd": "shape.create",
   "params": {
    "kind": "ellipse",
-   "name": "Ombra essenziali",
+   "name": "Ombra ampia essenziali",
    "stroke": null,
    "rect": [
-    90,
-    1259,
-    189,
-    22
+    78,
+    1253,
+    213,
+    40
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.6,
+       "#777777"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.7,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra contatto essenziali",
+   "stroke": null,
+   "rect": [
+    100,
+    1262,
+    169,
+    15
    ],
    "fill": {
     "gradient": {
@@ -120,7 +161,7 @@
  {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.6,
+   "opacity": 0.85,
    "blend": "Multiply"
   }
  },
@@ -196,13 +237,54 @@
   "cmd": "shape.create",
   "params": {
    "kind": "ellipse",
-   "name": "Ombra sostitutivo-pasto",
+   "name": "Ombra ampia sostitutivo-pasto",
    "stroke": null,
    "rect": [
-    301,
-    1259,
-    207,
-    22
+    289,
+    1253,
+    231,
+    40
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.6,
+       "#777777"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.7,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra contatto sostitutivo-pasto",
+   "stroke": null,
+   "rect": [
+    311,
+    1262,
+    187,
+    15
    ],
    "fill": {
     "gradient": {
@@ -225,7 +307,7 @@
  {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.6,
+   "opacity": 0.85,
    "blend": "Multiply"
   }
  },
@@ -301,13 +383,54 @@
   "cmd": "shape.create",
   "params": {
    "kind": "ellipse",
-   "name": "Ombra perfect-whey",
+   "name": "Ombra ampia perfect-whey",
    "stroke": null,
    "rect": [
-    530,
-    1259,
-    274,
-    22
+    518,
+    1253,
+    298,
+    40
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.6,
+       "#777777"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.7,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra contatto perfect-whey",
+   "stroke": null,
+   "rect": [
+    540,
+    1262,
+    254,
+    15
    ],
    "fill": {
     "gradient": {
@@ -330,7 +453,7 @@
  {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.6,
+   "opacity": 0.85,
    "blend": "Multiply"
   }
  },
@@ -406,13 +529,54 @@
   "cmd": "shape.create",
   "params": {
    "kind": "ellipse",
-   "name": "Ombra collagene-rigenera",
+   "name": "Ombra ampia collagene-rigenera",
    "stroke": null,
    "rect": [
-    826,
-    1259,
-    183,
-    22
+    814,
+    1253,
+    207,
+    40
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.6,
+       "#777777"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.7,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra contatto collagene-rigenera",
+   "stroke": null,
+   "rect": [
+    836,
+    1262,
+    163,
+    15
    ],
    "fill": {
     "gradient": {
@@ -435,7 +599,7 @@
  {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.6,
+   "opacity": 0.85,
    "blend": "Multiply"
   }
  },
@@ -511,13 +675,54 @@
   "cmd": "shape.create",
   "params": {
    "kind": "ellipse",
-   "name": "Ombra creatina",
+   "name": "Ombra ampia creatina",
    "stroke": null,
    "rect": [
-    1031,
-    1259,
-    190,
-    22
+    1019,
+    1253,
+    214,
+    40
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.6,
+       "#777777"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.7,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra contatto creatina",
+   "stroke": null,
+   "rect": [
+    1041,
+    1262,
+    170,
+    15
    ],
    "fill": {
     "gradient": {
@@ -540,7 +745,7 @@
  {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.6,
+   "opacity": 0.85,
    "blend": "Multiply"
   }
  },
@@ -619,7 +824,7 @@
    "scale": 45,
    "center": [
     655,
-    235
+    205
    ]
   }
  },
@@ -630,21 +835,319 @@
   }
  },
  {
-  "cmd": "layer.layerStyle.outerGlow",
+  "cmd": "type.create",
   "params": {
-   "color": "#d8b35a",
-   "opacity": 35,
-   "size": 40
+   "x": 655,
+   "y": 392,
+   "text": "Inquadra il QR Code",
+   "name": "Titolo 1",
+   "font": "Kaushan Script",
+   "size": 24,
+   "align": "center",
+   "color": "#ffffff"
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 75,
+      "angle": 120,
+      "distance": 6,
+      "size": 10
+     }
+    },
+    {
+     "kind": "outerGlow",
+     "params": {
+      "color": "#ffd97a",
+      "opacity": 45,
+      "size": 22
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 655,
+   "y": 470,
+   "text": "E OTTIENI SUBITO IL",
+   "name": "Titolo 2",
+   "font": "Montserrat",
+   "size": 12,
+   "align": "center",
+   "color": "#ffffff",
+   "weight": 700,
+   "tracking": 220
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 75,
+      "angle": 120,
+      "distance": 6,
+      "size": 10
+     }
+    },
+    {
+     "kind": "outerGlow",
+     "params": {
+      "color": "#ffd97a",
+      "opacity": 45,
+      "size": 22
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 440,
+   "y": 755,
+   "text": "25%",
+   "name": "Titolo 25%",
+   "font": "Anton",
+   "size": 72,
+   "align": "center",
+   "color": "#ffffff"
+  }
+ },
+ {
+  "cmd": "type.convertToShape",
+  "params": {}
+ },
+ {
+  "cmd": "shape.edit",
+  "params": {
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#fff3c4"
+      ],
+      [
+       0.3,
+       "#e8c058"
+      ],
+      [
+       0.5,
+       "#fff8dc"
+      ],
+      [
+       0.7,
+       "#b8860b"
+      ],
+      [
+       1,
+       "#ffe9a8"
+      ]
+     ],
+     "angle": 90,
+     "style": "linear"
+    }
+   },
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 80,
+      "angle": 120,
+      "distance": 16,
+      "size": 12
+     }
+    },
+    {
+     "kind": "outerGlow",
+     "params": {
+      "color": "#ffcf5a",
+      "opacity": 50,
+      "size": 40
+     }
+    },
+    {
+     "kind": "bevelEmboss",
+     "params": {
+      "style": "inner",
+      "technique": "chiselHard",
+      "depth": 260,
+      "size": 10,
+      "soften": 1,
+      "angle": 120,
+      "altitude": 45
+     }
+    },
+    {
+     "kind": "stroke",
+     "params": {
+      "size": 6,
+      "position": "outside",
+      "color": "#3a2a00"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 770,
+   "y": 630,
+   "text": "DI\nSCONTO",
+   "name": "Titolo di sconto",
+   "font": "Anton",
+   "size": 30,
+   "leading": 30,
+   "align": "left",
+   "color": "#ffffff"
+  }
+ },
+ {
+  "cmd": "type.convertToShape",
+  "params": {}
+ },
+ {
+  "cmd": "shape.edit",
+  "params": {
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#ffffff"
+      ],
+      [
+       1,
+       "#ffe9b0"
+      ]
+     ],
+     "angle": 90,
+     "style": "linear"
+    }
+   },
+   "stroke": null
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 80,
+      "angle": 120,
+      "distance": 8,
+      "size": 8
+     }
+    },
+    {
+     "kind": "stroke",
+     "params": {
+      "size": 4,
+      "position": "outside",
+      "color": "#2a1d00"
+     }
+    },
+    {
+     "kind": "bevelEmboss",
+     "params": {
+      "style": "inner",
+      "technique": "smooth",
+      "depth": 150,
+      "size": 5,
+      "angle": 120,
+      "altitude": 45
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 655,
+   "y": 835,
+   "text": "su WHY NATURE e WHY SPORT",
+   "name": "Titolo marchi",
+   "font": "Montserrat",
+   "size": 13,
+   "align": "center",
+   "color": "#ffffff",
+   "weight": 800
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 80,
+      "angle": 120,
+      "distance": 8,
+      "size": 8
+     }
+    },
+    {
+     "kind": "stroke",
+     "params": {
+      "size": 4,
+      "position": "outside",
+      "color": "#2a1d00"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "type.edit",
+  "params": {
+   "runs": [
+    {
+     "start": 3,
+     "end": 13,
+     "color": "#a6c839"
+    },
+    {
+     "start": 16,
+     "end": 25,
+     "color": "#e20613"
+    }
+   ]
   }
  },
  {
   "method": "doc.place",
   "params": {
    "path": "risorse/qr-nutrihangar.png",
-   "scale": 12.0,
+   "scale": 17.5,
    "center": [
-    1096,
-    1563
+    1085,
+    1593
    ]
   }
  },
