@@ -1330,7 +1330,7 @@
  {
   "cmd": "type.create",
   "params": {
-   "x": 655,
+   "x": 640,
    "y": 470,
    "text": "E OTTIENI SUBITO IL",
    "name": "Titolo 2",
@@ -1339,7 +1339,7 @@
    "align": "center",
    "color": "#ffffff",
    "weight": 700,
-   "tracking": 220
+   "tracking": 120
   }
  },
  {
@@ -1596,6 +1596,166 @@
   }
  },
  {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Badge omaggio",
+   "rect": [
+    995,
+    435,
+    220,
+    220
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#4a3612"
+      ],
+      [
+       1,
+       "#0e0902"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   },
+   "stroke": {
+    "width": 7,
+    "color": "#e8c058",
+    "align": "inside"
+   }
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.dropShadow",
+  "params": {
+   "color": "#000000",
+   "opacity": 75,
+   "angle": 120,
+   "distance": 10,
+   "size": 18
+  }
+ },
+ {
+  "cmd": "edit.transform",
+  "params": {
+   "matrix": [
+    0.984807753012208,
+    -0.17364817766693033,
+    0.17364817766693033,
+    0.984807753012208,
+    -77.85082390696691,
+    200.16101093030466
+   ]
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Badge omaggio (anello)",
+   "rect": [
+    1008,
+    448,
+    194,
+    194
+   ],
+   "fill": null,
+   "stroke": {
+    "width": 2,
+    "color": "#e8c058",
+    "align": "center"
+   }
+  }
+ },
+ {
+  "cmd": "edit.transform",
+  "params": {
+   "matrix": [
+    0.984807753012208,
+    -0.17364817766693033,
+    0.17364817766693033,
+    0.984807753012208,
+    -77.85082390696691,
+    200.16101093030466
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 1105,
+   "y": 541,
+   "text": "OMAGGIO",
+   "name": "Badge: OMAGGIO",
+   "font": "Anton",
+   "size": 13,
+   "align": "center",
+   "color": "#e8c058"
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 70,
+      "angle": 120,
+      "distance": 3,
+      "size": 4
+     }
+    }
+   ]
+  }
+ },
+ {
+  "cmd": "edit.transform",
+  "params": {
+   "matrix": [
+    0.984807753012208,
+    -0.17364817766693033,
+    0.17364817766693033,
+    0.984807753012208,
+    -77.85082390696691,
+    200.16101093030466
+   ]
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 1105,
+   "y": 575,
+   "text": "IN OGNI PACCO",
+   "name": "Badge: in ogni pacco",
+   "font": "Inter",
+   "weight": 700,
+   "size": 5.5,
+   "tracking": 60,
+   "align": "center",
+   "color": "#ffffff"
+  }
+ },
+ {
+  "cmd": "edit.transform",
+  "params": {
+   "matrix": [
+    0.984807753012208,
+    -0.17364817766693033,
+    0.17364817766693033,
+    0.984807753012208,
+    -77.85082390696691,
+    200.16101093030466
+   ]
+  }
+ },
+ {
   "method": "doc.place",
   "params": {
    "path": "risorse/qr-nutrihangar.png",
@@ -1626,7 +1786,7 @@
   "cmd": "type.create",
   "params": {
    "x": 174,
-   "y": 1433,
+   "y": 1449,
    "name": "Footer: LO SCONTO È:",
    "text": "LO SCONTO È:",
    "align": "left",
@@ -1658,7 +1818,7 @@
   "cmd": "type.create",
   "params": {
    "x": 174,
-   "y": 1468,
+   "y": 1484,
    "name": "Footer: Applicato automaticamente al check-out",
    "text": "•  Applicato automaticamente al check-out",
    "align": "left",
@@ -1703,7 +1863,7 @@
   "cmd": "type.create",
   "params": {
    "x": 174,
-   "y": 1498,
+   "y": 1514,
    "name": "Footer: Valido sul primo ordine",
    "text": "•  Valido sul primo ordine",
    "align": "left",
@@ -1748,7 +1908,7 @@
   "cmd": "type.create",
   "params": {
    "x": 174,
-   "y": 1528,
+   "y": 1544,
    "name": "Footer: Spesa minima 50 €",
    "text": "•  Spesa minima 50 €",
    "align": "left",
@@ -1793,7 +1953,7 @@
   "cmd": "type.create",
   "params": {
    "x": 174,
-   "y": 1558,
+   "y": 1574,
    "name": "Footer: Non cumulabile con altre offerte",
    "text": "•  Non cumulabile con altre offerte",
    "align": "left",
@@ -1838,39 +1998,7 @@
   "cmd": "type.create",
   "params": {
    "x": 174,
-   "y": 1598,
-   "name": "Footer: UN OMAGGIO IN OGNI PACCO",
-   "text": "UN OMAGGIO IN OGNI PACCO",
-   "align": "left",
-   "font": "Cinzel",
-   "weight": 700,
-   "size": 8,
-   "tracking": 90,
-   "color": "#e8c058"
-  }
- },
- {
-  "cmd": "layer.layerStyle.replace",
-  "params": {
-   "effects": [
-    {
-     "kind": "dropShadow",
-     "params": {
-      "color": "#000000",
-      "opacity": 70,
-      "angle": 120,
-      "distance": 4,
-      "size": 6
-     }
-    }
-   ]
-  }
- },
- {
-  "cmd": "type.create",
-  "params": {
-   "x": 174,
-   "y": 1634,
+   "y": 1618,
    "name": "Footer: Dopo il primo ordine entri a far parte",
    "text": "Dopo il primo ordine entri a far parte",
    "align": "left",
@@ -1901,7 +2029,7 @@
   "cmd": "type.create",
   "params": {
    "x": 174,
-   "y": 1663,
+   "y": 1647,
    "name": "Footer: del programma fedeltà con sconti a vita",
    "text": "del programma fedeltà con sconti a vita",
    "align": "left",
@@ -1945,7 +2073,7 @@
   "cmd": "type.create",
   "params": {
    "x": 174,
-   "y": 1692,
+   "y": 1676,
    "name": "Footer: fino al 20% di sconto",
    "text": "fino al 20% di sconto",
    "align": "left",
@@ -1989,7 +2117,7 @@
   "cmd": "type.create",
   "params": {
    "x": 174,
-   "y": 1722,
+   "y": 1706,
    "name": "Footer: Ci riserviamo di annullare lo sconto e bloccare il cliente",
    "text": "Ci riserviamo di annullare lo sconto e bloccare il cliente",
    "align": "left",
@@ -2020,7 +2148,7 @@
   "cmd": "type.create",
   "params": {
    "x": 174,
-   "y": 1744,
+   "y": 1728,
    "name": "Footer: in caso di qualsiasi tentativo di utilizzo multiplo o di abuso.",
    "text": "in caso di qualsiasi tentativo di utilizzo multiplo o di abuso.",
    "align": "left",

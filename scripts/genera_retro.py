@@ -99,7 +99,7 @@ FX_SCRIPT = [{"kind": "dropShadow", "params": {"color": "#000000", "opacity": 75
 FX_BIANCO = [{"kind": "dropShadow", "params": {"color": "#000000", "opacity": 80, "angle": 120, "distance": 8, "size": 8}},
              {"kind": "stroke", "params": {"size": 4, "position": "outside", "color": "#2a1d00"}}]
 steps += testo_fx("Inquadra il QR Code", 655, 392, "Kaushan Script", 24, "center", FX_SCRIPT, "Titolo 1")
-steps += testo_fx("E OTTIENI SUBITO IL", 655, 470, "Montserrat", 12, "center", FX_SCRIPT, "Titolo 2", weight=700, tracking=220)
+steps += testo_fx("E OTTIENI SUBITO IL", 640, 470, "Montserrat", 12, "center", FX_SCRIPT, "Titolo 2", weight=700, tracking=120)
 steps += [   # 25% in oro metallico: testo convertito in forma per il gradiente a più tappe
     cmd("type.create", x=440, y=755, text="25%", name="Titolo 25%", font="Anton", size=72, align="center", color="#ffffff"),
     cmd("type.convertToShape"),
@@ -116,6 +116,28 @@ steps += [   # 25% in oro metallico: testo convertito in forma per il gradiente 
 ]
 steps += testo_fx("su WHY NATURE e WHY SPORT", 655, 835, "Montserrat", 13, "center", FX_BIANCO, "Titolo marchi", weight=800)
 steps += [cmd("type.edit", runs=[{"start": 3, "end": 13, "color": "#a6c839"}, {"start": 16, "end": 25, "color": "#e20613"}])]
+
+# --- badge adesivo "OMAGGIO IN OGNI PACCO", in alto a destra accanto a "DI SCONTO"
+import math
+BADGE_C, BADGE_D, BADGE_ROT = (1105, 545), 220, -10
+def ruota(deg, px, py):
+    t = math.radians(deg); a, b = math.cos(t), math.sin(t); c, d = -b, a
+    return [a, b, c, d, px - a*px - c*py, py - b*px - d*py]
+GIRA = cmd("edit.transform", matrix=ruota(BADGE_ROT, *BADGE_C))
+bx, by = BADGE_C[0] - BADGE_D // 2, BADGE_C[1] - BADGE_D // 2
+steps += [
+    cmd("shape.create", kind="ellipse", name="Badge omaggio", rect=[bx, by, BADGE_D, BADGE_D],
+        fill={"gradient": {"stops": [[0, "#4a3612"], [1, "#0e0902"]], "style": "radial", "angle": 0}},
+        stroke={"width": 7, "color": "#e8c058", "align": "inside"}),
+    cmd("layer.layerStyle.dropShadow", color="#000000", opacity=75, angle=120, distance=10, size=18), GIRA,
+    cmd("shape.create", kind="ellipse", name="Badge omaggio (anello)", rect=[bx + 13, by + 13, BADGE_D - 26, BADGE_D - 26],
+        fill=None, stroke={"width": 2, "color": "#e8c058", "align": "center"}), GIRA,
+    cmd("type.create", x=BADGE_C[0], y=BADGE_C[1] - 4, text="OMAGGIO", name="Badge: OMAGGIO", font="Anton", size=13,
+        align="center", color="#e8c058"),
+    cmd("layer.layerStyle.replace", effects=[{"kind": "dropShadow", "params": {"color": "#000000", "opacity": 70, "angle": 120, "distance": 3, "size": 4}}]), GIRA,
+    cmd("type.create", x=BADGE_C[0], y=BADGE_C[1] + 30, text="IN OGNI PACCO", name="Badge: in ogni pacco", font="Inter", weight=700,
+        size=5.5, tracking=60, align="center", color="#ffffff"), GIRA,
+]
 
 # --- footer: QR a tutta altezza (pavimento sotto il bancone fino al rifilo), con pochi px di margine
 PIEDE_TOP = round(1542 * S)                              # inizio del pavimento sotto il bancone
@@ -141,8 +163,7 @@ RIGHE = [  # (tipo, testo, distanza dalla riga precedente in px, evidenziazioni 
     ("punto", "Valido sul primo ordine", 30, []),
     ("punto", "Spesa minima 50 €", 30, []),
     ("punto", "Non cumulabile con altre offerte", 30, []),
-    ("titolo", "UN OMAGGIO IN OGNI PACCO", 40, []),
-    ("testo", "Dopo il primo ordine entri a far parte", 36, []),
+    ("testo", "Dopo il primo ordine entri a far parte", 44, []),
     ("testo", "del programma fedeltà con sconti a vita", 29, [(4, 21)]),
     ("testo", "fino al 20% di sconto", 29, [(8, 11)]),
     ("nota", "Ci riserviamo di annullare lo sconto e bloccare il cliente", 30, []),
