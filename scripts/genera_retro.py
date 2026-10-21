@@ -219,12 +219,8 @@ print(f"sito: {bs[2] - bs[0]} x {bs[3] - bs[1]} px")
 steps += [
     cmd("type.create", x=round(cx_sito - (bs[0] + bs[2]) / 2), y=round(cy_sito - (bs[1] + bs[3]) / 2 + 500), name="Sito", **SITO),
     cmd("type.convertToShape"),
-    cmd("shape.edit", fill={"gradient": {"stops": ORO, "angle": 90, "style": "linear"}}, stroke=None),
-    cmd("layer.layerStyle.replace", effects=[
-        {"kind": "dropShadow", "params": {"color": "#000000", "opacity": 85, "angle": 120, "distance": 7, "size": 8}},
-        {"kind": "outerGlow", "params": {"color": "#ffcf5a", "opacity": 40, "size": 16}},
-        {"kind": "bevelEmboss", "params": {"style": "inner", "technique": "smooth", "depth": 160, "size": 3, "soften": 1, "angle": 120, "altitude": 50}},
-        {"kind": "stroke", "params": {"size": 3, "position": "outside", "color": "#3a2a00"}}]),
+    cmd("shape.edit", fill="#ffffff", stroke=None),                       # bianco, solo un filo d'oro, niente ombre né luci
+    cmd("layer.layerStyle.replace", effects=[{"kind": "stroke", "params": {"size": 2, "position": "outside", "color": "#e8c058"}}]),
 ]
 
 steps += [

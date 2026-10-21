@@ -2299,34 +2299,7 @@
  {
   "cmd": "shape.edit",
   "params": {
-   "fill": {
-    "gradient": {
-     "stops": [
-      [
-       0,
-       "#fff3c4"
-      ],
-      [
-       0.3,
-       "#e8c058"
-      ],
-      [
-       0.5,
-       "#fff8dc"
-      ],
-      [
-       0.7,
-       "#b8860b"
-      ],
-      [
-       1,
-       "#ffe9a8"
-      ]
-     ],
-     "angle": 90,
-     "style": "linear"
-    }
-   },
+   "fill": "#ffffff",
    "stroke": null
   }
  },
@@ -2335,41 +2308,11 @@
   "params": {
    "effects": [
     {
-     "kind": "dropShadow",
-     "params": {
-      "color": "#000000",
-      "opacity": 85,
-      "angle": 120,
-      "distance": 7,
-      "size": 8
-     }
-    },
-    {
-     "kind": "outerGlow",
-     "params": {
-      "color": "#ffcf5a",
-      "opacity": 40,
-      "size": 16
-     }
-    },
-    {
-     "kind": "bevelEmboss",
-     "params": {
-      "style": "inner",
-      "technique": "smooth",
-      "depth": 160,
-      "size": 3,
-      "soften": 1,
-      "angle": 120,
-      "altitude": 50
-     }
-    },
-    {
      "kind": "stroke",
      "params": {
-      "size": 3,
+      "size": 2,
       "position": "outside",
-      "color": "#3a2a00"
+      "color": "#e8c058"
      }
     }
    ]
