@@ -1429,13 +1429,13 @@
  {
   "method": "doc.save",
   "params": {
-   "path": "lavoro/fronte.pcraft"
+   "path": "lavoro/fronte-livelli.pcraft"
   }
  },
  {
   "method": "doc.save",
   "params": {
-   "path": "export/anteprima-fronte.png"
+   "path": "export/anteprima-fronte-livelli.png"
   }
  }
 ]

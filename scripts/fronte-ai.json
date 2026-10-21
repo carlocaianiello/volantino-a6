@@ -1,0 +1,19 @@
+[
+ {"method":"doc.open","params":{"path":"risorse/ai/composizione-ai.webp"}},
+ {"cmd":"image.imageSize","params":{"width":1311,"height":1628,"resolution":300,"resample":"bicubicSharper"}},
+ {"cmd":"image.canvasSize","params":{"width":1311,"height":1819,"anchor":"center","extensionColor":"white"}},
+ {"cmd":"select.rect","params":{"x":0,"y":0,"width":1311,"height":100}},
+ {"cmd":"edit.contentAwareFill","params":{"sampling":"auto"}},
+ {"cmd":"select.deselect","params":{},"continue":true},
+ {"cmd":"view.newGuide","params":{"orientation":"vertical","position":35,"color":"lightRed"}},
+ {"cmd":"view.newGuide","params":{"orientation":"vertical","position":1276,"color":"lightRed"}},
+ {"cmd":"view.newGuide","params":{"orientation":"horizontal","position":35,"color":"lightRed"}},
+ {"cmd":"view.newGuide","params":{"orientation":"horizontal","position":1784,"color":"lightRed"}},
+ {"cmd":"view.newGuide","params":{"orientation":"vertical","position":95,"color":"green"}},
+ {"cmd":"view.newGuide","params":{"orientation":"vertical","position":1216,"color":"green"}},
+ {"cmd":"view.newGuide","params":{"orientation":"horizontal","position":95,"color":"green"}},
+ {"cmd":"view.newGuide","params":{"orientation":"horizontal","position":1724,"color":"green"}},
+ {"method":"doc.inspect"},
+ {"method":"doc.save","params":{"path":"lavoro/fronte.pcraft"}},
+ {"method":"doc.save","params":{"path":"export/anteprima-fronte.png"}}
+]

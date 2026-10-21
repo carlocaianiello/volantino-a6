@@ -197,8 +197,8 @@ steps += [
     method("doc.place", path="lavoro/loghi/radio-swm.png", scale=18, center=[1100, 1660]),
     cmd("layer.renameLayer", name="Logo Radio SWM"),
     {"cmd": "layer.list", "params": {}},
-    method("doc.save", path="lavoro/fronte.pcraft"),
-    method("doc.save", path="export/anteprima-fronte.png"),
+    method("doc.save", path="lavoro/fronte-livelli.pcraft"),
+    method("doc.save", path="export/anteprima-fronte-livelli.png"),
 ]
 
 out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fronte.json")

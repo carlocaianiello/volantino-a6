@@ -21,8 +21,12 @@ usando le app ArtCraft tramite MCP. Le specifiche di stampa sono nel README.
   Testi e loghi a almeno 95 px dal bordo del file.
 - Sorgenti modificabili in `lavoro/` (`fronte.pcraft`, `retro.pcraft`), mai solo l'export.
   `lavoro/base-a6.pcraft` è la base vuota con le guide (rifilo in rosso, area sicura in verde).
-  Il fronte si ricostruisce da zero con `python3 scripts/pc.py scripts/fronte.json`: modifica
-  la ricetta, non solo il file, così le modifiche restano riproducibili.
+  Il fronte scelto dall'utente è `lavoro/fronte.pcraft`: la composizione generata su Higgsfield
+  (`risorse/ai/composizione-ai.webp`) adattata all'A6 con `scripts/fronte-ai.json`
+  (ridimensionata a 1311 px, sfondo esteso in alto e in basso con riempimento in base al contenuto).
+  La versione a livelli (scritte vettoriali, sfondi sfocati, personaggi ritagliati) è
+  `lavoro/fronte-livelli.pcraft`, ricostruibile con `python3 scripts/genera_fronte.py` e poi
+  `python3 scripts/pc.py scripts/fronte.json`: modifica la ricetta, non solo il file.
 - Loghi ritagliati (con trasparenza) in `lavoro/loghi/`; prompt per le immagini AI in
   `risorse/ai/PROMPT-IMMAGINI.md`. Il connettore Higgsfield non genera immagini e il proxy
   blocca i link CloudFront: le immagini le genera l'utente e le allega in chat.
