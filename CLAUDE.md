@@ -15,6 +15,11 @@ usando le app ArtCraft tramite MCP. Le specifiche di stampa sono nel README.
    senza radici di lettura/scrittura: usa `python3 scripts/pc.py passi.json`, che parla
    con `photocraft-cli serve` sulla cartella del progetto (stessi comandi engine).
 
+## Skill
+
+Per un nuovo volantino, o per rifare un lato, segui la skill `volantino` (`.claude/skills/volantino/SKILL.md`):
+contiene stile, mattoni delle ricette, prompt per le immagini, lezioni imparate e gli script di base.
+
 ## Regole di lavoro
 
 - Formato file: 1311 × 1819 px a 300 dpi (A6 + 3 mm di abbondanza).

@@ -1,0 +1,194 @@
+[
+ {
+  "method": "doc.open",
+  "params": {
+   "path": "risorse/ai/composizione-ai.webp"
+  }
+ },
+ {
+  "cmd": "image.imageSize",
+  "params": {
+   "width": 1311,
+   "height": 1628,
+   "resolution": 300,
+   "resample": "bicubicSharper"
+  }
+ },
+ {
+  "cmd": "image.canvasSize",
+  "params": {
+   "width": 1311,
+   "height": 1819,
+   "anchor": "center",
+   "extensionColor": "white"
+  }
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 0,
+   "width": 1311,
+   "height": 100
+  }
+ },
+ {
+  "cmd": "edit.contentAwareFill",
+  "params": {
+   "sampling": "auto"
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 1487,
+   "width": 1311,
+   "height": 332
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "white"
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 655,
+   "y": 1542,
+   "text": "IN COLLABORAZIONE CON",
+   "name": "Testo footer",
+   "font": "Montserrat",
+   "weight": 700,
+   "size": 8,
+   "tracking": 260,
+   "color": "#333333",
+   "align": "center"
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/logo-nutrihangar.webp",
+   "scale": 35,
+   "center": [
+    460,
+    1648
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Logo Nutrihangar"
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "lavoro/loghi/radio-swm.png",
+   "scale": 21.8,
+   "center": [
+    1135,
+    1648
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Logo Radio SWM"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "vertical",
+   "position": 35,
+   "color": "lightRed"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "vertical",
+   "position": 1276,
+   "color": "lightRed"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "horizontal",
+   "position": 35,
+   "color": "lightRed"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "horizontal",
+   "position": 1784,
+   "color": "lightRed"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "vertical",
+   "position": 95,
+   "color": "green"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "vertical",
+   "position": 1216,
+   "color": "green"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "horizontal",
+   "position": 95,
+   "color": "green"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "horizontal",
+   "position": 1724,
+   "color": "green"
+  }
+ },
+ {
+  "method": "doc.inspect"
+ },
+ {
+  "method": "doc.save",
+  "params": {
+   "path": "lavoro/fronte.pcraft"
+  }
+ },
+ {
+  "method": "doc.save",
+  "params": {
+   "path": "export/anteprima-fronte.png"
+  }
+ }
+]

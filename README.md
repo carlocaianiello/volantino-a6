@@ -19,6 +19,14 @@ Funziona sia in locale sia nelle sessioni cloud di Claude Code.
   un PDF a due pagine, più TIFF CMYK e PDF RGB in `alternative/`
 - Fronte e retro: due file separati
 
+## Skill `volantino`
+
+In `.claude/skills/volantino/` c'è la skill che racchiude il metodo usato qui (stile, caratteri, prompt per le
+immagini, ricette PhotoCraft, esportazione CMYK) per rifare volantini in locale. Nel repo si carica da sola;
+per usarla in altri progetti copiare la cartella in `~/.claude/skills/volantino/` oppure installare il file
+`volantino.skill` dalla chat. Dentro: `scripts/` (pc.py, nuova_base.py, esporta-stampa.sh, installa-font.sh,
+ricetta.py), `references/` (stile, prompt, ricette, lezioni, esempi) e `assets/` (font OFL, profili ICC, mcp.json).
+
 ## Struttura
 
 ```
