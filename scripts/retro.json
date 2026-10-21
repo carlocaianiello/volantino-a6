@@ -88,84 +88,6 @@
   }
  },
  {
-  "cmd": "shape.create",
-  "params": {
-   "kind": "ellipse",
-   "name": "Ombra ampia essenziali",
-   "stroke": null,
-   "rect": [
-    78,
-    1253,
-    213,
-    40
-   ],
-   "fill": {
-    "gradient": {
-     "stops": [
-      [
-       0,
-       "#000000"
-      ],
-      [
-       0.6,
-       "#777777"
-      ],
-      [
-       1,
-       "#ffffff"
-      ]
-     ],
-     "style": "radial",
-     "angle": 0
-    }
-   }
-  }
- },
- {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.7,
-   "blend": "Multiply"
-  }
- },
- {
-  "cmd": "shape.create",
-  "params": {
-   "kind": "ellipse",
-   "name": "Ombra contatto essenziali",
-   "stroke": null,
-   "rect": [
-    100,
-    1262,
-    169,
-    15
-   ],
-   "fill": {
-    "gradient": {
-     "stops": [
-      [
-       0,
-       "#000000"
-      ],
-      [
-       1,
-       "#ffffff"
-      ]
-     ],
-     "style": "radial",
-     "angle": 0
-    }
-   }
-  }
- },
- {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.85,
-   "blend": "Multiply"
-  }
- },
- {
   "method": "doc.place",
   "params": {
    "path": "risorse/prodotti/essenziali.webp",
@@ -195,7 +117,7 @@
   "params": {
    "from": [
     184,
-    1269
+    1271
    ],
    "to": [
     184,
@@ -203,7 +125,7 @@
    ],
    "style": "linear",
    "colors": [
-    "#ffffff",
+    "#a8a8a8",
     "#000000"
    ],
    "target": "mask"
@@ -211,9 +133,112 @@
   "continue": true
  },
  {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 0,
+   "width": 1311,
+   "height": 1270
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
+ },
+ {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.28
+   "opacity": 0.12
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra ampia essenziali",
+   "stroke": null,
+   "rect": [
+    74,
+    1251,
+    221,
+    48
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.5,
+       "#505050"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.85,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra contatto essenziali",
+   "stroke": null,
+   "rect": [
+    100,
+    1261,
+    169,
+    18
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.7,
+       "#303030"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 1.0,
+   "blend": "Multiply"
   }
  },
  {
@@ -234,80 +259,68 @@
   }
  },
  {
+  "cmd": "layer.layerMask.revealAll",
+  "params": {}
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 1270,
+   "width": 1311,
+   "height": 550
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
+ },
+ {
   "cmd": "shape.create",
   "params": {
-   "kind": "ellipse",
-   "name": "Ombra ampia sostitutivo-pasto",
+   "kind": "rect",
+   "name": "Base in ombra essenziali",
    "stroke": null,
    "rect": [
-    289,
-    1253,
-    231,
-    40
+    102,
+    1242,
+    165,
+    29
    ],
    "fill": {
     "gradient": {
      "stops": [
       [
        0,
-       "#000000"
-      ],
-      [
-       0.6,
-       "#777777"
+       "#ffffff"
       ],
       [
        1,
-       "#ffffff"
+       "#000000"
       ]
      ],
-     "style": "radial",
-     "angle": 0
+     "style": "linear",
+     "angle": -90
     }
    }
   }
  },
  {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.7,
-   "blend": "Multiply"
-  }
- },
- {
-  "cmd": "shape.create",
-  "params": {
-   "kind": "ellipse",
-   "name": "Ombra contatto sostitutivo-pasto",
-   "stroke": null,
-   "rect": [
-    311,
-    1262,
-    187,
-    15
-   ],
-   "fill": {
-    "gradient": {
-     "stops": [
-      [
-       0,
-       "#000000"
-      ],
-      [
-       1,
-       "#ffffff"
-      ]
-     ],
-     "style": "radial",
-     "angle": 0
-    }
-   }
-  }
+  "cmd": "layer.createClippingMask",
+  "params": {}
  },
  {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.85,
+   "opacity": 0.55,
    "blend": "Multiply"
   }
  },
@@ -341,7 +354,7 @@
   "params": {
    "from": [
     404,
-    1269
+    1271
    ],
    "to": [
     404,
@@ -349,7 +362,7 @@
    ],
    "style": "linear",
    "colors": [
-    "#ffffff",
+    "#a8a8a8",
     "#000000"
    ],
    "target": "mask"
@@ -357,9 +370,112 @@
   "continue": true
  },
  {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 0,
+   "width": 1311,
+   "height": 1270
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
+ },
+ {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.28
+   "opacity": 0.12
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra ampia sostitutivo-pasto",
+   "stroke": null,
+   "rect": [
+    285,
+    1251,
+    239,
+    48
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.5,
+       "#505050"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.85,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra contatto sostitutivo-pasto",
+   "stroke": null,
+   "rect": [
+    311,
+    1261,
+    187,
+    18
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.7,
+       "#303030"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 1.0,
+   "blend": "Multiply"
   }
  },
  {
@@ -380,80 +496,68 @@
   }
  },
  {
+  "cmd": "layer.layerMask.revealAll",
+  "params": {}
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 1270,
+   "width": 1311,
+   "height": 550
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
+ },
+ {
   "cmd": "shape.create",
   "params": {
-   "kind": "ellipse",
-   "name": "Ombra ampia perfect-whey",
+   "kind": "rect",
+   "name": "Base in ombra sostitutivo-pasto",
    "stroke": null,
    "rect": [
-    518,
-    1253,
-    298,
-    40
+    313,
+    1232,
+    183,
+    39
    ],
    "fill": {
     "gradient": {
      "stops": [
       [
        0,
-       "#000000"
-      ],
-      [
-       0.6,
-       "#777777"
+       "#ffffff"
       ],
       [
        1,
-       "#ffffff"
+       "#000000"
       ]
      ],
-     "style": "radial",
-     "angle": 0
+     "style": "linear",
+     "angle": -90
     }
    }
   }
  },
  {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.7,
-   "blend": "Multiply"
-  }
- },
- {
-  "cmd": "shape.create",
-  "params": {
-   "kind": "ellipse",
-   "name": "Ombra contatto perfect-whey",
-   "stroke": null,
-   "rect": [
-    540,
-    1262,
-    254,
-    15
-   ],
-   "fill": {
-    "gradient": {
-     "stops": [
-      [
-       0,
-       "#000000"
-      ],
-      [
-       1,
-       "#ffffff"
-      ]
-     ],
-     "style": "radial",
-     "angle": 0
-    }
-   }
-  }
+  "cmd": "layer.createClippingMask",
+  "params": {}
  },
  {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.85,
+   "opacity": 0.55,
    "blend": "Multiply"
   }
  },
@@ -487,7 +591,7 @@
   "params": {
    "from": [
     667,
-    1269
+    1271
    ],
    "to": [
     667,
@@ -495,7 +599,7 @@
    ],
    "style": "linear",
    "colors": [
-    "#ffffff",
+    "#a8a8a8",
     "#000000"
    ],
    "target": "mask"
@@ -503,9 +607,112 @@
   "continue": true
  },
  {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 0,
+   "width": 1311,
+   "height": 1270
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
+ },
+ {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.28
+   "opacity": 0.12
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra ampia perfect-whey",
+   "stroke": null,
+   "rect": [
+    514,
+    1251,
+    306,
+    48
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.5,
+       "#505050"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.85,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra contatto perfect-whey",
+   "stroke": null,
+   "rect": [
+    540,
+    1261,
+    254,
+    18
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.7,
+       "#303030"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 1.0,
+   "blend": "Multiply"
   }
  },
  {
@@ -526,80 +733,68 @@
   }
  },
  {
+  "cmd": "layer.layerMask.revealAll",
+  "params": {}
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 1270,
+   "width": 1311,
+   "height": 550
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
+ },
+ {
   "cmd": "shape.create",
   "params": {
-   "kind": "ellipse",
-   "name": "Ombra ampia collagene-rigenera",
+   "kind": "rect",
+   "name": "Base in ombra perfect-whey",
    "stroke": null,
    "rect": [
-    814,
-    1253,
-    207,
-    40
+    542,
+    1213,
+    250,
+    58
    ],
    "fill": {
     "gradient": {
      "stops": [
       [
        0,
-       "#000000"
-      ],
-      [
-       0.6,
-       "#777777"
+       "#ffffff"
       ],
       [
        1,
-       "#ffffff"
+       "#000000"
       ]
      ],
-     "style": "radial",
-     "angle": 0
+     "style": "linear",
+     "angle": -90
     }
    }
   }
  },
  {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.7,
-   "blend": "Multiply"
-  }
- },
- {
-  "cmd": "shape.create",
-  "params": {
-   "kind": "ellipse",
-   "name": "Ombra contatto collagene-rigenera",
-   "stroke": null,
-   "rect": [
-    836,
-    1262,
-    163,
-    15
-   ],
-   "fill": {
-    "gradient": {
-     "stops": [
-      [
-       0,
-       "#000000"
-      ],
-      [
-       1,
-       "#ffffff"
-      ]
-     ],
-     "style": "radial",
-     "angle": 0
-    }
-   }
-  }
+  "cmd": "layer.createClippingMask",
+  "params": {}
  },
  {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.85,
+   "opacity": 0.55,
    "blend": "Multiply"
   }
  },
@@ -633,7 +828,7 @@
   "params": {
    "from": [
     917,
-    1269
+    1271
    ],
    "to": [
     917,
@@ -641,7 +836,7 @@
    ],
    "style": "linear",
    "colors": [
-    "#ffffff",
+    "#a8a8a8",
     "#000000"
    ],
    "target": "mask"
@@ -649,9 +844,112 @@
   "continue": true
  },
  {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 0,
+   "width": 1311,
+   "height": 1270
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
+ },
+ {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.28
+   "opacity": 0.12
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra ampia collagene-rigenera",
+   "stroke": null,
+   "rect": [
+    810,
+    1251,
+    215,
+    48
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.5,
+       "#505050"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.85,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra contatto collagene-rigenera",
+   "stroke": null,
+   "rect": [
+    836,
+    1261,
+    163,
+    18
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.7,
+       "#303030"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 1.0,
+   "blend": "Multiply"
   }
  },
  {
@@ -672,80 +970,68 @@
   }
  },
  {
+  "cmd": "layer.layerMask.revealAll",
+  "params": {}
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 1270,
+   "width": 1311,
+   "height": 550
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
+ },
+ {
   "cmd": "shape.create",
   "params": {
-   "kind": "ellipse",
-   "name": "Ombra ampia creatina",
+   "kind": "rect",
+   "name": "Base in ombra collagene-rigenera",
    "stroke": null,
    "rect": [
-    1019,
-    1253,
-    214,
-    40
+    838,
+    1235,
+    159,
+    36
    ],
    "fill": {
     "gradient": {
      "stops": [
       [
        0,
-       "#000000"
-      ],
-      [
-       0.6,
-       "#777777"
+       "#ffffff"
       ],
       [
        1,
-       "#ffffff"
+       "#000000"
       ]
      ],
-     "style": "radial",
-     "angle": 0
+     "style": "linear",
+     "angle": -90
     }
    }
   }
  },
  {
-  "cmd": "layer.setProps",
-  "params": {
-   "opacity": 0.7,
-   "blend": "Multiply"
-  }
- },
- {
-  "cmd": "shape.create",
-  "params": {
-   "kind": "ellipse",
-   "name": "Ombra contatto creatina",
-   "stroke": null,
-   "rect": [
-    1041,
-    1262,
-    170,
-    15
-   ],
-   "fill": {
-    "gradient": {
-     "stops": [
-      [
-       0,
-       "#000000"
-      ],
-      [
-       1,
-       "#ffffff"
-      ]
-     ],
-     "style": "radial",
-     "angle": 0
-    }
-   }
-  }
+  "cmd": "layer.createClippingMask",
+  "params": {}
  },
  {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.85,
+   "opacity": 0.55,
    "blend": "Multiply"
   }
  },
@@ -779,7 +1065,7 @@
   "params": {
    "from": [
     1126,
-    1269
+    1271
    ],
    "to": [
     1126,
@@ -787,7 +1073,7 @@
    ],
    "style": "linear",
    "colors": [
-    "#ffffff",
+    "#a8a8a8",
     "#000000"
    ],
    "target": "mask"
@@ -795,9 +1081,112 @@
   "continue": true
  },
  {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 0,
+   "width": 1311,
+   "height": 1270
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
+ },
+ {
   "cmd": "layer.setProps",
   "params": {
-   "opacity": 0.28
+   "opacity": 0.12
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra ampia creatina",
+   "stroke": null,
+   "rect": [
+    1015,
+    1251,
+    222,
+    48
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.5,
+       "#505050"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.85,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra contatto creatina",
+   "stroke": null,
+   "rect": [
+    1041,
+    1261,
+    170,
+    18
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       0.7,
+       "#303030"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 1.0,
+   "blend": "Multiply"
   }
  },
  {
@@ -815,6 +1204,72 @@
   "cmd": "layer.renameLayer",
   "params": {
    "name": "creatina"
+  }
+ },
+ {
+  "cmd": "layer.layerMask.revealAll",
+  "params": {}
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 1270,
+   "width": 1311,
+   "height": 550
+  }
+ },
+ {
+  "cmd": "edit.fill",
+  "params": {
+   "contents": "black",
+   "target": "mask"
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "rect",
+   "name": "Base in ombra creatina",
+   "stroke": null,
+   "rect": [
+    1043,
+    1242,
+    166,
+    29
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#ffffff"
+      ],
+      [
+       1,
+       "#000000"
+      ]
+     ],
+     "style": "linear",
+     "angle": -90
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.createClippingMask",
+  "params": {}
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.55,
+   "blend": "Multiply"
   }
  },
  {
@@ -1181,6 +1636,21 @@
   "method": "doc.save",
   "params": {
    "path": "export/anteprima-retro.png"
+  }
+ },
+ {
+  "cmd": "image.crop",
+  "params": {
+   "x": 35,
+   "y": 35,
+   "width": 1241,
+   "height": 1749
+  }
+ },
+ {
+  "method": "doc.save",
+  "params": {
+   "path": "export/anteprima-retro-rifilata.png"
   }
  }
 ]

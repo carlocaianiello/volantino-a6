@@ -49,23 +49,38 @@ for m in misure:
     centro = [round(cx - m["dx"]), round(BASE_Y - m["dy"])]                      # centro del livello
     centro_rifl = [centro[0], round(2 * BASE_Y - centro[1])]                     # specchiato sulla linea d'appoggio
     steps += [
-        cmd("shape.create", kind="ellipse", name=f"Ombra ampia {m['nome']}", stroke=None,
-            rect=[round(cx - m["bw"] / 2 - 26), BASE_Y - 16, round(m["bw"] + 52), 40],
-            fill={"gradient": {"stops": [[0, "#000000"], [0.6, "#777777"], [1, "#ffffff"]], "style": "radial", "angle": 0}}),
-        cmd("layer.setProps", opacity=0.7, blend="Multiply"),
-        cmd("shape.create", kind="ellipse", name=f"Ombra contatto {m['nome']}", stroke=None,
-            rect=[round(cx - m["bw"] / 2 - 4), BASE_Y - 7, round(m["bw"] + 8), 15],
-            fill={"gradient": {"stops": [[0, "#000000"], [1, "#ffffff"]], "style": "radial", "angle": 0}}),
-        cmd("layer.setProps", opacity=0.85, blend="Multiply"),
+        # 1) riflesso sull'acciaio (sotto a tutto): specchiato sulla linea d'appoggio, sfumato verso il bordo
         method("doc.place", path=m["path"], scale=m["s"] * 100, center=centro_rifl),
         cmd("layer.renameLayer", name=f"Riflesso {m['nome']}"),
         cmd("edit.transform.flipVertical"),
         cmd("layer.layerMask.revealAll"),
-        {"cmd": "paint.gradient", "params": {"from": [round(cx), BASE_Y], "to": [round(cx), BORDO_TAVOLO - 12],
-                                              "style": "linear", "colors": ["#ffffff", "#000000"], "target": "mask"}, "continue": True},
-        cmd("layer.setProps", opacity=0.28),
+        {"cmd": "paint.gradient", "params": {"from": [round(cx), BASE_Y + 2], "to": [round(cx), BORDO_TAVOLO - 12],
+                                              "style": "linear", "colors": ["#a8a8a8", "#000000"], "target": "mask"}, "continue": True},
+        cmd("select.rect", x=0, y=0, width=1311, height=BASE_Y + 1),         # niente riflesso sopra la linea d'appoggio
+        cmd("edit.fill", contents="black", target="mask"),
+        {"cmd": "select.deselect", "params": {}, "continue": True},
+        cmd("layer.setProps", opacity=0.12),
+        # 2) ombre di contatto sopra al riflesso: una ampia morbida, una stretta scura
+        cmd("shape.create", kind="ellipse", name=f"Ombra ampia {m['nome']}", stroke=None,
+            rect=[round(cx - m["bw"] / 2 - 30), BASE_Y - 18, round(m["bw"] + 60), 48],
+            fill={"gradient": {"stops": [[0, "#000000"], [0.5, "#505050"], [1, "#ffffff"]], "style": "radial", "angle": 0}}),
+        cmd("layer.setProps", opacity=0.85, blend="Multiply"),
+        cmd("shape.create", kind="ellipse", name=f"Ombra contatto {m['nome']}", stroke=None,
+            rect=[round(cx - m["bw"] / 2 - 4), BASE_Y - 8, round(m["bw"] + 8), 18],
+            fill={"gradient": {"stops": [[0, "#000000"], [0.7, "#303030"], [1, "#ffffff"]], "style": "radial", "angle": 0}}),
+        cmd("layer.setProps", opacity=1.0, blend="Multiply"),
+        # 3) il prodotto, con la base leggermente in ombra (velatura ritagliata sul prodotto)
         method("doc.place", path=m["path"], scale=m["s"] * 100, center=centro),
         cmd("layer.renameLayer", name=m["nome"]),
+        cmd("layer.layerMask.revealAll"),                                      # via l'ombra grigia incorporata nella foto
+        cmd("select.rect", x=0, y=BASE_Y + 1, width=1311, height=1819 - BASE_Y),
+        cmd("edit.fill", contents="black", target="mask"),
+        {"cmd": "select.deselect", "params": {}, "continue": True},
+        cmd("shape.create", kind="rect", name=f"Base in ombra {m['nome']}", stroke=None,
+            rect=[round(cx - m["bw"] / 2 - 2), round(BASE_Y - m["bh"] * 0.14), round(m["bw"] + 4), round(m["bh"] * 0.14) + 2],
+            fill={"gradient": {"stops": [[0, "#ffffff"], [1, "#000000"]], "style": "linear", "angle": -90}}),
+        cmd("layer.createClippingMask"),
+        cmd("layer.setProps", opacity=0.55, blend="Multiply"),
     ]
 
 # --- header: logo Nutrihangar
@@ -114,6 +129,8 @@ steps += [
     {"cmd": "layer.list", "params": {}},
     method("doc.save", path="lavoro/retro.pcraft"),
     method("doc.save", path="export/anteprima-retro.png"),
+    cmd("image.crop", x=35, y=35, width=1241, height=1749),                 # come apparirà rifilato
+    method("doc.save", path="export/anteprima-retro-rifilata.png"),
 ]
 out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "retro.json")
 json.dump(steps, open(out, "w"), indent=1, ensure_ascii=False)
