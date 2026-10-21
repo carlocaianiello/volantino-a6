@@ -1,0 +1,727 @@
+[
+ {
+  "method": "doc.open",
+  "params": {
+   "path": "risorse/ai/retro-hangar.webp"
+  }
+ },
+ {
+  "cmd": "select.object",
+  "params": {
+   "rect": [
+    150,
+    870,
+    1200,
+    510
+   ]
+  }
+ },
+ {
+  "cmd": "select.modify.expand",
+  "params": {
+   "radius": 25
+  }
+ },
+ {
+  "cmd": "edit.deleteAndFillSelection",
+  "params": {}
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": 240,
+   "y": 1366,
+   "width": 1080,
+   "height": 95
+  }
+ },
+ {
+  "cmd": "edit.deleteAndFillSelection",
+  "params": {}
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": 0,
+   "y": 0,
+   "width": 470,
+   "height": 1250,
+   "feather": 50
+  }
+ },
+ {
+  "cmd": "filter.blur.gaussianBlur",
+  "params": {
+   "radius": 28
+  }
+ },
+ {
+  "cmd": "select.rect",
+  "params": {
+   "x": 1030,
+   "y": 0,
+   "width": 463,
+   "height": 1250,
+   "feather": 50
+  }
+ },
+ {
+  "cmd": "filter.blur.gaussianBlur",
+  "params": {
+   "radius": 28
+  }
+ },
+ {
+  "cmd": "select.deselect",
+  "params": {},
+  "continue": true
+ },
+ {
+  "cmd": "image.imageSize",
+  "params": {
+   "width": 1358,
+   "height": 1819,
+   "resolution": 300,
+   "resample": "bicubicSharper"
+  }
+ },
+ {
+  "cmd": "image.crop",
+  "params": {
+   "x": 23,
+   "y": 0,
+   "width": 1311,
+   "height": 1819
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "vertical",
+   "position": 35,
+   "color": "lightRed"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "vertical",
+   "position": 1276,
+   "color": "lightRed"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "horizontal",
+   "position": 35,
+   "color": "lightRed"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "horizontal",
+   "position": 1784,
+   "color": "lightRed"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "vertical",
+   "position": 95,
+   "color": "green"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "vertical",
+   "position": 1216,
+   "color": "green"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "horizontal",
+   "position": 95,
+   "color": "green"
+  }
+ },
+ {
+  "cmd": "view.newGuide",
+  "params": {
+   "orientation": "horizontal",
+   "position": 1724,
+   "color": "green"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra essenziali",
+   "stroke": null,
+   "rect": [
+    90,
+    1231,
+    189,
+    22
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.6,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/prodotti/essenziali.webp",
+   "scale": 43.04932735426009,
+   "center": [
+    181,
+    1342
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Riflesso essenziali"
+  }
+ },
+ {
+  "cmd": "edit.transform.flipVertical",
+  "params": {}
+ },
+ {
+  "cmd": "layer.layerMask.revealAll",
+  "params": {}
+ },
+ {
+  "cmd": "paint.gradient",
+  "params": {
+   "from": [
+    184,
+    1241
+   ],
+   "to": [
+    184,
+    1302
+   ],
+   "style": "linear",
+   "colors": [
+    "#ffffff",
+    "#000000"
+   ],
+   "target": "mask"
+  },
+  "continue": true
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.28
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/prodotti/essenziali.webp",
+   "scale": 43.04932735426009,
+   "center": [
+    181,
+    1140
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "essenziali"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra sostitutivo-pasto",
+   "stroke": null,
+   "rect": [
+    301,
+    1231,
+    207,
+    22
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.6,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/prodotti/sostitutivo-pasto.webp",
+   "scale": 31.132075471698112,
+   "center": [
+    405,
+    1375
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Riflesso sostitutivo-pasto"
+  }
+ },
+ {
+  "cmd": "edit.transform.flipVertical",
+  "params": {}
+ },
+ {
+  "cmd": "layer.layerMask.revealAll",
+  "params": {}
+ },
+ {
+  "cmd": "paint.gradient",
+  "params": {
+   "from": [
+    404,
+    1241
+   ],
+   "to": [
+    404,
+    1302
+   ],
+   "style": "linear",
+   "colors": [
+    "#ffffff",
+    "#000000"
+   ],
+   "target": "mask"
+  },
+  "continue": true
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.28
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/prodotti/sostitutivo-pasto.webp",
+   "scale": 31.132075471698112,
+   "center": [
+    405,
+    1107
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "sostitutivo-pasto"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra perfect-whey",
+   "stroke": null,
+   "rect": [
+    530,
+    1231,
+    274,
+    22
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.6,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/prodotti/perfect-whey.webp",
+   "scale": 84.21052631578947,
+   "center": [
+    668,
+    1440
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Riflesso perfect-whey"
+  }
+ },
+ {
+  "cmd": "edit.transform.flipVertical",
+  "params": {}
+ },
+ {
+  "cmd": "layer.layerMask.revealAll",
+  "params": {}
+ },
+ {
+  "cmd": "paint.gradient",
+  "params": {
+   "from": [
+    667,
+    1241
+   ],
+   "to": [
+    667,
+    1302
+   ],
+   "style": "linear",
+   "colors": [
+    "#ffffff",
+    "#000000"
+   ],
+   "target": "mask"
+  },
+  "continue": true
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.28
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/prodotti/perfect-whey.webp",
+   "scale": 84.21052631578947,
+   "center": [
+    668,
+    1042
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "perfect-whey"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra collagene-rigenera",
+   "stroke": null,
+   "rect": [
+    826,
+    1231,
+    183,
+    22
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.6,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/prodotti/collagene-rigenera.webp",
+   "scale": 25.613660618996796,
+   "center": [
+    918,
+    1364
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Riflesso collagene-rigenera"
+  }
+ },
+ {
+  "cmd": "edit.transform.flipVertical",
+  "params": {}
+ },
+ {
+  "cmd": "layer.layerMask.revealAll",
+  "params": {}
+ },
+ {
+  "cmd": "paint.gradient",
+  "params": {
+   "from": [
+    917,
+    1241
+   ],
+   "to": [
+    917,
+    1302
+   ],
+   "style": "linear",
+   "colors": [
+    "#ffffff",
+    "#000000"
+   ],
+   "target": "mask"
+  },
+  "continue": true
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.28
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/prodotti/collagene-rigenera.webp",
+   "scale": 25.613660618996796,
+   "center": [
+    918,
+    1118
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "collagene-rigenera"
+  }
+ },
+ {
+  "cmd": "shape.create",
+  "params": {
+   "kind": "ellipse",
+   "name": "Ombra creatina",
+   "stroke": null,
+   "rect": [
+    1031,
+    1231,
+    190,
+    22
+   ],
+   "fill": {
+    "gradient": {
+     "stops": [
+      [
+       0,
+       "#000000"
+      ],
+      [
+       1,
+       "#ffffff"
+      ]
+     ],
+     "style": "radial",
+     "angle": 0
+    }
+   }
+  }
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.6,
+   "blend": "Multiply"
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/prodotti/creatina.webp",
+   "scale": 24.774193548387096,
+   "center": [
+    1126,
+    1335
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Riflesso creatina"
+  }
+ },
+ {
+  "cmd": "edit.transform.flipVertical",
+  "params": {}
+ },
+ {
+  "cmd": "layer.layerMask.revealAll",
+  "params": {}
+ },
+ {
+  "cmd": "paint.gradient",
+  "params": {
+   "from": [
+    1126,
+    1241
+   ],
+   "to": [
+    1126,
+    1302
+   ],
+   "style": "linear",
+   "colors": [
+    "#ffffff",
+    "#000000"
+   ],
+   "target": "mask"
+  },
+  "continue": true
+ },
+ {
+  "cmd": "layer.setProps",
+  "params": {
+   "opacity": 0.28
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/prodotti/creatina.webp",
+   "scale": 24.774193548387096,
+   "center": [
+    1126,
+    1147
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "creatina"
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/logo-nutrihangar.webp",
+   "scale": 45,
+   "center": [
+    655,
+    235
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "Logo Nutrihangar"
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.outerGlow",
+  "params": {
+   "color": "#d8b35a",
+   "opacity": 35,
+   "size": 40
+  }
+ },
+ {
+  "cmd": "layer.list",
+  "params": {}
+ },
+ {
+  "method": "doc.save",
+  "params": {
+   "path": "lavoro/retro.pcraft"
+  }
+ },
+ {
+  "method": "doc.save",
+  "params": {
+   "path": "export/anteprima-retro.png"
+  }
+ }
+]
