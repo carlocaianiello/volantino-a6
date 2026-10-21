@@ -8,12 +8,12 @@ from PIL import Image
 def cmd(id_, **params): return {"cmd": id_, "params": params}
 def method(m, **params): return {"method": m, "params": params}
 
-SCENA = "risorse/ai/retro-hangar.webp"
+SCENA = "risorse/ai/retro-hangar-vuoto.webp"                # bancone vuoto, scaffali già sfocati
 SW, SH = Image.open(SCENA).size                       # 1493 x 2000
 S = 1819 / SH                                          # scala per l'altezza A6 con abbondanza
 CROP_X = round((SW * S - 1311) / 2)                    # ritaglio simmetrico in larghezza
-BASE_Y = round(1365 * S)                               # linea d'appoggio dei prodotti sul tavolo
-BORDO_TAVOLO = round(1445 * S)                         # bordo anteriore del piano in acciaio
+BASE_Y = round(1395 * S)                               # linea d'appoggio dei prodotti sul tavolo
+BORDO_TAVOLO = round(1478 * S)                         # bordo anteriore del piano in acciaio
 
 # prodotti da sinistra a destra: file, altezza reale in cm
 PRODOTTI = [("essenziali", 12), ("sostitutivo-pasto", 16.5), ("perfect-whey", 25), ("collagene-rigenera", 15), ("creatina", 12)]
@@ -26,18 +26,6 @@ def bbox_prodotto(path):
 
 steps = [
     method("doc.open", path=SCENA),
-    # via i prodotti generati (etichette sbagliate) e i loro riflessi
-    cmd("select.object", rect=[150, 870, 1200, 510]),                 # solo i cinque prodotti generati
-    cmd("select.modify.expand", radius=25),
-    cmd("edit.deleteAndFillSelection"),
-    cmd("select.rect", x=240, y=1366, width=1080, height=95),
-    cmd("edit.deleteAndFillSelection"),
-    # scaffali molto più sfocati (sinistra e destra, sopra il tavolo), con bordo morbido
-    cmd("select.rect", x=0, y=0, width=470, height=1250, feather=50),
-    cmd("filter.blur.gaussianBlur", radius=28),
-    cmd("select.rect", x=1030, y=0, width=SW - 1030, height=1250, feather=50),
-    cmd("filter.blur.gaussianBlur", radius=28),
-    {"cmd": "select.deselect", "params": {}, "continue": True},
     # formato A6 con abbondanza
     cmd("image.imageSize", width=round(SW * S), height=1819, resolution=300, resample="bicubicSharper"),
     cmd("image.crop", x=CROP_X, y=0, width=1311, height=1819),
@@ -76,11 +64,17 @@ for m in misure:
         cmd("layer.renameLayer", name=m["nome"]),
     ]
 
-# --- header: logo Nutrihangar
+# --- header: logo Nutrihangar; footer: QR code a destra (testo dei termini da definire)
+PIEDE_TOP = round(1542 * S)                              # inizio del pavimento sotto il bancone
+QR_LATO = 240
 steps += [
     method("doc.place", path="risorse/logo-nutrihangar.webp", scale=45, center=[655, 235]),
     cmd("layer.renameLayer", name="Logo Nutrihangar"),
     cmd("layer.layerStyle.outerGlow", color="#d8b35a", opacity=35, size=40),
+    method("doc.place", path="risorse/qr-nutrihangar.png", scale=QR_LATO / 2000 * 100,
+           center=[1216 - QR_LATO // 2, round((PIEDE_TOP + 1724) / 2)]),
+    cmd("layer.renameLayer", name="QR code"),
+    cmd("layer.layerStyle.dropShadow", color="#000000", opacity=60, angle=120, distance=6, size=18),
     {"cmd": "layer.list", "params": {}},
     method("doc.save", path="lavoro/retro.pcraft"),
     method("doc.save", path="export/anteprima-retro.png"),

@@ -2,79 +2,8 @@
  {
   "method": "doc.open",
   "params": {
-   "path": "risorse/ai/retro-hangar.webp"
+   "path": "risorse/ai/retro-hangar-vuoto.webp"
   }
- },
- {
-  "cmd": "select.object",
-  "params": {
-   "rect": [
-    150,
-    870,
-    1200,
-    510
-   ]
-  }
- },
- {
-  "cmd": "select.modify.expand",
-  "params": {
-   "radius": 25
-  }
- },
- {
-  "cmd": "edit.deleteAndFillSelection",
-  "params": {}
- },
- {
-  "cmd": "select.rect",
-  "params": {
-   "x": 240,
-   "y": 1366,
-   "width": 1080,
-   "height": 95
-  }
- },
- {
-  "cmd": "edit.deleteAndFillSelection",
-  "params": {}
- },
- {
-  "cmd": "select.rect",
-  "params": {
-   "x": 0,
-   "y": 0,
-   "width": 470,
-   "height": 1250,
-   "feather": 50
-  }
- },
- {
-  "cmd": "filter.blur.gaussianBlur",
-  "params": {
-   "radius": 28
-  }
- },
- {
-  "cmd": "select.rect",
-  "params": {
-   "x": 1030,
-   "y": 0,
-   "width": 463,
-   "height": 1250,
-   "feather": 50
-  }
- },
- {
-  "cmd": "filter.blur.gaussianBlur",
-  "params": {
-   "radius": 28
-  }
- },
- {
-  "cmd": "select.deselect",
-  "params": {},
-  "continue": true
  },
  {
   "cmd": "image.imageSize",
@@ -166,7 +95,7 @@
    "stroke": null,
    "rect": [
     90,
-    1231,
+    1259,
     189,
     22
    ],
@@ -202,7 +131,7 @@
    "scale": 43.04932735426009,
    "center": [
     181,
-    1342
+    1370
    ]
   }
  },
@@ -225,11 +154,11 @@
   "params": {
    "from": [
     184,
-    1241
+    1269
    ],
    "to": [
     184,
-    1302
+    1332
    ],
    "style": "linear",
    "colors": [
@@ -253,7 +182,7 @@
    "scale": 43.04932735426009,
    "center": [
     181,
-    1140
+    1168
    ]
   }
  },
@@ -271,7 +200,7 @@
    "stroke": null,
    "rect": [
     301,
-    1231,
+    1259,
     207,
     22
    ],
@@ -307,7 +236,7 @@
    "scale": 31.132075471698112,
    "center": [
     405,
-    1375
+    1403
    ]
   }
  },
@@ -330,11 +259,11 @@
   "params": {
    "from": [
     404,
-    1241
+    1269
    ],
    "to": [
     404,
-    1302
+    1332
    ],
    "style": "linear",
    "colors": [
@@ -358,7 +287,7 @@
    "scale": 31.132075471698112,
    "center": [
     405,
-    1107
+    1135
    ]
   }
  },
@@ -376,7 +305,7 @@
    "stroke": null,
    "rect": [
     530,
-    1231,
+    1259,
     274,
     22
    ],
@@ -412,7 +341,7 @@
    "scale": 84.21052631578947,
    "center": [
     668,
-    1440
+    1468
    ]
   }
  },
@@ -435,11 +364,11 @@
   "params": {
    "from": [
     667,
-    1241
+    1269
    ],
    "to": [
     667,
-    1302
+    1332
    ],
    "style": "linear",
    "colors": [
@@ -463,7 +392,7 @@
    "scale": 84.21052631578947,
    "center": [
     668,
-    1042
+    1070
    ]
   }
  },
@@ -481,7 +410,7 @@
    "stroke": null,
    "rect": [
     826,
-    1231,
+    1259,
     183,
     22
    ],
@@ -517,7 +446,7 @@
    "scale": 25.613660618996796,
    "center": [
     918,
-    1364
+    1392
    ]
   }
  },
@@ -540,11 +469,11 @@
   "params": {
    "from": [
     917,
-    1241
+    1269
    ],
    "to": [
     917,
-    1302
+    1332
    ],
    "style": "linear",
    "colors": [
@@ -568,7 +497,7 @@
    "scale": 25.613660618996796,
    "center": [
     918,
-    1118
+    1146
    ]
   }
  },
@@ -586,7 +515,7 @@
    "stroke": null,
    "rect": [
     1031,
-    1231,
+    1259,
     190,
     22
    ],
@@ -622,7 +551,7 @@
    "scale": 24.774193548387096,
    "center": [
     1126,
-    1335
+    1363
    ]
   }
  },
@@ -645,11 +574,11 @@
   "params": {
    "from": [
     1126,
-    1241
+    1269
    ],
    "to": [
     1126,
-    1302
+    1332
    ],
    "style": "linear",
    "colors": [
@@ -673,7 +602,7 @@
    "scale": 24.774193548387096,
    "center": [
     1126,
-    1147
+    1175
    ]
   }
  },
@@ -706,6 +635,33 @@
    "color": "#d8b35a",
    "opacity": 35,
    "size": 40
+  }
+ },
+ {
+  "method": "doc.place",
+  "params": {
+   "path": "risorse/qr-nutrihangar.png",
+   "scale": 12.0,
+   "center": [
+    1096,
+    1563
+   ]
+  }
+ },
+ {
+  "cmd": "layer.renameLayer",
+  "params": {
+   "name": "QR code"
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.dropShadow",
+  "params": {
+   "color": "#000000",
+   "opacity": 60,
+   "angle": 120,
+   "distance": 6,
+   "size": 18
   }
  },
  {
