@@ -1,0 +1,4 @@
+# anteprime e file temporanei
+*.tmp
+.DS_Store
+/tmp/
