@@ -1834,13 +1834,13 @@
   "cmd": "type.create",
   "params": {
    "x": 1100,
-   "y": 555,
+   "y": 553,
    "text": "IN OGNI PACCO",
    "name": "Badge: in ogni pacco",
    "font": "Inter",
    "weight": 700,
-   "size": 5.5,
-   "tracking": 80,
+   "size": 4.6,
+   "tracking": 40,
    "align": "center",
    "color": "#ffffff"
   }
@@ -1883,6 +1883,38 @@
    "angle": 120,
    "distance": 6,
    "size": 18
+  }
+ },
+ {
+  "cmd": "type.create",
+  "params": {
+   "x": 1085,
+   "y": 1394,
+   "text": "nutrihangar.it",
+   "name": "Sito",
+   "font": "Montserrat",
+   "weight": 700,
+   "size": 9.5,
+   "tracking": 40,
+   "align": "center",
+   "color": "#ffffff"
+  }
+ },
+ {
+  "cmd": "layer.layerStyle.replace",
+  "params": {
+   "effects": [
+    {
+     "kind": "dropShadow",
+     "params": {
+      "color": "#000000",
+      "opacity": 80,
+      "angle": 120,
+      "distance": 4,
+      "size": 6
+     }
+    }
+   ]
   }
  },
  {

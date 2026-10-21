@@ -145,8 +145,8 @@ steps += [
     cmd("layer.layerStyle.replace", effects=[
         {"kind": "dropShadow", "params": {"color": "#000000", "opacity": 80, "angle": 120, "distance": 4, "size": 4}},
         {"kind": "stroke", "params": {"size": 2, "position": "outside", "color": "#2a1d00"}}]), GIRA,
-    cmd("type.create", x=BADGE_C[0], y=BADGE_C[1] + 32, text="IN OGNI PACCO", name="Badge: in ogni pacco", font="Inter", weight=700,
-        size=5.5, tracking=80, align="center", color="#ffffff"), GIRA,
+    cmd("type.create", x=BADGE_C[0], y=BADGE_C[1] + 30, text="IN OGNI PACCO", name="Badge: in ogni pacco", font="Inter", weight=700,
+        size=4.6, tracking=40, align="center", color="#ffffff"), GIRA,
 ]
 
 # --- footer: QR a tutta altezza (pavimento sotto il bancone fino al rifilo), con pochi px di margine
@@ -158,6 +158,10 @@ steps += [
            center=[1276 - MARGINE - QR_LATO // 2, PIEDE_TOP + MARGINE + QR_LATO // 2]),
     cmd("layer.renameLayer", name="QR code"),
     cmd("layer.layerStyle.dropShadow", color="#000000", opacity=60, angle=120, distance=6, size=18),
+    # sito: sulla fascia scura del bancone, centrato sul QR, a metà tra il bordo d'acciaio e il QR
+    cmd("type.create", x=1276 - MARGINE - QR_LATO // 2, y=round((BORDO_TAVOLO + PIEDE_TOP + MARGINE) / 2) + 13,
+        text="nutrihangar.it", name="Sito", font="Montserrat", weight=700, size=9.5, tracking=40, align="center", color="#ffffff"),
+    cmd("layer.layerStyle.replace", effects=[{"kind": "dropShadow", "params": {"color": "#000000", "opacity": 80, "angle": 120, "distance": 4, "size": 6}}]),
 ]
 
 # --- footer: termini a sinistra del QR, blocco centrato nello spazio 95..895 e sull'altezza del QR
