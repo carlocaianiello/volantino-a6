@@ -24,6 +24,7 @@ risorse/   immagini, loghi, font e testi forniti
 lavoro/    file sorgente modificabili (.pcraft / .psd)
 export/    file finali per la stampa (PDF/TIFF/PNG) e anteprime
 scripts/   installa-artcraft.sh: compila e installa le CLI ArtCraft
+           esporta-pdf.py: genera il PDF per la tipografia da lavoro/*.pcraft
 .mcp.json  registra il server MCP di PhotoCraft per Claude Code
 ```
 
@@ -56,4 +57,9 @@ photocraft-cli info lavoro/fronte.pcraft --compact
 
 # esportare
 photocraft-cli convert lavoro/fronte.pcraft export/fronte.png
+
+# PDF per la tipografia: converte fronte e retro in PNG a 300 dpi e li impagina in
+# export/volantino-a6-stampa.pdf (111 x 154 mm, TrimBox 105 x 148 mm) con le anteprime
+python3 scripts/esporta-pdf.py            # --crocini per la versione con i crocini di taglio
+python3 scripts/esporta-pdf.py --solo-pdf # riusa i PNG già in export/ (senza photocraft-cli)
 ```
