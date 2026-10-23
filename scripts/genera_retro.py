@@ -89,7 +89,7 @@ steps += [
     cmd("layer.renameLayer", name="Logo Nutrihangar"),
 ]
 
-# --- scritta centrale: "Inquadra il QR Code e ottieni subito il 25% di sconto su Why Nature e Why Sport"
+# --- scritta centrale: "Inquadra il QR Code e ottieni subito il 20% di sconto su Why Nature e Why Sport"
 ORO = [[0, "#fff3c4"], [0.3, "#e8c058"], [0.5, "#fff8dc"], [0.7, "#b8860b"], [1, "#ffe9a8"]]
 def testo_fx(testo, x, y, font, size, align, effetti, nome, **extra):
     return [cmd("type.create", x=x, y=y, text=testo, name=nome, font=font, size=size, align=align, color="#ffffff", **extra),
@@ -100,8 +100,8 @@ FX_BIANCO = [{"kind": "dropShadow", "params": {"color": "#000000", "opacity": 80
              {"kind": "stroke", "params": {"size": 4, "position": "outside", "color": "#2a1d00"}}]
 steps += testo_fx("Inquadra il QR Code", 655, 392, "Kaushan Script", 24, "center", FX_SCRIPT, "Titolo 1")
 steps += testo_fx("E OTTIENI SUBITO IL", 640, 470, "Montserrat", 12, "center", FX_SCRIPT, "Titolo 2", weight=700, tracking=120)
-steps += [   # 25% in oro metallico: testo convertito in forma per il gradiente a più tappe
-    cmd("type.create", x=440, y=755, text="25%", name="Titolo 25%", font="Anton", size=72, align="center", color="#ffffff"),
+steps += [   # 20% in oro metallico: testo convertito in forma per il gradiente a più tappe
+    cmd("type.create", x=440, y=755, text="20%", name="Titolo 20%", font="Anton", size=72, align="center", color="#ffffff"),
     cmd("type.convertToShape"),
     cmd("shape.edit", fill={"gradient": {"stops": ORO, "angle": 90, "style": "linear"}}, stroke=None),
     cmd("layer.layerStyle.replace", effects=[
